@@ -1,0 +1,17 @@
+---
+import Layout from "../layouts/Layout.astro";
+const projects=[
+ {name:"Perlis Residence",type:"Residential Architecture",image:"https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1600&q=85"},
+ {name:"Moschovakis Residence",type:"Residential Architecture",image:"https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1600&q=85"},
+ {name:"McNeill Residence",type:"Residential Architecture",image:"https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1600&q=85"},
+ {name:"Turner Residence",type:"Residential Architecture",image:"https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1600&q=85"},
+ {name:"Anderson Residence",type:"Residential Architecture",image:"https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1600&q=85"},
+ {name:"Mariner Finance",type:"Commercial Design",image:"https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=85"}
+];
+---
+<Layout title="Projects | ATECT Architecture" description="Selected residential and commercial architecture projects from ATECT Architecture.">
+<section class="page-hero"><div class="eyebrow">Selected Work</div><h1>Projects shaped by place and purpose.</h1><p>A growing portfolio of residential and commercial design work. Project photography, drawings and detailed case studies can be added as final ATECT assets are supplied.</p></section>
+<section class="section"><div class="portfolio-grid">{projects.map((project,index)=><article class={index===0?"portfolio-card featured":"portfolio-card"}><div class="portfolio-image" style={`background-image:url('${project.image}')`} role="img" aria-label={`${project.name} project image`}></div><div class="project-copy"><div class="eyebrow">{project.type}</div><h2>{project.name}</h2><p>Project case study and drawings coming as project-specific ATECT materials are added.</p></div></article>)}</div></section>
+<section class="section alt"><div class="section-head"><div><div class="eyebrow">Have a project?</div><h2>Let's discuss what you're planning.</h2></div><p class="section-intro">Tell us about the property, scope and goals so the design conversation can begin.</p></div><a class="button dark" href="/contact">Start Your Project</a></section>
+</Layout>
+<style is:global>.portfolio-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}.portfolio-card{border:1px solid #ddd;background:#fff}.portfolio-card.featured{grid-column:1/-1;display:grid;grid-template-columns:1.4fr .6fr}.portfolio-image{aspect-ratio:4/3;background-size:cover;background-position:center}.featured .portfolio-image{aspect-ratio:auto;min-height:420px}.project-copy{padding:28px}.project-copy h2{font:600 clamp(27px,4vw,45px)/1.05 Manrope;margin:0 0 12px}.project-copy p{color:#666}@media(max-width:800px){.portfolio-grid{grid-template-columns:1fr}.portfolio-card.featured{grid-column:auto;display:block}.featured .portfolio-image{min-height:0;aspect-ratio:4/3}}</style>
