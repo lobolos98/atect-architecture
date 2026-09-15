@@ -1,16 +1,16 @@
 ---
 import Layout from "../layouts/Layout.astro";
 const services=[
- {id:"residential",title:"Residential Architecture",text:"Custom homes, additions, renovations and residential design developed around the property, program and priorities of each client."},
- {id:"commercial",title:"Commercial Architecture",text:"Design solutions for business and commercial environments with attention to function, circulation, appearance and documentation."},
- {id:"custom",title:"Custom Home Plans",text:"Custom-designed plans that balance architectural character, functionality and buildability."},
- {id:"documents",title:"Construction Documents",text:"Detailed architectural drawings that communicate the design intent for permitting, pricing and construction."},
- {id:"visualization",title:"3D Renderings & Visualization",text:"Three-dimensional views that help clients evaluate materials, proportions, massing and the overall design before construction."},
- {id:"consultation",title:"Design Consultation",text:"Early project guidance to clarify goals, opportunities, scope and the next practical step."}
+ {id:"residential",title:"Residential Design",text:"Home additions, kitchen renovations, bathroom renovations, decks, porches and new home design. ATECT's residential work can carry a project through the construction-document phase, with project coordination and management support."},
+ {id:"commercial",title:"Commercial Design",text:"Design support for commercial projects, including interior fit-outs and construction documentation coordinated around the client's needs and applicable requirements."},
+ {id:"custom",title:"Custom Home Plans",text:"Custom home plans tailored to individual needs and lifestyle, including plan concepts such as Prairie View and NVA."},
+ {id:"documents",title:"Construction Documents",text:"Design through the construction-document phase for residential and commercial projects, including interior fit-outs and as-built documentation."},
+ {id:"visualization",title:"3D Renderings & Visualization",text:"Exterior renderings, interior renderings, 360 panoramas and architectural animations that help clients visualize residential or commercial ideas before construction."},
+ {id:"consultation",title:"Design Consultation & Support",text:"Architectural consultation, field measuring, design support and construction-document assistance for homeowners, builders and other design professionals."}
 ];
 ---
-<Layout title="Architecture Services | ATECT Architecture" description="Residential architecture, commercial design, custom home plans, construction documents and 3D visualization from ATECT Architecture.">
-<section class="page-hero"><div class="eyebrow">Services</div><h1>Design services built around the project.</h1><p>From an initial idea to construction-ready documentation, ATECT Architecture provides focused design support for residential and commercial projects.</p></section>
+<Layout title="Architecture Services | ATECT Architecture" description="Residential design, commercial design, custom home plans, construction documents and 3D visualization from ATECT Architecture.">
+<section class="page-hero"><div class="eyebrow">Services</div><h1>Design services built around the project.</h1><p>ATECT supports homeowners, builders and design professionals with residential design, commercial documentation, custom home plans, visualization and related design support.</p></section>
 <section class="section"><div class="service-list">{services.map((service,index)=><article class="service-row" id={service.id}><div class="number">{String(index+1).padStart(2,"0")}</div><div><h2>{service.title}</h2><p>{service.text}</p></div></article>)}</div><a class="button dark" href="/contact">Start a Project</a></section>
 </Layout>
-<style is:global>.service-list{border-top:1px solid #ddd}.service-row{display:grid;grid-template-columns:100px 1fr;gap:30px;padding:38px 0;border-bottom:1px solid #ddd}.number{font:600 15px Manrope;color:#888}.service-row h2{font:600 clamp(27px,4vw,46px)/1.1 Manrope;margin:0 0 10px}.service-row p{max-width:700px;color:#555;font-size:17px;margin:0}</style>
+<style is:global>.service-list{border-top:1px solid #ddd}.service-row{display:grid;grid-template-columns:100px 1fr;gap:30px;padding:38px 0;border-bottom:1px solid #ddd}.number{font:600 15px Manrope;color:#888}.service-row h2{font:600 clamp(27px,4vw,46px)/1.1 Manrope;margin:0 0 10px}.service-row p{max-width:760px;color:#555;font-size:17px;line-height:1.7;margin:0}</style>
