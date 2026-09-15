@@ -1,0 +1,53 @@
+---
+import Layout from "../layouts/Layout.astro";
+const projects = [
+  {name:"Perlis Residence", type:"Residential Architecture", image:"https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=85"},
+  {name:"McNeill Residence", type:"Residential Architecture", image:"https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1200&q=85"},
+  {name:"Mariner Finance", type:"Commercial Design", image:"https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=85"}
+];
+---
+<Layout title="ATECT Architecture | The Design Solution">
+  <section class="hero">
+    <div class="hero-content">
+      <div class="eyebrow">ATECT Architecture</div>
+      <h1>The Design Solution.</h1>
+      <p>Architectural design services for residential and commercial projects throughout Maryland, Washington, DC, and Virginia.</p>
+      <a class="button" href="/contact">Start a Project</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <div><div class="eyebrow">Selected Work</div><h2>Designed for how you live, work & build.</h2></div>
+      <p class="section-intro">Thoughtful architecture combines practical planning, strong design and construction-ready documentation.</p>
+    </div>
+    <div class="grid">
+      {projects.map((project) => <a class="card" href="/projects"><div class="project-image" style={`background-image:url('${project.image}')`}></div><div class="project-copy"><h3>{project.name}</h3><p>{project.type}</p></div></a>)}
+    </div>
+  </section>
+
+  <section class="feature">
+    <div class="feature-image"></div>
+    <div class="feature-copy">
+      <div class="eyebrow">About ATECT</div>
+      <h2>Architecture with purpose.</h2>
+      <p>ATECT Architecture provides residential and commercial design solutions with an emphasis on clear communication, thoughtful detailing and a practical path from concept to construction documents.</p>
+      <a class="button" href="/about">Meet ATECT Architecture</a>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="section-head"><div><div class="eyebrow">Capabilities</div><h2>What we do.</h2></div></div>
+    <div class="service-grid">
+      <div class="service"><h3>Residential Architecture</h3><p>Custom homes, additions, renovations and residential design developed around the needs of each client.</p></div>
+      <div class="service"><h3>Commercial Architecture</h3><p>Professional design solutions for commercial and business environments.</p></div>
+      <div class="service"><h3>Custom Home Plans</h3><p>Custom-designed plans that balance architectural character, functionality and buildability.</p></div>
+      <div class="service"><h3>3D Visualization</h3><p>Three-dimensional design visualization to help clients understand the finished project before construction.</p></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head"><div><div class="eyebrow">Next Step</div><h2>Have a project in mind?</h2></div><p class="section-intro">Let's talk about your property, goals and vision.</p></div>
+    <a class="button dark" href="/contact">Start Your Project</a>
+  </section>
+</Layout>
