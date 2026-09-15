@@ -1,0 +1,14 @@
+---
+import Layout from "../layouts/Layout.astro";
+const views=[
+ {title:"Exterior Visualization",image:"https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1800&q=85"},
+ {title:"Residential Design Study",image:"https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1800&q=85"},
+ {title:"Interior Visualization",image:"https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1800&q=85"}
+];
+---
+<Layout title="3D Renderings & Visualization | ATECT Architecture" description="Explore 3D architectural visualization and rendering services from ATECT Architecture.">
+<section class="page-hero"><div class="eyebrow">3D Renderings</div><h1>See the design before it is built.</h1><p>Three-dimensional visualization can make architectural decisions easier to understand by showing massing, materials, proportions and spatial relationships.</p></section>
+<section class="section"><div class="render-grid">{views.map(view=><figure><div class="render-image" style={`background-image:url('${view.image}')`} role="img" aria-label={view.title}></div><figcaption>{view.title}</figcaption></figure>)}</div></section>
+<section class="section alt"><div class="section-head"><div><div class="eyebrow">Visualization as a design tool</div><h2>Make informed decisions earlier.</h2></div><p class="section-intro">Renderings can help communicate a concept to clients, stakeholders and builders before construction begins.</p></div><a class="button dark" href="/contact">Discuss Visualization</a></section>
+</Layout>
+<style is:global>.render-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}.render-grid figure{margin:0;border:1px solid #ddd;background:#fff}.render-grid figure:first-child{grid-column:1/-1}.render-image{aspect-ratio:16/10;background-size:cover;background-position:center}.render-grid figure:not(:first-child) .render-image{aspect-ratio:4/3}.render-grid figcaption{padding:16px 20px;font:600 14px Manrope;letter-spacing:.04em}@media(max-width:800px){.render-grid{grid-template-columns:1fr}.render-grid figure:first-child{grid-column:auto}}</style>
