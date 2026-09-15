@@ -1,0 +1,15 @@
+---
+import Layout from "../layouts/Layout.astro";
+const steps=[
+ ["01","Consultation","We learn about the property, goals, priorities and the scope you are considering."],
+ ["02","Concept Design","We explore the design direction, organization and major decisions that shape the project."],
+ ["03","Design Development","The selected concept is refined through plans, elevations, materials and three-dimensional studies as appropriate."],
+ ["04","Construction Documents","The design is translated into coordinated architectural documentation for permitting, pricing and construction."],
+ ["05","Permitting & Construction","The completed documents provide a clear basis for the next phase of the project, including permitting and construction coordination as contracted."]
+];
+---
+<Layout title="Architecture Design Process | ATECT Architecture" description="Understand the ATECT Architecture process from consultation and concept design through construction documents.">
+<section class="page-hero"><div class="eyebrow">Process</div><h1>A clear path from concept to documents.</h1><p>Every project is different, but a structured process helps keep design decisions understandable and the next step clear.</p></section>
+<section class="section"><div class="process-list">{steps.map(step=><article class="process-step"><div class="number">{step[0]}</div><div><h2>{step[1]}</h2><p>{step[2]}</p></div></article>)}</div><a class="button dark" href="/contact">Start a Conversation</a></section>
+</Layout>
+<style is:global>.process-list{border-top:1px solid #ddd}.process-step{display:grid;grid-template-columns:110px 1fr;gap:30px;padding:42px 0;border-bottom:1px solid #ddd}.number{font:600 15px Manrope;color:#888}.process-step h2{font:600 clamp(30px,4vw,52px)/1.05 Manrope;margin:0 0 10px}.process-step p{max-width:720px;color:#555;font-size:17px;margin:0}</style>
