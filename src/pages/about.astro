@@ -83,6 +83,39 @@ import Layout from "../layouts/Layout.astro";
     </div>
   </section>
 
+  <section class="section philosophy-section">
+    <div class="philosophy-grid">
+      <div>
+        <div class="eyebrow">Philosophy</div>
+        <h2>Our priority is always our customers and their unique needs.</h2>
+      </div>
+      <div class="philosophy-copy">
+        <p>
+          We pride ourselves on being responsive to clients in a thorough and timely manner while
+          maintaining a superior quality of work.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section capabilities-section">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Capabilities</div>
+        <h2>Professional design services.</h2>
+      </div>
+      <p class="section-intro">
+        ATECT Architecture provides design and drafting capabilities across architecture and interior design.
+      </p>
+    </div>
+
+    <div class="capability-grid">
+      <article><strong>541310</strong><span>Architecture</span></article>
+      <article><strong>541340</strong><span>Drafting</span></article>
+      <article><strong>541410</strong><span>Interior Design</span></article>
+    </div>
+  </section>
+
   <section class="prose">
     <h2>A practical design process.</h2>
     <p>
@@ -138,6 +171,63 @@ import Layout from "../layouts/Layout.astro";
     line-height: 1.7;
   }
 
+  .philosophy-section {
+    background: #fff;
+  }
+
+  .philosophy-grid {
+    max-width: 1180px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+    align-items: center;
+  }
+
+  .philosophy-grid h2 {
+    font: 600 clamp(32px, 4vw, 52px)/1.08 Manrope;
+    letter-spacing: -.035em;
+    margin: 0;
+  }
+
+  .philosophy-copy p {
+    margin: 0;
+    color: #555;
+    font-size: 18px;
+    line-height: 1.8;
+  }
+
+  .capabilities-section {
+    background: #f5f5f2;
+  }
+
+  .capability-grid {
+    max-width: 1180px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .capability-grid article {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .capability-grid strong {
+    font: 600 14px Manrope;
+    letter-spacing: .08em;
+    color: #777;
+  }
+
+  .capability-grid span {
+    font: 600 25px Manrope;
+  }
+
   .callout {
     margin: 35px 0;
     padding: 25px;
@@ -155,8 +245,14 @@ import Layout from "../layouts/Layout.astro";
       min-height: 360px;
     }
 
-    .about-grid {
+    .about-grid,
+    .philosophy-grid,
+    .capability-grid {
       grid-template-columns: 1fr;
+    }
+
+    .philosophy-grid {
+      gap: 30px;
     }
   }
 </style>
