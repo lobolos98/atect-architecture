@@ -32,7 +32,6 @@ const images = [
       <p>The design process focused on creating functional and aesthetically pleasing office environments, thoughtfully incorporating a breakroom to promote employee relaxation and collaboration. We also introduced a new ADA-compliant bathroom that features a dedicated mop sink area, ensuring cleanliness and sanitation. Additionally, we included the installation of a new Hi-lo drinking fountain, making hydration accessible to all.</p>
       <p>To facilitate a smooth process, we provided detailed project management services and expedited the permitting process for our client, ensuring compliance and efficiency every step of the way.</p>
     </div>
-
     <div class="scope-card">
       <div class="eyebrow">Scope of Work</div>
       <ul>
@@ -52,14 +51,26 @@ const images = [
     <div class="section-heading">
       <div class="eyebrow">Project Gallery</div>
       <h2>Mariner Finance</h2>
-      <p>Project imagery and construction-document materials from the original ATECT Architecture commercial portfolio.</p>
+      <p>Browse the commercial project imagery and construction-document materials from the original ATECT Architecture portfolio.</p>
     </div>
 
-    <div class="commercial-gallery">
+    <div class="slider" data-slider tabindex="0" aria-label="Mariner Finance project slideshow">
+      <div class="slides">
+        {images.map((image, index) => (
+          <img class:list={{ active: index === 0 }} data-slide={index} src={image.src} alt={`${image.alt} — image ${index + 1}`} loading={index === 0 ? "eager" : "lazy"} />
+        ))}
+      </div>
+      <button class="arrow prev" type="button" data-prev aria-label="Previous project image">&#10094;</button>
+      <button class="arrow next" type="button" data-next aria-label="Next project image">&#10095;</button>
+      <div class="counter" aria-live="polite"><span data-current>1</span> / {images.length}</div>
+      <button class="fullscreen" type="button" data-fullscreen>View Fullscreen</button>
+    </div>
+
+    <div class="thumbs" aria-label="Slideshow thumbnails">
       {images.map((image, index) => (
-        <figure class:list={{ "gallery-feature": index === 0 }}>
-          <img src={image.src} alt={image.alt} loading={index === 0 ? "eager" : "lazy"} />
-        </figure>
+        <button class:list={{ active: index === 0 }} type="button" data-thumb={index} aria-label={`View image ${index + 1}`}>
+          <img src={image.src} alt="" loading="lazy" />
+        </button>
       ))}
     </div>
   </section>
@@ -74,6 +85,55 @@ const images = [
   </section>
 </Layout>
 
+<script>
+  document.querySelectorAll('[data-slider]').forEach((slider) => {
+    const slides = Array.from(slider.querySelectorAll('.slides img'));
+    const thumbs = Array.from(slider.parentElement?.querySelectorAll('[data-thumb]') || []);
+    const current = slider.querySelector('[data-current]');
+    const prev = slider.querySelector('[data-prev]');
+    const next = slider.querySelector('[data-next]');
+    const fullscreen = slider.querySelector('[data-fullscreen]');
+    let index = 0;
+    let touchStart = 0;
+
+    const show = (nextIndex) => {
+      index = (nextIndex + slides.length) % slides.length;
+      slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
+      thumbs.forEach((thumb, i) => thumb.classList.toggle('active', i === index));
+      if (current) current.textContent = String(index + 1);
+    };
+
+    prev?.addEventListener('click', () => show(index - 1));
+    next?.addEventListener('click', () => show(index + 1));
+    thumbs.forEach((thumb, i) => thumb.addEventListener('click', () => show(i)));
+
+    slider.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowLeft') show(index - 1);
+      if (event.key === 'ArrowRight') show(index + 1);
+    });
+
+    slider.addEventListener('touchstart', (event) => {
+      touchStart = event.changedTouches[0]?.clientX || 0;
+    }, { passive: true });
+
+    slider.addEventListener('touchend', (event) => {
+      const touchEnd = event.changedTouches[0]?.clientX || 0;
+      const distance = touchEnd - touchStart;
+      if (Math.abs(distance) > 45) show(index + (distance < 0 ? 1 : -1));
+    }, { passive: true });
+
+    fullscreen?.addEventListener('click', async () => {
+      if (!document.fullscreenElement) {
+        await slider.requestFullscreen?.();
+      } else {
+        await document.exitFullscreen?.();
+      }
+    });
+
+    show(0);
+  });
+</script>
+
 <style is:global>
   .project-intro{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(280px,.75fr);gap:clamp(40px,7vw,100px);align-items:start}
   .project-copy h2,.section-heading h2,.project-cta h2{font:600 clamp(34px,4.5vw,58px)/1.05 Manrope;margin:0 0 24px;letter-spacing:-.03em}
@@ -85,24 +145,34 @@ const images = [
   .gallery-section{padding-top:20px}
   .section-heading{max-width:760px;margin-bottom:42px}
   .section-heading p{color:#666;line-height:1.7;font-size:17px}
-  .commercial-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
-  .commercial-gallery figure{margin:0;overflow:hidden;background:#f2f2f2;aspect-ratio:4/3}
-  .commercial-gallery figure.gallery-feature{grid-column:span 2;grid-row:span 2;aspect-ratio:auto;min-height:100%}
-  .commercial-gallery img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
-  .commercial-gallery figure:hover img{transform:scale(1.025)}
+  .slider{position:relative;background:#111;aspect-ratio:16/10;min-height:520px;overflow:hidden;outline:none}
+  .slides{position:absolute;inset:0}
+  .slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity .35s ease;pointer-events:none}
+  .slides img.active{opacity:1}
+  .arrow{position:absolute;top:50%;transform:translateY(-50%);width:52px;height:52px;border:0;border-radius:50%;background:rgba(17,17,17,.72);color:#fff;font-size:25px;cursor:pointer;z-index:2}
+  .arrow:hover{background:#fff;color:#111}
+  .prev{left:22px}.next{right:22px}
+  .counter{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);background:rgba(17,17,17,.78);color:#fff;padding:8px 14px;border-radius:999px;font-size:14px;z-index:2}
+  .fullscreen{position:absolute;right:22px;bottom:20px;border:1px solid rgba(255,255,255,.7);background:rgba(17,17,17,.75);color:#fff;padding:9px 14px;cursor:pointer;z-index:2}
+  .thumbs{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;margin-top:14px}
+  .thumbs button{padding:0;border:2px solid transparent;background:#eee;aspect-ratio:4/3;overflow:hidden;cursor:pointer}
+  .thumbs button.active{border-color:#111}
+  .thumbs img{width:100%;height:100%;object-fit:cover;display:block}
   .project-cta{display:flex;justify-content:space-between;align-items:center;gap:40px}
   .project-cta h2{margin-bottom:14px}
   .project-cta p{color:#555;line-height:1.7;max-width:650px;margin:0}
   @media(max-width:900px){
     .project-intro{grid-template-columns:1fr}
-    .commercial-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}
-    .commercial-gallery figure.gallery-feature{grid-column:span 2;grid-row:auto;aspect-ratio:16/10}
+    .slider{min-height:420px;aspect-ratio:4/3}
+    .thumbs{grid-template-columns:repeat(4,minmax(0,1fr))}
     .project-cta{flex-direction:column;align-items:flex-start}
   }
   @media(max-width:600px){
-    .commercial-gallery{grid-template-columns:1fr}
-    .commercial-gallery figure.gallery-feature{grid-column:span 1}
-    .commercial-gallery figure{aspect-ratio:4/3}
+    .slider{min-height:300px}
+    .arrow{width:44px;height:44px;font-size:20px}.prev{left:10px}.next{right:10px}
+    .fullscreen{right:10px;bottom:12px;font-size:12px;padding:7px 9px}
+    .counter{bottom:13px;font-size:12px}
+    .thumbs{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
     .scope-card{padding:26px}
   }
 </style>
