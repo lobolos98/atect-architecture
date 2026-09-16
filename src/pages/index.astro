@@ -12,10 +12,13 @@ const slideshow = [
 ];
 
 const constructionPhotos = [
-  { image: slideshow[3].image, alt: "Prairie View Residence construction photo" },
-  { image: slideshow[4].image, alt: "Dunk Residence construction photo" },
-  { image: slideshow[5].image, alt: "Eco Interior construction photo" },
-  { image: slideshow[6].image, alt: "Blueprint Design construction photo" }
+  { image: "https://static.wixstatic.com/media/fb4db5_fe9b40835e04481ba3d1ab7fbf6d94a9~mv2_d_2979_3929_s_4_2.jpg/v1/fill/w_1200,h_1580,al_c,q_90,enc_auto/fb4db5_fe9b40835e04481ba3d1ab7fbf6d94a9~mv2_d_2979_3929_s_4_2.jpg", alt: "The Anderson Residence" },
+  { image: "https://static.wixstatic.com/media/fb4db5_f3b2ed31ce824ac2be3520f031e3eef4~mv2_d_5312_2988_s_4_2.jpeg/v1/fill/w_1400,h_780,al_c,q_90,enc_auto/fb4db5_f3b2ed31ce824ac2be3520f031e3eef4~mv2_d_5312_2988_s_4_2.jpeg", alt: "The McNeill Residence" },
+  { image: "https://static.wixstatic.com/media/fb4db5_fc8cf9a2735a487aa19915078017e397~mv2_d_5312_2988_s_4_2.jpeg/v1/fill/w_1400,h_780,al_c,q_90,enc_auto/fb4db5_fc8cf9a2735a487aa19915078017e397~mv2_d_5312_2988_s_4_2.jpeg", alt: "The McNeill Residence" },
+  { image: "https://static.wixstatic.com/media/fb4db5_fe9b40835e04481ba3d1ab7fbf6d94a9~mv2_d_2979_3929_s_4_2.jpg/v1/fill/w_1400,h_780,al_c,q_90,enc_auto/fb4db5_fe9b40835e04481ba3d1ab7fbf6d94a9~mv2_d_2979_3929_s_4_2.jpg", alt: "The McNeill Residence" },
+  { image: "https://static.wixstatic.com/media/fb4db5_211d3940627c42669e8fe0ff0d90c325~mv2_d_5312_2988_s_4_2.jpeg/v1/fill/w_1400,h_780,al_c,q_90,enc_auto/fb4db5_211d3940627c42669e8ff0d90c325~mv2_d_5312_2988_s_4_2.jpeg", alt: "The McNeill Residence" },
+  { image: "https://static.wixstatic.com/media/fb4db5_b1322784beec46bdbc99f8c034c8491d~mv2.jpg/v1/fill/w_1400,h_780,al_c,q_90,enc_auto/fb4db5_b1322784beec46bdbc99f8c034c8491d~mv2.jpg", alt: "The McNeill Residence" },
+  { image: "https://static.wixstatic.com/media/fb4db5_91524b19d9b147ad8499291e67e7d1bf~mv2.jpg/v1/fill/w_1400,h_930,al_c,q_90,enc_auto/fb4db5_91524b19d9b147ad8499291e67e7d1bf~mv2.jpg", alt: "The Turner Residence" }
 ];
 ---
 
@@ -49,14 +52,15 @@ const constructionPhotos = [
 
   <section class="section construction-section">
     <div class="section-head">
-      <div><div class="eyebrow">Portfolio</div><h2>Project Construction Photos</h2></div>
-      <p class="section-intro">A selection of ATECT project images showing design concepts and project development.</p>
+      <div><div class="eyebrow">Portfolio</div><h2>PROJECT CONSTRUCTION PHOTOS</h2></div>
     </div>
-    <div class="construction-grid">
-      {constructionPhotos.map((photo) => (
-        <div class="construction-photo">
-          <img src={photo.image} alt={photo.alt} loading="lazy" />
-        </div>
+    <div class="construction-accordion" aria-label="Project Construction Photos">
+      {constructionPhotos.map((photo, index) => (
+        <button class:list={["construction-panel", index === 0 && "active"]} type="button" data-panel={index} aria-label={`View ${photo.alt}`}>
+          <img src={photo.image} alt={photo.alt} loading={index === 0 ? "eager" : "lazy"} />
+          <span class="panel-shade"></span>
+          <span class="panel-label">{photo.alt}</span>
+        </button>
       ))}
     </div>
   </section>
@@ -87,6 +91,7 @@ const constructionPhotos = [
 <script>
   const slides = Array.from(document.querySelectorAll<HTMLElement>('.hero-slide'));
   const dots = Array.from(document.querySelectorAll<HTMLButtonElement>('.slider-dot'));
+  const panels = Array.from(document.querySelectorAll<HTMLButtonElement>('.construction-panel'));
   let current = 0;
   let timer: ReturnType<typeof setInterval>;
 
@@ -106,6 +111,10 @@ const constructionPhotos = [
     startTimer();
   }));
 
+  panels.forEach((panel, index) => panel.addEventListener('click', () => {
+    panels.forEach((item, i) => item.classList.toggle('active', i === index));
+  }));
+
   startTimer();
 </script>
 
@@ -123,13 +132,18 @@ const constructionPhotos = [
   .slider-dot.active{width:48px;background:#fff}
   .intro-section{padding-top:70px;padding-bottom:70px}
   .construction-section{padding-top:70px;padding-bottom:90px}
-  .construction-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
-  .construction-photo{overflow:hidden;background:#eee;aspect-ratio:16/10}
-  .construction-photo img{width:100%;height:100%;display:block;object-fit:cover;transition:transform .5s ease}
-  .construction-photo:hover img{transform:scale(1.025)}
+  .construction-accordion{display:flex;width:100%;height:min(520px,58vw);min-height:360px;gap:5px;overflow:hidden}
+  .construction-panel{position:relative;flex:1 1 0;min-width:0;padding:0;border:0;background:#111;overflow:hidden;cursor:pointer;transition:flex-grow .65s cubic-bezier(.22,.61,.36,1);text-align:left}
+  .construction-panel.active{flex-grow:4}
+  .construction-panel img{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover;object-position:center;transition:transform .65s ease}
+  .construction-panel:hover img,.construction-panel.active img{transform:scale(1.015)}
+  .panel-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.52));opacity:.7;transition:opacity .4s ease}
+  .construction-panel.active .panel-shade{opacity:.45}
+  .panel-label{position:absolute;left:20px;bottom:20px;color:#fff;font:600 13px/1.2 Manrope;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap;opacity:0;transform:translateY(10px);transition:opacity .35s ease,transform .35s ease}
+  .construction-panel.active .panel-label{opacity:1;transform:translateY(0)}
   .service{display:block}
   .service span{display:inline-block;margin-top:16px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
   .cta-section{background:#f5f5f2}
-  @media(max-width:800px){.hero-slider{height:78vh;min-height:540px}.hero-content{left:24px;right:24px;bottom:70px}.hero-content h1{font-size:clamp(44px,13vw,70px)}.slider-dots{left:24px;bottom:25px}.hero-overlay{background:linear-gradient(90deg,rgba(0,0,0,.65),rgba(0,0,0,.2))}.construction-grid{grid-template-columns:1fr}}
-  @media(prefers-reduced-motion:reduce){.hero-slide{transition:none}.construction-photo img{transition:none}}
+  @media(max-width:800px){.hero-slider{height:78vh;min-height:540px}.hero-content{left:24px;right:24px;bottom:70px}.hero-content h1{font-size:clamp(44px,13vw,70px)}.slider-dots{left:24px;bottom:25px}.hero-overlay{background:linear-gradient(90deg,rgba(0,0,0,.65),rgba(0,0,0,.2))}.construction-accordion{height:70vw;min-height:330px;gap:3px}.construction-panel.active{flex-grow:3}.panel-label{left:12px;bottom:12px;font-size:10px}}
+  @media(prefers-reduced-motion:reduce){.hero-slide,.construction-panel,.construction-panel img,.panel-shade,.panel-label{transition:none}}
 </style>
