@@ -11,13 +11,14 @@ const slideshow = [
   { image: "https://static.wixstatic.com/media/9aae58f8cb39c0432380467cfa4e74eb.jpg/v1/fill/w_1600,h_1000,al_c,q_90,enc_auto/9aae58f8cb39c0432380467cfa4e74eb.jpg", alt: "Blueprint Design" }
 ];
 
+// Seven construction-photo panels shown on the original ATECT site.
 const constructionPhotos = [
-  { image: "https://static.wixstatic.com/media/fb4db5_fe9b40835e04481ba3d1ab7fbf6d94a9~mv2_d_2979_3929_s_4_2.jpg/v1/fill/w_1200,h_1580,al_c,q_90,enc_auto/fb4db5_fe9b40835e04481ba3d1ab7fbf6d94a9~mv2_d_2979_3929_s_4_2.jpg", alt: "The Anderson Residence" },
-  { image: "https://static.wixstatic.com/media/fb4db5_f3b2ed31ce824ac2be3520f031e3eef4~mv2_d_5312_2988_s_4_2.jpeg/v1/fill/w_1400,h_780,al_c,q_90,enc_auto/fb4db5_f3b2ed31ce824ac2be3520f031e3eef4~mv2_d_5312_2988_s_4_2.jpeg", alt: "The McNeill Residence" },
-  { image: "https://static.wixstatic.com/media/fb4db5_fc8cf9a2735a487aa19915078017e397~mv2_d_5312_2988_s_4_2.jpeg/v1/fill/w_1400,h_780,al_c,q_90,enc_auto/fb4db5_fc8cf9a2735a487aa19915078017e397~mv2_d_5312_2988_s_4_2.jpeg", alt: "The McNeill Residence" },
+  { image: "https://static.wixstatic.com/media/fb4db5_fe9b40835e04481ba3d1ab7fbf6d94a9~mv2_d_2979_3929_s_4_2.jpg/v1/fill/w_1400,h_1580,al_c,q_90,enc_auto/fb4db5_fe9b40835e04481ba3d1ab7fbf6d94a9~mv2_d_2979_3929_s_4_2.jpg", alt: "The Anderson Residence" },
+  { image: "https://static.wixstatic.com/media/fb4db5_f3b2ed31ce824ac2be3520f031e3eef4~mv2_d_5312_2988_s_4_2.jpeg/v1/fill/w_1600,h_900,al_c,q_90,enc_auto/fb4db5_f3b2ed31ce824ac2be3520f031e3eef4~mv2_d_5312_2988_s_4_2.jpeg", alt: "The McNeill Residence" },
+  { image: "https://static.wixstatic.com/media/fb4db5_fc8cf9a2735a487aa19915078017e397~mv2_d_5312_2988_s_4_2.jpeg/v1/fill/w_1600,h_900,al_c,q_90,enc_auto/fb4db5_fc8cf9a2735a487aa19915078017e397~mv2_d_5312_2988_s_4_2.jpeg", alt: "The McNeill Residence" },
   { image: "https://static.wixstatic.com/media/fb4db5_fe9b40835e04481ba3d1ab7fbf6d94a9~mv2_d_2979_3929_s_4_2.jpg/v1/fill/w_1400,h_780,al_c,q_90,enc_auto/fb4db5_fe9b40835e04481ba3d1ab7fbf6d94a9~mv2_d_2979_3929_s_4_2.jpg", alt: "The McNeill Residence" },
-  { image: "https://static.wixstatic.com/media/fb4db5_211d3940627c42669e8fe0ff0d90c325~mv2_d_5312_2988_s_4_2.jpeg/v1/fill/w_1400,h_780,al_c,q_90,enc_auto/fb4db5_211d3940627c42669e8ff0d90c325~mv2_d_5312_2988_s_4_2.jpeg", alt: "The McNeill Residence" },
-  { image: "https://static.wixstatic.com/media/fb4db5_b1322784beec46bdbc99f8c034c8491d~mv2.jpg/v1/fill/w_1400,h_780,al_c,q_90,enc_auto/fb4db5_b1322784beec46bdbc99f8c034c8491d~mv2.jpg", alt: "The McNeill Residence" },
+  { image: "https://static.wixstatic.com/media/fb4db5_211d3940627c42669e8fe0ff0d90c325~mv2_d_5312_2988_s_4_2.jpeg/v1/fill/w_1600,h_900,al_c,q_90,enc_auto/fb4db5_211d3940627c42669e8fe0ff0d90c325~mv2_d_5312_2988_s_4_2.jpeg", alt: "The McNeill Residence" },
+  { image: "https://static.wixstatic.com/media/fb4db5_b1322784beec46bdbc99f8c034c8491d~mv2.jpg/v1/fill/w_1600,h_900,al_c,q_90,enc_auto/fb4db5_b1322784beec46bdbc99f8c034c8491d~mv2.jpg", alt: "Construction Detail" },
   { image: "https://static.wixstatic.com/media/fb4db5_91524b19d9b147ad8499291e67e7d1bf~mv2.jpg/v1/fill/w_1400,h_930,al_c,q_90,enc_auto/fb4db5_91524b19d9b147ad8499291e67e7d1bf~mv2.jpg", alt: "The Turner Residence" }
 ];
 ---
@@ -111,9 +112,17 @@ const constructionPhotos = [
     startTimer();
   }));
 
-  panels.forEach((panel, index) => panel.addEventListener('click', () => {
-    panels.forEach((item, i) => item.classList.toggle('active', i === index));
-  }));
+  panels.forEach((panel, index) => {
+    panel.addEventListener('mouseenter', () => {
+      panels.forEach((item, i) => item.classList.toggle('active', i === index));
+    });
+    panel.addEventListener('focus', () => {
+      panels.forEach((item, i) => item.classList.toggle('active', i === index));
+    });
+    panel.addEventListener('click', () => {
+      panels.forEach((item, i) => item.classList.toggle('active', i === index));
+    });
+  });
 
   startTimer();
 </script>
@@ -132,18 +141,42 @@ const constructionPhotos = [
   .slider-dot.active{width:48px;background:#fff}
   .intro-section{padding-top:70px;padding-bottom:70px}
   .construction-section{padding-top:70px;padding-bottom:90px}
-  .construction-accordion{display:flex;width:100%;height:min(520px,58vw);min-height:360px;gap:5px;overflow:hidden}
-  .construction-panel{position:relative;flex:1 1 0;min-width:0;padding:0;border:0;background:#111;overflow:hidden;cursor:pointer;transition:flex-grow .65s cubic-bezier(.22,.61,.36,1);text-align:left}
-  .construction-panel.active{flex-grow:4}
-  .construction-panel img{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover;object-position:center;transition:transform .65s ease}
-  .construction-panel:hover img,.construction-panel.active img{transform:scale(1.015)}
-  .panel-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.52));opacity:.7;transition:opacity .4s ease}
-  .construction-panel.active .panel-shade{opacity:.45}
-  .panel-label{position:absolute;left:20px;bottom:20px;color:#fff;font:600 13px/1.2 Manrope;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap;opacity:0;transform:translateY(10px);transition:opacity .35s ease,transform .35s ease}
-  .construction-panel.active .panel-label{opacity:1;transform:translateY(0)}
+
+  .construction-accordion{display:flex;width:100%;height:min(560px,56vw);min-height:390px;gap:6px;overflow:hidden}
+  .construction-panel{position:relative;flex:1 1 0;min-width:0;height:100%;padding:0;border:0;border-radius:0;background:#f0f0ed;overflow:hidden;cursor:pointer;text-align:left;transition:flex-grow .55s cubic-bezier(.22,.61,.36,1),background .3s ease}
+  .construction-panel:hover,.construction-panel:focus-visible,.construction-panel.active{flex-grow:4}
+  .construction-panel img{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover;object-position:center;transition:transform .55s ease,opacity .3s ease}
+  .construction-panel:hover img,.construction-panel:focus-visible img,.construction-panel.active img{object-fit:contain;transform:scale(1);background:#f0f0ed}
+  .construction-panel:not(:hover):not(:focus-visible):not(.active) img{transform:scale(1.01)}
+  .panel-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 45%,rgba(0,0,0,.72));opacity:.65;pointer-events:none;transition:opacity .35s ease}
+  .construction-panel:hover .panel-shade,.construction-panel:focus-visible .panel-shade,.construction-panel.active .panel-shade{opacity:.38}
+  .panel-label{position:absolute;left:20px;right:14px;bottom:18px;color:#fff;font:600 13px/1.25 Manrope;letter-spacing:.05em;text-transform:uppercase;white-space:normal;opacity:0;transform:translateY(10px);transition:opacity .3s ease,transform .3s ease;pointer-events:none;text-shadow:0 1px 4px rgba(0,0,0,.45)}
+  .construction-panel:hover .panel-label,.construction-panel:focus-visible .panel-label,.construction-panel.active .panel-label{opacity:1;transform:translateY(0)}
+  .construction-panel:focus-visible{outline:3px solid #111;outline-offset:-3px}
+
   .service{display:block}
   .service span{display:inline-block;margin-top:16px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
   .cta-section{background:#f5f5f2}
-  @media(max-width:800px){.hero-slider{height:78vh;min-height:540px}.hero-content{left:24px;right:24px;bottom:70px}.hero-content h1{font-size:clamp(44px,13vw,70px)}.slider-dots{left:24px;bottom:25px}.hero-overlay{background:linear-gradient(90deg,rgba(0,0,0,.65),rgba(0,0,0,.2))}.construction-accordion{height:70vw;min-height:330px;gap:3px}.construction-panel.active{flex-grow:3}.panel-label{left:12px;bottom:12px;font-size:10px}}
-  @media(prefers-reduced-motion:reduce){.hero-slide,.construction-panel,.construction-panel img,.panel-shade,.panel-label{transition:none}}
+
+  @media(max-width:800px){
+    .hero-slider{height:78vh;min-height:540px}
+    .hero-content{left:24px;right:24px;bottom:70px}
+    .hero-content h1{font-size:clamp(44px,13vw,70px)}
+    .slider-dots{left:24px;bottom:25px}
+    .hero-overlay{background:linear-gradient(90deg,rgba(0,0,0,.64),rgba(0,0,0,.2))}
+    .construction-section{padding-top:50px;padding-bottom:65px}
+    .construction-accordion{height:72vw;min-height:340px;max-height:480px;gap:4px}
+    .construction-panel:hover,.construction-panel:focus-visible,.construction-panel.active{flex-grow:3}
+    .panel-label{font-size:11px;left:12px;bottom:12px}
+  }
+
+  @media(max-width:560px){
+    .construction-accordion{height:82vw;min-height:300px}
+    .construction-panel:hover,.construction-panel:focus-visible,.construction-panel.active{flex-grow:5}
+    .panel-label{font-size:10px}
+  }
+
+  @media(prefers-reduced-motion:reduce){
+    .hero-slide,.slider-dot,.construction-panel,.construction-panel img,.panel-shade,.panel-label{transition:none}
+  }
 </style>
