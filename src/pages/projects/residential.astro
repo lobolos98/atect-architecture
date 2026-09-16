@@ -30,25 +30,36 @@ const projects = [
 <div class="slider" data-slider={i} tabindex="0">
 <div class="slides">{project.images.map((image,j)=><img class:list={{active:j===0}} data-slide={j} src={image} alt={`${project.title} — project image ${j+1}`} loading={i===0&&j===0?"eager":"lazy"} />)}</div>
 <button class="arrow prev" type="button" data-prev aria-label="Previous image">‹</button><button class="arrow next" type="button" data-next aria-label="Next image">›</button>
-<div class="bar"><button type="button" class="fullscreen" data-fullscreen>View Fullscreen</button><span data-counter>1 / {project.images.length}</span></div>
+<div class="slider-tools"><span class="counter" data-counter>1 / {project.images.length}</span><button class="fullscreen" type="button" data-fullscreen>View Fullscreen</button></div>
+<div class="thumbs">{project.images.map((image,j)=><button type="button" class:list={{active:j===0}} data-thumb={j} aria-label={`View image ${j+1}`}><img src={image} alt="" loading="lazy" /></button>)}</div>
 </div>
-<div class="thumbs">{project.images.map((image,j)=><button type="button" class:list={{active:j===0}} data-thumb={j} aria-label={`Show image ${j+1}`}><img src={image} alt="" loading="lazy" /></button>)}</div>
-</article>))}
+</article>
+))}
 </section>
-<section class="cta"><div class="eyebrow">Start a Conversation</div><h2>Love what you see?</h2><p>Get in touch today and let’s see what we can build together.</p><a href="/contact" class="button">Contact Us Today</a></section>
-</main></Layout>
-
-<script>
-document.querySelectorAll<HTMLElement>('[data-slider]').forEach(slider=>{
- const slides=Array.from(slider.querySelectorAll<HTMLImageElement>('[data-slide]')); const thumbs=Array.from(slider.parentElement!.querySelectorAll<HTMLButtonElement>('[data-thumb]')); const counter=slider.querySelector<HTMLElement>('[data-counter]'); let current=0;
- const show=(n:number)=>{current=(n+slides.length)%slides.length;slides.forEach((x,i)=>x.classList.toggle('active',i===current));thumbs.forEach((x,i)=>{x.classList.toggle('active',i===current);x.setAttribute('aria-current',i===current?'true':'false')});if(counter)counter.textContent=`${current+1} / ${slides.length}`};
- slider.querySelector<HTMLButtonElement>('[data-prev]')?.addEventListener('click',()=>show(current-1)); slider.querySelector<HTMLButtonElement>('[data-next]')?.addEventListener('click',()=>show(current+1)); thumbs.forEach((x,i)=>x.addEventListener('click',()=>show(i)));
- slider.querySelector<HTMLButtonElement>('[data-fullscreen]')?.addEventListener('click',()=>{if(!document.fullscreenElement)slider.requestFullscreen?.();else document.exitFullscreen?.()});
- slider.addEventListener('keydown',e=>{if(e.key==='ArrowLeft')show(current-1);if(e.key==='ArrowRight')show(current+1)});
- let start=0;slider.addEventListener('touchstart',e=>start=e.changedTouches[0].screenX,{passive:true});slider.addEventListener('touchend',e=>{const d=e.changedTouches[0].screenX-start;if(Math.abs(d)>45)show(current+(d<0?1:-1))},{passive:true});show(0);
-});
-</script>
+<section class="cta"><div><span class="eyebrow">Start a Project</span><h2>Let's design something that works.</h2><p>Tell us about your residential project and the goals you have for the space.</p></div><a class="button" href="/contact">Contact ATECT</a></section>
+</main>
+</Layout>
 
 <style>
-.hero{text-align:center;max-width:980px;margin:auto;padding:100px 24px 65px}.eyebrow{text-transform:uppercase;letter-spacing:.18em;font-size:.75rem;font-weight:700;margin-bottom:14px}.hero h1{font-size:clamp(2.6rem,6vw,5rem);line-height:1;margin:0 0 20px;letter-spacing:-.04em}.hero>p{max-width:760px;margin:auto;color:#666;line-height:1.8;font-size:1.05rem}.projects{width:min(1280px,calc(100% - 40px));margin:auto}.project{padding:75px 0 95px;border-top:1px solid #e5e5e5}.project:first-child{border-top:0}.project header{display:grid;grid-template-columns:1.15fr .85fr;gap:50px;align-items:end;margin-bottom:28px}.number{font-size:.75rem;letter-spacing:.2em;color:#777}.project h2{margin:8px 0 0;font-size:clamp(1.5rem,3vw,2.5rem);line-height:1.08}.location{color:#777;margin:8px 0 0}.scope span{font-size:.7rem;text-transform:uppercase;letter-spacing:.15em;font-weight:700}.scope p{color:#555;line-height:1.7;margin:8px 0 0}.slider{position:relative;background:#111;aspect-ratio:16/10;overflow:hidden;outline:none}.slider:fullscreen{width:100vw;height:100vh;aspect-ratio:auto}.slides,.slides img{width:100%;height:100%}.slides img{display:none;object-fit:contain}.slides img.active{display:block}.arrow{position:absolute;top:50%;transform:translateY(-50%);width:54px;height:54px;border-radius:50%;border:1px solid #fff9;background:#0008;color:white;font-size:2rem;cursor:pointer}.prev{left:18px}.next{right:18px}.bar{position:absolute;bottom:0;left:0;right:0;padding:15px 18px;display:flex;justify-content:space-between;color:white;background:linear-gradient(transparent,#000c);font-size:.8rem}.fullscreen{background:none;border:0;color:white;text-transform:uppercase;letter-spacing:.12em;font-size:.7rem;cursor:pointer}.thumbs{display:flex;gap:8px;overflow-x:auto;padding-top:10px}.thumbs button{flex:0 0 90px;height:62px;padding:0;border:2px solid transparent;opacity:.6;cursor:pointer}.thumbs button.active,.thumbs button:hover{opacity:1;border-color:#222}.thumbs img{width:100%;height:100%;object-fit:cover}.cta{text-align:center;background:#f4f4f2;padding:105px 24px}.cta h2{font-size:clamp(2.2rem,5vw,4rem);margin:8px 0 15px}.cta p{color:#555;margin:0 auto 28px}.button{display:inline-flex;padding:14px 25px;background:#202020;color:#fff;text-decoration:none;text-transform:uppercase;letter-spacing:.12em;font-size:.75rem;font-weight:700}@media(max-width:760px){.hero{padding:70px 18px 50px}.projects{width:min(100% - 24px,1280px)}.project{padding:55px 0 70px}.project header{grid-template-columns:1fr;gap:22px}.slider{aspect-ratio:4/3}.arrow{width:44px;height:44px}.thumbs button{flex-basis:72px;height:50px}.cta{padding:75px 18px}}
+.hero{padding:64px clamp(24px,7vw,100px) 56px;background:var(--paper);border-bottom:1px solid var(--line)}
+.hero .eyebrow{margin-bottom:16px}.hero h1{font-size:clamp(44px,6vw,78px);max-width:900px;margin:0}.hero p{max-width:760px;margin:20px 0 0;font-size:18px;color:var(--muted);line-height:1.7}
+.projects{max-width:1500px;margin:0 auto;padding:30px clamp(18px,4vw,60px) 100px}.project{padding:42px 0 70px;border-bottom:1px solid var(--line)}.project:last-child{border-bottom:0}.project header{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:end;margin-bottom:26px}.number{display:block;font-size:13px;letter-spacing:.16em;color:var(--muted);margin-bottom:8px}.project h2{font-size:clamp(25px,3vw,42px);margin:0;line-height:1.05}.location{color:var(--muted);margin:10px 0 0}.scope{max-width:600px}.scope span{font-size:11px;text-transform:uppercase;letter-spacing:.16em;color:var(--muted)}.scope p{margin:8px 0 0;line-height:1.65;color:var(--muted)}
+.slider{position:relative}.slides{position:relative;width:100%;aspect-ratio:16/10;background:#f2f2f0;overflow:hidden}.slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity .35s ease}.slides img.active{opacity:1}.arrow{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border:0;background:rgba(255,255,255,.88);font-size:30px;cursor:pointer;z-index:2}.prev{left:16px}.next{right:16px}.slider-tools{display:flex;justify-content:space-between;align-items:center;margin-top:12px}.counter{font-size:13px;color:var(--muted)}.fullscreen{border:0;background:none;text-decoration:underline;cursor:pointer;font:inherit}.thumbs{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:14px;padding:0 4px}.thumbs button{flex:0 0 88px;width:88px;height:66px;padding:0;border:2px solid transparent;background:#eee;overflow:hidden;cursor:pointer}.thumbs button.active{border-color:#111}.thumbs img{width:100%;height:100%;object-fit:cover;display:block}
+.cta{margin:0 clamp(18px,4vw,60px) 80px;padding:55px clamp(24px,5vw,70px);background:#171717;color:#fff;display:flex;justify-content:space-between;align-items:center;gap:30px}.cta h2{font-size:clamp(32px,4vw,54px);margin:8px 0}.cta p{color:#d1d1d1;margin:0}.cta .button{display:inline-flex;padding:14px 22px;background:#fff;color:#111;text-decoration:none;white-space:nowrap}.cta .eyebrow{color:#aaa}
+@media(max-width:900px){.project header{grid-template-columns:1fr;gap:18px}.slides{aspect-ratio:4/3}.thumbs{gap:8px}.thumbs button{flex-basis:76px;width:76px;height:57px}.cta{flex-direction:column;align-items:flex-start}}
+@media(max-width:600px){.hero{padding:48px 20px 42px}.projects{padding:18px 16px 70px}.project{padding:34px 0 54px}.arrow{width:40px;height:40px}.thumbs{gap:6px}.thumbs button{flex-basis:64px;width:64px;height:48px}}
 </style>
+
+<script>
+function initSliders(){
+ document.querySelectorAll('[data-slider]').forEach(slider=>{
+  const slides=Array.from(slider.querySelectorAll('[data-slide]'));const thumbs=Array.from(slider.querySelectorAll('[data-thumb]'));const counter=slider.querySelector('[data-counter]');let current=0;
+  function show(index){current=(index+slides.length)%slides.length;slides.forEach((s,i)=>s.classList.toggle('active',i===current));thumbs.forEach((t,i)=>t.classList.toggle('active',i===current));counter.textContent=`${current+1} / ${slides.length}`;}
+  slider.querySelector('[data-prev]').addEventListener('click',()=>show(current-1));slider.querySelector('[data-next]').addEventListener('click',()=>show(current+1));thumbs.forEach((t,i)=>t.addEventListener('click',()=>show(i)));
+  slider.querySelector('[data-fullscreen]').addEventListener('click',()=>{const img=slides[current];if(img.requestFullscreen)img.requestFullscreen();else if(img.webkitRequestFullscreen)img.webkitRequestFullscreen();});
+  slider.addEventListener('keydown',e=>{if(e.key==='ArrowLeft')show(current-1);if(e.key==='ArrowRight')show(current+1);});
+  let startX=0;slider.addEventListener('touchstart',e=>startX=e.changedTouches[0].screenX,{passive:true});slider.addEventListener('touchend',e=>{const dx=e.changedTouches[0].screenX-startX;if(Math.abs(dx)>50)show(current+(dx<0?1:-1));},{passive:true});
+ });
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initSliders);else initSliders();
+</script>
