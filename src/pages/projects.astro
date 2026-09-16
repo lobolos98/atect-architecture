@@ -1,16 +1,103 @@
 ---
 import Layout from "../layouts/Layout.astro";
-const projects=[
- {name:"Anderson Residence",type:"Residential Architecture",image:"https://static.wixstatic.com/media/fb4db5_fe9b40835e04481ba3d1ab7fbf6d94a9~mv2_d_2979_3929_s_4_2.jpg/v1/fill/w_1200,h_800,al_c,q_90,enc_auto/fb4db5_fe9b40835e04481ba3d1ab7fbf6d94a9~mv2_d_2979_3929_s_4_2.jpg",description:"A new two-story home with a strong entry sequence and a majestic two-level entry porch."},
- {name:"McNeill Residence",type:"Residential Architecture",image:"https://static.wixstatic.com/media/fb4db5_f3b2ed31ce824ac2be3520f031e3eef4~mv2_d_5312_2988_s_4_2.jpeg/v1/fill/w_1200,h_800,al_c,q_90,enc_auto/fb4db5_f3b2ed31ce824ac2be3520f031e3eef4~mv2_d_5312_2988_s_4_2.jpeg",description:"An extensive kitchen extension and redesign with contemporary cabinetry, generous counters, natural light and a formal dining area."},
- {name:"Turner Residence",type:"Residential Architecture",image:"https://static.wixstatic.com/media/fb4db5_91524b19d9b147ad8499291e67e7d1bf~mv2.jpg/v1/fill/w_1200,h_800,al_c,q_90,enc_auto/fb4db5_91524b19d9b147ad8499291e67e7d1bf~mv2.jpg",description:"Residential design work featured in ATECT's construction-photo portfolio."},
- {name:"The Lis–Perlis Residence",type:"Residential Architecture",image:"https://atectarchitecture.com/assets/images/image05.jpg?v=5bc6d0ed",description:"A two-phase project in Chevy Chase: a redesigned front entry followed by a second-story sunroom capturing southern rear views."},
- {name:"Mariner Finance",type:"Commercial Design & Construction Documents",image:"https://static.wixstatic.com/media/9aae58f8cb39c0432380467cfa4e74eb.jpg/v1/fill/w_1200,h_800,al_c,q_90,enc_auto/9aae58f8cb39c0432380467cfa4e74eb.jpg",description:"Construction documents for interior fit-outs in Waldorf, Maryland and Richmond, Virginia, including ADA requirements, breakroom planning, bathroom improvements, a Hi-lo drinking fountain, project coordination and permitting support."}
+
+const categories = [
+  {
+    name: "RESIDENTIAL",
+    image: "https://static.wixstatic.com/media/c990e5_9691cdc2166b4d06892c5c55387aa74e~mv2.jpg",
+    description: "Homes, additions, renovations and residential spaces designed around each client's property, needs and lifestyle.",
+    href: "/projects/residential"
+  },
+  {
+    name: "COMMERCIAL",
+    image: "https://static.wixstatic.com/media/c990e5_eb561ce393cd40f3abc809689b4edab6~mv2_d_4160_3120_s_4_2.jpg",
+    description: "Commercial design and construction documents focused on practical layouts, coordination, code requirements and permitting.",
+    href: "/projects/commercial"
+  },
+  {
+    name: "3-D RENDERINGS",
+    image: "https://static.wixstatic.com/media/c990e5_01d2914b11c34b36b58709e0b0e8f6a5~mv2.jpg",
+    description: "Architectural visualization that helps clients experience exterior and interior design concepts before construction.",
+    href: "/3d-renderings"
+  },
+  {
+    name: "CUSTOM HOME PLANS",
+    image: "https://static.wixstatic.com/media/fb4db5_03bf369a98674fe1acd1fddd3c1b4e86~mv2.jpg",
+    description: "Custom home planning developed around the property, program, priorities and lifestyle of each client.",
+    href: "/projects/custom-homes"
+  }
 ];
 ---
-<Layout title="Projects | ATECT Architecture" description="Selected residential and commercial architecture projects from ATECT Architecture, including residential design and the Mariner Finance commercial fit-out work.">
-<section class="page-hero"><div class="eyebrow">Selected Work</div><h1>Projects shaped by place and purpose.</h1><p>Selected projects from ATECT's existing portfolio, presented with original project descriptions and available ATECT imagery.</p></section>
-<section class="section"><div class="portfolio-grid">{projects.map((project,index)=><article class={index===0?"portfolio-card featured":"portfolio-card"}><div class="portfolio-image" style={`background-image:url('${project.image}')`} role="img" aria-label={`${project.name} project image`}></div><div class="project-copy"><div class="eyebrow">{project.type}</div><h2>{project.name}</h2><p>{project.description}</p></div></article>)}</div></section>
-<section class="section alt"><div class="section-head"><div><div class="eyebrow">Explore by type</div><h2>More ATECT work.</h2></div><p class="section-intro">See residential design, commercial work and custom home plans in focused collections.</p></div><div class="button-row"><a class="button dark" href="/projects/residential">Residential Projects</a><a class="button" href="/projects/commercial">Commercial Projects</a><a class="button" href="/projects/custom-homes">Custom Home Plans</a></div></section>
+
+<Layout title="Projects | ATECT Architecture" description="Explore residential, commercial, 3-D rendering and custom home plan projects from ATECT Architecture serving Maryland, Washington, DC and Virginia.">
+  <section class="projects-hero">
+    <div class="eyebrow">Our Projects</div>
+    <h1>Discover Our Designs</h1>
+    <p>We’re proud of our outstanding projects throughout the Maryland and Washington, DC area, and invite you to explore the work that represents the ATECT approach. From residential design and commercial construction documents to 3-D visualization and custom home plans, we design solutions around what each client needs.</p>
+  </section>
+
+  <section class="section projects-section" aria-labelledby="project-categories-heading">
+    <div class="category-grid" id="project-categories-heading">
+      {categories.map((category) => (
+        <article class="category-card">
+          <a class="category-image-link" href={category.href} aria-label={`View ${category.name.toLowerCase()} projects`}>
+            <div class="category-image" style={`background-image:url('${category.image}')`} role="img" aria-label={`${category.name} project image`}></div>
+          </a>
+          <div class="category-copy">
+            <div class="eyebrow">ATECT Architecture</div>
+            <h2>{category.name}</h2>
+            <p>{category.description}</p>
+            <a class="category-button" href={category.href}>Click to View <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section project-cta">
+    <div class="cta-inner">
+      <div class="eyebrow">Start a Conversation</div>
+      <h2>Love what you see?</h2>
+      <p>Get in touch today and let’s see what we can build together.</p>
+      <a class="button dark" href="/contact">Contact Us Today</a>
+    </div>
+  </section>
 </Layout>
-<style is:global>.portfolio-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}.portfolio-card{border:1px solid #ddd;background:#fff}.portfolio-card.featured{grid-column:1/-1;display:grid;grid-template-columns:1.4fr .6fr}.portfolio-image{aspect-ratio:4/3;background-size:cover;background-position:center}.featured .portfolio-image{aspect-ratio:auto;min-height:420px}.project-copy{padding:28px}.project-copy h2{font:600 clamp(27px,4vw,45px)/1.05 Manrope;margin:0 0 12px}.project-copy p{color:#555;line-height:1.7}.button-row{display:flex;flex-wrap:wrap;gap:12px}@media(max-width:800px){.portfolio-grid{grid-template-columns:1fr}.portfolio-card.featured{grid-column:auto;display:block}.featured .portfolio-image{min-height:0;aspect-ratio:4/3}.button-row{flex-direction:column;align-items:flex-start}}</style>
+
+<style is:global>
+  .projects-hero{padding:clamp(80px,11vw,145px) clamp(24px,7vw,100px) clamp(65px,8vw,100px);background:#f5f5f2;text-align:center}
+  .projects-hero .eyebrow{margin-bottom:20px}
+  .projects-hero h1{font:600 clamp(52px,8vw,100px)/.94 Manrope;letter-spacing:-.05em;margin:0 auto;max-width:1000px}
+  .projects-hero p{max-width:820px;margin:30px auto 0;color:#555;font-size:clamp(16px,1.7vw,19px);line-height:1.75}
+  .projects-section{padding-top:85px;padding-bottom:100px}
+  .category-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;max-width:1180px;margin:0 auto}
+  .category-card{background:#fff;border:1px solid #ddd;overflow:hidden;display:flex;flex-direction:column;transition:transform .3s ease,box-shadow .3s ease}
+  .category-card:hover{transform:translateY(-5px);box-shadow:0 18px 45px rgba(0,0,0,.09)}
+  .category-image-link{display:block;overflow:hidden}
+  .category-image{aspect-ratio:16/10;background-size:cover;background-position:center;transition:transform .55s ease}
+  .category-card:hover .category-image{transform:scale(1.025)}
+  .category-copy{padding:30px 32px 34px;display:flex;flex-direction:column;flex:1}
+  .category-copy .eyebrow{font-size:9px;color:#777;margin-bottom:10px}
+  .category-copy h2{font:600 clamp(28px,3vw,42px)/1 Manrope;letter-spacing:-.025em;margin:0 0 14px}
+  .category-copy p{color:#555;line-height:1.7;margin:0 0 24px;max-width:520px}
+  .category-button{align-self:flex-start;margin-top:auto;padding:13px 18px;background:#111;color:#fff;font-size:10px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;transition:opacity .2s ease}
+  .category-button:hover{opacity:.75}
+  .category-button span{margin-left:8px;font-size:14px}
+  .project-cta{background:#111;color:#fff;text-align:center;padding-top:90px;padding-bottom:100px}
+  .cta-inner{max-width:760px;margin:0 auto}
+  .cta-inner .eyebrow{color:#aaa}
+  .cta-inner h2{font:600 clamp(40px,6vw,70px)/1 Manrope;letter-spacing:-.04em;margin:0 0 18px}
+  .cta-inner p{color:#bbb;font-size:18px;margin:0}
+  .cta-inner .button{margin-top:30px}
+  @media(max-width:800px){
+    .projects-hero{padding-top:70px;padding-bottom:55px}
+    .projects-hero h1{font-size:clamp(46px,14vw,70px)}
+    .projects-hero p{font-size:16px;line-height:1.65}
+    .projects-section{padding-top:55px;padding-bottom:65px}
+    .category-grid{grid-template-columns:1fr;gap:20px}
+    .category-copy{padding:24px 22px 28px}
+    .category-copy h2{font-size:31px}
+    .project-cta{padding-top:65px;padding-bottom:75px}
+  }
+  @media(prefers-reduced-motion:reduce){.category-card,.category-image{transition:none}}
+</style>
