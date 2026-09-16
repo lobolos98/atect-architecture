@@ -1,14 +1,126 @@
 ---
 import Layout from "../layouts/Layout.astro";
-const views=[
- {title:"Interior Kitchen Design",image:"https://static.wixstatic.com/media/fb4db5_5dc3a057ee8c45c497ab0239f3dad090~mv2_d_3840_2160_s_2.jpeg/v1/fill/w_1400,h_900,al_c,q_90,enc_auto/fb4db5_5dc3a057ee8c45c497ab0239f3dad090~mv2_d_3840_2160_s_2.jpeg"},
- {title:"Prairie View Residence",image:"https://static.wixstatic.com/media/fb4db5_b380ee2f335e48bfa5a7079e9098ce54~mv2.png/v1/fill/w_1400,h_900,al_c,q_95,enc_auto/fb4db5_b380ee2f335e48bfa5a7079e9098ce54~mv2.png"},
- {title:"Blueprint Design",image:"https://static.wixstatic.com/media/9aae58f8cb39c0432380467cfa4e74eb.jpg/v1/fill/w_1400,h_900,al_c,q_90,enc_auto/9aae58f8cb39c0432380467cfa4e74eb.jpg"}
+
+const interiorRenderings = [
+  { title: "Interior Rendering 01", image: "https://static.wixstatic.com/media/fb4db5_49d525b95174469ebeeb6b2512c2c497~mv2.png" },
+  { title: "Interior Rendering 02", image: "https://static.wixstatic.com/media/fb4db5_4e80e1b4d24b49ecb9ca2ad77b582877~mv2.png" },
+  { title: "Interior Rendering 03", image: "https://static.wixstatic.com/media/fb4db5_e4789fb3a6a44c02a9c5edc0844ce25f~mv2.png" },
+  { title: "Prairie View Interior Rendering #2", image: "https://static.wixstatic.com/media/fb4db5_886232eac1204ee69b71de935b42c91f~mv2.png" },
+  { title: "Eco Interior", image: "https://static.wixstatic.com/media/fb4db5_d7a6e831130f4889af5df4dce717a37f~mv2.png" }
+];
+
+const animationProjects = [
+  { title: "Prairie View", duration: "00:30", image: "https://static.wixstatic.com/media/fb4db5_ed2537c226ff4d75b78df1bf5d755c78f002.jpg" },
+  { title: "Roochvarg", duration: "01:00", image: "https://static.wixstatic.com/media/fb4db5_3e333ef9a4154a5ea77034d28e56287d~mv2.jpg" },
+  { title: "NVA", duration: "00:40", image: "https://static.wixstatic.com/media/fb4db5_cb46365c9fef425aa743dc104c93473a~mv2.png" },
+  { title: "LIW Indian Head Headquarters", duration: "00:40", image: "https://static.wixstatic.com/media/fb4db5_b83db514662c476187d195dbf4dd8448~mv2.png" }
+];
+
+const exteriorRenderings = [
+  "https://static.wixstatic.com/media/fb4db5_623f1b2a5f884519ab20f16b0affdc30~mv2.png",
+  "https://static.wixstatic.com/media/fb4db5_e5fafa9580374b539b8b6cf6595fdc1b~mv2.jpg",
+  "https://static.wixstatic.com/media/fb4db5_6aa1b4210c184d92b564dca830787c38~mv2.png",
+  "https://static.wixstatic.com/media/fb4db5_e1f3205c361a4a32b52b836295beab11~mv2.png",
+  "https://static.wixstatic.com/media/fb4db5_22cce08bea4b4a3da0a1861552aac760~mv2.png",
+  "https://static.wixstatic.com/media/fb4db5_8fd014ceecb04dd48eaa120ef0eb0de7~mv2.png",
+  "https://static.wixstatic.com/media/fb4db5_c582cd725f944e4f839d82dacdd12423~mv2.png",
+  "https://static.wixstatic.com/media/fb4db5_6fb8fda3e7b1483d9abd2ea982cd2b6e~mv2.png",
+  "https://static.wixstatic.com/media/fb4db5_b3907abfb0b04a3f96156866016053ab~mv2.png",
+  "https://static.wixstatic.com/media/fb4db5_b380ee2f335e48bfa5a7079e9098ce54~mv2.png",
+  "https://static.wixstatic.com/media/fb4db5_9236f81376de4d0f82e25223eb1f1451~mv2.png",
+  "https://static.wixstatic.com/media/fb4db5_9734e10733a24a6a8724a45b4410c5b5~mv2.png",
+  "https://static.wixstatic.com/media/fb4db5_64cd5a6d692b4a37b12d1c8bcf7cc9dd~mv2.png"
 ];
 ---
-<Layout title="3D Renderings & Visualization | ATECT Architecture" description="Explore ATECT Architecture's 3D rendering and visualization services, including exterior renderings, interior renderings, 360 panoramas and architectural animations.">
-<section class="page-hero"><div class="eyebrow">3D Renderings</div><h1>See the design before it is built.</h1><p>ATECT's original site describes 3D renderings as a way to visualize residential and commercial projects and bring design ideas to life.</p></section>
-<section class="section"><div class="render-grid">{views.map(view=><figure><div class="render-image" style={`background-image:url('${view.image}')`} role="img" aria-label={view.title}></div><figcaption>{view.title}</figcaption></figure>)}</div></section>
-<section class="section alt"><div class="section-head"><div><div class="eyebrow">Visualization services</div><h2>Exterior. Interior. Immersive.</h2></div><p class="section-intro">ATECT identifies exterior renderings, interior renderings, 360 panoramas and architectural animations as visualization options.</p></div><a class="button dark" href="/contact">Discuss Visualization</a></section>
+
+<Layout
+  title="3D Renderings Service | ATECT Architecture"
+  description="ATECT Architecture 3D rendering services for residential and commercial projects, including interior renderings, exterior renderings, 360 panoramas and architectural animations."
+>
+  <section class="page-hero">
+    <div class="eyebrow">3D Renderings Service</div>
+    <h1>Bring Your Design to Life</h1>
+    <p>3D renderings are a great way to visualize your residential or commercial project. Our renderings will visually help bring your ideas to life.</p>
+  </section>
+
+  <section class="section portfolio-section">
+    <div class="section-heading">
+      <div class="eyebrow">Visualization</div>
+      <h2>Interior Renderings</h2>
+      <p>Explore interior visualization work that shows how materials, finishes, lighting and architectural spaces can come together before construction.</p>
+    </div>
+    <div class="image-grid interior-grid">
+      {interiorRenderings.map((item) => (
+        <figure class="portfolio-card">
+          <img src={item.image} alt={item.title} loading="lazy" />
+          <figcaption>{item.title}</figcaption>
+        </figure>
+      ))}
+    </div>
+  </section>
+
+  <section class="section alt panorama-section">
+    <div class="section-heading centered">
+      <div class="eyebrow">Immersive Visualization</div>
+      <h2>360 Panoramas</h2>
+      <p>Immersive panoramic visualization provides another way to experience a proposed space and understand the design from multiple viewpoints.</p>
+    </div>
+    <div class="panorama-card">
+      <div class="panorama-art"><span>360°</span></div>
+      <div class="panorama-copy">
+        <h3>Experience the Space Before It Is Built</h3>
+        <p>ATECT Architecture can use immersive visualization to help clients understand the character, scale and relationship of a proposed design.</p>
+        <a class="button dark" href="/contact">Ask About 360 Panoramas</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section portfolio-section">
+    <div class="section-heading">
+      <div class="eyebrow">Motion Visualization</div>
+      <h2>Architectural Animations</h2>
+      <p>Architectural animations help communicate how a project looks and feels as the viewer moves through the design.</p>
+    </div>
+    <div class="animation-grid">
+      {animationProjects.map((item) => (
+        <article class="animation-card">
+          <div class="animation-image">
+            <img src={item.image} alt={`${item.title} architectural animation`} loading="lazy" />
+            <div class="play-badge" aria-label={`Play ${item.title} animation`}>▶</div>
+            <span class="duration">{item.duration}</span>
+          </div>
+          <div class="animation-copy">
+            <h3>{item.title}</h3>
+            <p>Architectural animation</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section alt portfolio-section">
+    <div class="section-heading">
+      <div class="eyebrow">Exterior Visualization</div>
+      <h2>Exterior Renderings</h2>
+      <p>Exterior renderings provide a realistic view of proposed homes, additions and commercial projects, helping clients visualize the finished design.</p>
+    </div>
+    <div class="image-grid exterior-grid">
+      {exteriorRenderings.map((image, index) => (
+        <figure class="portfolio-card">
+          <img src={image} alt={`Exterior rendering ${index + 1}`} loading="lazy" />
+        </figure>
+      ))}
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="eyebrow">Start a Conversation</div>
+    <h2>In need of rendering service?</h2>
+    <p>Contact ATECT Architecture today to discuss your residential or commercial visualization needs.</p>
+    <a class="button" href="/contact">Contact Us Today</a>
+  </section>
 </Layout>
-<style is:global>.render-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}.render-grid figure{margin:0;border:1px solid #ddd;background:#fff}.render-grid figure:first-child{grid-column:1/-1}.render-image{aspect-ratio:16/10;background-size:cover;background-position:center}.render-grid figure:not(:first-child) .render-image{aspect-ratio:4/3}.render-grid figcaption{padding:16px 20px;font:600 14px Manrope;letter-spacing:.04em}@media(max-width:800px){.render-grid{grid-template-columns:1fr}.render-grid figure:first-child{grid-column:auto}}</style>
+
+<style>
+  .page-hero{max-width:1100px;margin:0 auto;padding:92px 24px 70px;text-align:center}.page-hero h1{margin:10px auto 18px;max-width:900px}.page-hero p{max-width:780px;margin:0 auto;font-size:18px;line-height:1.8}.section{padding:82px 24px}.portfolio-section{max-width:1240px;margin:0 auto}.alt{background:#f5f4f1;max-width:none}.section-heading{max-width:900px;margin:0 auto 38px}.section-heading.centered{text-align:center}.section-heading h2{margin:8px 0 12px}.section-heading p{line-height:1.8;margin:0;color:#555}.image-grid{display:grid;gap:22px}.interior-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.exterior-grid{grid-template-columns:repeat(3,minmax(0,1fr));max-width:1240px;margin:auto}.portfolio-card{margin:0;background:#fff;border:1px solid #ddd;overflow:hidden}.portfolio-card img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;transition:transform .45s ease}.portfolio-card:hover img{transform:scale(1.025)}.portfolio-card figcaption{padding:16px 18px;font-weight:600;letter-spacing:.02em}.interior-grid .portfolio-card:first-child{grid-column:1/-1}.interior-grid .portfolio-card:first-child img{aspect-ratio:16/8}.panorama-section{padding-left:24px;padding-right:24px}.panorama-card{max-width:1120px;margin:0 auto;background:#fff;display:grid;grid-template-columns:1.2fr 1fr;box-shadow:0 12px 40px rgba(0,0,0,.08)}.panorama-art{min-height:330px;display:grid;place-items:center;background:linear-gradient(135deg,#1c2730,#68747b);position:relative;overflow:hidden}.panorama-art:before,.panorama-art:after{content:"";position:absolute;border:1px solid rgba(255,255,255,.22);border-radius:50%}.panorama-art:before{width:72%;height:72%}.panorama-art:after{width:52%;height:52%}.panorama-art span{position:relative;z-index:1;color:#fff;font-size:52px;font-weight:700;letter-spacing:.08em}.panorama-copy{padding:48px}.panorama-copy h3{font-size:30px;margin:0 0 14px}.panorama-copy p{line-height:1.8;color:#555;margin-bottom:28px}.animation-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}.animation-card{background:#fff;border:1px solid #ddd}.animation-image{position:relative;aspect-ratio:16/9;overflow:hidden;background:#ddd}.animation-image img{width:100%;height:100%;object-fit:cover;display:block}.play-badge{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:54px;height:54px;border-radius:50%;background:rgba(0,0,0,.72);color:#fff;display:grid;place-items:center;font-size:19px;padding-left:3px}.duration{position:absolute;right:10px;bottom:10px;background:rgba(0,0,0,.78);color:#fff;padding:5px 8px;font-size:12px}.animation-copy{padding:15px 16px 18px}.animation-copy h3{margin:0 0 5px;font-size:18px}.animation-copy p{margin:0;color:#777;font-size:14px}.cta-section{text-align:center;padding:92px 24px;background:#111820;color:#fff}.cta-section .eyebrow{color:#d7c8a2}.cta-section h2{margin:10px 0 12px}.cta-section p{max-width:650px;margin:0 auto 28px;line-height:1.8;color:#d9dde0}.cta-section .button{display:inline-block}.button{display:inline-block;padding:14px 22px;text-decoration:none;font-weight:700;border:1px solid currentColor}.button.dark{background:#111820;color:#fff;border-color:#111820}@media(max-width:900px){.animation-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.exterior-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.panorama-card{grid-template-columns:1fr}}@media(max-width:640px){.page-hero{padding:68px 20px 52px}.page-hero p{font-size:16px}.section{padding:58px 20px}.interior-grid,.exterior-grid,.animation-grid{grid-template-columns:1fr}.interior-grid .portfolio-card:first-child{grid-column:auto}.panorama-copy{padding:30px 24px}.panorama-art{min-height:240px}.panorama-art span{font-size:42px}}
+</style>
