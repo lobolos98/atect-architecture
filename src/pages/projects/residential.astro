@@ -1,16 +1,192 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-const projects=[
- {name:"The Lis–Perlis Residence",location:"Chevy Chase",image:"https://atectarchitecture.com/assets/images/image05.jpg?v=5bc6d0ed",text:"A two-phase project: a redesigned front entry followed by a second-story sunroom positioned to capture southern rear views."},
- {name:"The McNeill Residence",location:"White Plains",image:"https://static.wixstatic.com/media/fb4db5_f3b2ed31ce824ac2be3520f031e3eef4~mv2_d_5312_2988_s_4_2.jpeg/v1/fill/w_1400,h_900,al_c,q_90,enc_auto/fb4db5_f3b2ed31ce824ac2be3520f031e3eef4~mv2_d_5312_2988_s_4_2.jpeg",text:"An extensive kitchen extension and redesign with contemporary cabinetry, generous counters, natural light and a formal dining area."},
- {name:"The Mowhawk Drive Residence",location:"Swan Point",image:"https://static.wixstatic.com/media/fb4db5_fc8cf9a2735a487aa19915078017e397~mv2_d_5312_2988_s_4_2.jpeg/v1/fill/w_1400,h_900,al_c,q_90,enc_auto/fb4db5_fc8cf9a2735a487aa19915078017e397~mv2_d_5312_2988_s_4_2.jpeg",text:"A new two-story home with a front porch, spacious screen porch, rear deck and an open floor plan connecting the great room, eating nook and kitchen."},
- {name:"The Anderson Residence",location:"Annapolis",image:"https://static.wixstatic.com/media/fb4db5_fe9b40835e04481ba3d1ab7fbf6d94a9~mv2_d_2979_3929_s_4_2.jpg/v1/fill/w_1400,h_900,al_c,q_90,enc_auto/fb4db5_fe9b40835e04481ba3d1ab7fbf6d94a9~mv2_d_2979_3929_s_4_2.jpg",text:"A new two-story home featuring a prominent two-level entry porch."},
- {name:"The Turner Residence",location:"Upper Marlboro",image:"https://static.wixstatic.com/media/fb4db5_91524b19d9b147ad8499291e67e7d1bf~mv2.jpg/v1/fill/w_1400,h_900,al_c,q_90,enc_auto/fb4db5_91524b19d9b147ad8499291e67e7d1bf~mv2.jpg",text:"A residential project featured in ATECT's construction-photo portfolio."}
+
+const projects = [
+  {
+    name: "THE LIS-PERLIS RESIDENCE - CHEVY CHASE",
+    title: "Perlis Residence",
+    scope: "This was a two phase project. The first phase was a redesigned front entry porch. The second phase was an elevated screened porch addition with an adjacent deck.",
+    images: [
+      "https://static.wixstatic.com/media/c990e5_b1d0bf9223ef44579f87b8d1e69c62cb~mv2_d_3264_2448_s_4_2.jpg",
+      "https://static.wixstatic.com/media/c990e5_ddd7aebdcfa84aae916d42c505c07f3d~mv2_d_3264_2448_s_4_2.jpg",
+      "https://static.wixstatic.com/media/c990e5_d6ff2bf940a44ed38e7a5c67edae4c75~mv2.jpg",
+      "https://static.wixstatic.com/media/c990e5_be4eec20129546278af939646354fa02~mv2.jpg",
+      "https://static.wixstatic.com/media/c990e5_a3374279a46748ea983770a1cc749088~mv2.jpg",
+      "https://static.wixstatic.com/media/c990e5_9388b68aa5ff472c949451e72c687be0~mv2.jpg",
+      "https://static.wixstatic.com/media/c990e5_624f9d5881444a5e918eb3bf93740657~mv2.jpg",
+      "https://static.wixstatic.com/media/c990e5_cf63c74addb74fc79f256c7adf853da4~mv2.jpg"
+    ]
+  },
+  {
+    name: "THE MCNEILL RESIDENCE - WHITE PLAINS",
+    title: "The McNeill Residence",
+    scope: "We opened up the back side of the existing kitchen wall. the removal of the wall allowed us to design a larger kitchen that leads into the new sun-room.",
+    images: [
+      "https://static.wixstatic.com/media/fb4db5_f3b2ed31ce824ac2be3520f031e3eef4~mv2_d_5312_2988_s_4_2.jpeg",
+      "https://static.wixstatic.com/media/fb4db5_f7479d5c60d440e38492b877cf9b0c83~mv2_d_5098_2981_s_4_2.jpeg",
+      "https://static.wixstatic.com/media/fb4db5_fc8cf9a2735a487aa19915078017e397~mv2_d_5312_2988_s_4_2.jpeg",
+      "https://static.wixstatic.com/media/fb4db5_5dc3a057ee8c45c497ab0239f3dad090~mv2_d_3840_2160_s_2.jpeg",
+      "https://static.wixstatic.com/media/fb4db5_211d3940627c42669fe8e0ff0d90c325~mv2_d_5312_2988_s_4_2.jpeg",
+      "https://static.wixstatic.com/media/fb4db5_a2d5b72a659d4ead815be0711161e2fe~mv2_d_2592_1728_s_2.jpg",
+      "https://static.wixstatic.com/media/fb4db5_dd2c2fb5594c4712b112c3b764574b9a~mv2_d_2592_1728_s_2.jpg",
+      "https://static.wixstatic.com/media/fb4db5_4765a4d6cfd84db3bd3215a98be783cb~mv2_d_2592_1728_s_2.jpg",
+      "https://static.wixstatic.com/media/fb4db5_969b4db7482340ab941d985a8455ad19~mv2_d_2592_1728_s_2.jpg",
+      "https://static.wixstatic.com/media/fb4db5_1591ff7e42164b168a9ea6f9659689d1~mv2_d_2592_1728_s_2.jpg",
+      "https://static.wixstatic.com/media/fb4db5_c4045f9f10dd4d169a83014cdf8d25f8~mv2_d_2592_1728_s_2.jpg",
+      "https://static.wixstatic.com/media/fb4db5_d0074f1dd0b64c3ea536a0ab68bc8e89~mv2_d_2592_1728_s_2.jpg",
+      "https://static.wixstatic.com/media/fb4db5_2d371d269d8c41ae94266b94ceddf7a8~mv2_d_2592_1728_s_2.jpg",
+      "https://static.wixstatic.com/media/fb4db5_46029bdeb2604b03838527e4f3c4083e~mv2_d_2592_1728_s_2.jpg",
+      "https://static.wixstatic.com/media/fb4db5_176d7c58a50b4b7aab1088982e3ee166~mv2_d_2592_1728_s_2.jpg",
+      "https://static.wixstatic.com/media/fb4db5_50156ff377434023a47ce7847505aed9~mv2_d_2592_1728_s_2.jpg",
+      "https://static.wixstatic.com/media/fb4db5_9c007008e4934deb85a02d4e1ae28e1f~mv2_d_2592_1728_s_2.jpg",
+      "https://static.wixstatic.com/media/fb4db5_6ee45b223f5c4213b91ca73bc3c70ac9~mv2_d_2592_1728_s_2.jpg",
+      "https://static.wixstatic.com/media/fb4db5_a2a1ecdec9b3476aaa5c4bf50be9f3ff~mv2_d_2592_1728_s_2.jpg"
+    ]
+  },
+  {
+    name: "THE MOWHAWK DRIVE RESIDENCE - SWAN POINT",
+    title: "Mohawk Drive",
+    scope: "A design for a new two story home. the home was designed to include gracious front porch with a generous screen porch and rear deck. The interior boast an open floor plan that connects the great room, eating nook & kitchen.",
+    images: [
+      "https://static.wixstatic.com/media/fb4db5_e45c4cd6898f4773a6ae55e98ba6e492~mv2.jpg",
+      "https://static.wixstatic.com/media/fb4db5_3d2eb8feea23453bac4e60ab10d8822d~mv2.jpg",
+      "https://static.wixstatic.com/media/fb4db5_be33211e265b4ea2b087307b447c56a7~mv2.jpg",
+      "https://static.wixstatic.com/media/fb4db5_dbc5aa62a8cf4616b27eae482d2100c7~mv2.jpg",
+      "https://static.wixstatic.com/media/fb4db5_bf84fb9fe51446c9bf8787d117c68047~mv2.jpg",
+      "https://static.wixstatic.com/media/fb4db5_e37279a7d5a7493b8f08f82ccb08a53f~mv2.jpg",
+      "https://static.wixstatic.com/media/fb4db5_4fae44ab3d6744d2b66248db040e9c8a~mv2.jpg",
+      "https://static.wixstatic.com/media/fb4db5_4d52da410a7f4de58a2ae1705916e0a9~mv2.jpg",
+      "https://static.wixstatic.com/media/fb4db5_78010a45ebc04a7bab970fb27b9dc3c0~mv2_d_2592_1728_s_2.jpg",
+      "https://static.wixstatic.com/media/fb4db5_16fee5d1aa6d4fa6a93240e5851a13ec~mv2_d_2592_1728_s_2.jpg",
+      "https://static.wixstatic.com/media/fb4db5_25bb45053c474ed9acc813b0855eb965~mv2_d_2592_1728_s_2.jpg",
+      "https://static.wixstatic.com/media/fb4db5_dd446e5d9bdf4e5e8de42efc8d2806b1~mv2_d_2592_1728_s_2.jpg",
+      "https://static.wixstatic.com/media/fb4db5_1b6c7c5c341d4419a197dddaf0330f79~mv2_d_2592_1728_s_2.jpg",
+      "https://static.wixstatic.com/media/fb4db5_b91bd1dfb76946a88c5b0b7b1d6b9e50~mv2_d_2592_1728_s_2.jpg",
+      "https://static.wixstatic.com/media/fb4db5_ffe9e3f26d244277a9752f15a072822d~mv2_d_2592_1728_s_2.jpg"
+    ]
+  },
+  {
+    name: "THE ANDERSON RESIDENCE -ANNAPOLIS",
+    title: "The Anderson Residence",
+    location: "Annapolis,MD",
+    scope: "A new two story home with a majestic two level entry porch.",
+    images: [
+      "https://static.wixstatic.com/media/fb4db5_fe9b40835e04481ba3d1ab7fbf6d94a9~mv2_d_2979_3929_s_4_2.jpg",
+      "https://static.wixstatic.com/media/fb4db5_f8fb996f70464881bb544a6166ed96a6~mv2_d_7200_4800_s_4_2.jpg",
+      "https://static.wixstatic.com/media/fb4db5_81c4581e645e47428bc2e79cbb5f9276~mv2_d_7200_4800_s_4_2.jpg",
+      "https://static.wixstatic.com/media/fb4db5_a800fb41a00e4bbd918598fbbb0bdfae~mv2_d_7200_4800_s_4_2.jpg",
+      "https://static.wixstatic.com/media/fb4db5_a5a465f6ae73496ab58ba4880644b0b6~mv2_d_7200_4800_s_4_2.jpg",
+      "https://static.wixstatic.com/media/fb4db5_c709006a850943d8bb5bc3b31335b2a6~mv2_d_7200_4800_s_4_2.jpg",
+      "https://static.wixstatic.com/media/fb4db5_fd9e57da3a0c44c38221ac93efe223ef~mv2_d_7200_4800_s_4_2.jpg",
+      "https://static.wixstatic.com/media/fb4db5_cd6c2d5dae4c4edba2cba7b9c0771927~mv2_d_7200_4800_s_4_2.jpg",
+      "https://static.wixstatic.com/media/fb4db5_c72f6f49aef344279282ceac7f927337~mv2_d_7200_4800_s_4_2.jpg",
+      "https://static.wixstatic.com/media/fb4db5_ad97a26b5b81428aa0e7939a4e07f631~mv2_d_7200_4800_s_4_2.jpg",
+      "https://static.wixstatic.com/media/fb4db5_dcbbb6ec19a445c3bf135a4a888c8cf6~mv2_d_7200_4800_s_4_2.jpg",
+      "https://static.wixstatic.com/media/fb4db5_b20f40848b31436bb3ecc0a5393b2b71~mv2_d_7200_4800_s_4_2.jpg",
+      "https://static.wixstatic.com/media/fb4db5_865ba371699c4f219297b705fa929544~mv2_d_7200_4800_s_4_2.jpg",
+      "https://static.wixstatic.com/media/fb4db5_80914f0bd01d49889f248b3a8d78296c~mv2_d_7200_4800_s_4_2.jpg",
+      "https://static.wixstatic.com/media/fb4db5_9772f59969334832aeaeca6b18e1b621~mv2_d_7200_4800_s_4_2.jpg",
+      "https://static.wixstatic.com/media/fb4db5_cf045543527140d7ac472576044663f2~mv2_d_7200_4800_s_4_2.jpg",
+      "https://static.wixstatic.com/media/fb4db5_48b7572806884ff9b41ce76c422f41bd~mv2_d_7200_4800_s_4_2.jpg",
+      "https://static.wixstatic.com/media/fb4db5_95891238e84f4cdcb061b746aa79451b~mv2_d_7200_4800_s_4_2.jpg",
+      "https://static.wixstatic.com/media/fb4db5_2ed8bbc0066344939bea76b12bb8ec65~mv2_d_7200_4800_s_4_2.jpg",
+      "https://static.wixstatic.com/media/fb4db5_f14386d5e475484da560aa51313f5678~mv2_d_7200_4800_s_4_2.jpg",
+      "https://static.wixstatic.com/media/fb4db5_c5638c8a92c84fc781d368e0d44b71bc~mv2_d_7200_4800_s_4_2.jpg",
+      "https://static.wixstatic.com/media/fb4db5_bb19c09f6e3d4fe083ba95b42d91340c~mv2_d_7200_4800_s_4_2.jpg",
+      "https://static.wixstatic.com/media/fb4db5_2159d7f0e3b94366819b732aa2705180~mv2_d_7200_4800_s_4_2.jpg",
+      "https://static.wixstatic.com/media/fb4db5_463a4502a3614a6390f4c268d2bf1a79~mv2_d_7200_4800_s_4_2.jpg"
+    ]
+  },
+  {
+    name: "THE TROTT RESIDENCE - UPPER MARLBORO",
+    title: "The Trott Residence",
+    scope: "We added an enclosed sun-room to the existing second story deck. The area under the sun-room was enclosed to create a screened room.",
+    images: [
+      "https://static.wixstatic.com/media/fb4db5_1f2604af39414cf79fc45a0337aac823~mv2.jpeg",
+      "https://static.wixstatic.com/media/fb4db5_b7d3ffe0525d44adac8d5be872101bc6~mv2_d_1200_1600_s_2.jpeg",
+      "https://static.wixstatic.com/media/fb4db5_0cd2fd5f88344c8e88009b8514b37474~mv2_d_1536_2048_s_2.jpeg",
+      "https://static.wixstatic.com/media/fb4db5_6bf1414df4334d1bb11b607294defda5~mv2_d_2592_1728_s_2.jpg",
+      "https://static.wixstatic.com/media/fb4db5_7762d93ee5534ebe9ad101798701d73e~mv2_d_2592_1728_s_2.jpg",
+      "https://static.wixstatic.com/media/fb4db5_9c730427288c42e6979cb44086572e9a~mv2_d_2592_1728_s_2.jpg"
+    ]
+  }
 ];
 ---
-<Layout title="Residential Projects | ATECT Architecture" description="Selected residential architecture projects by ATECT Architecture in Maryland and the DC area.">
-<section class="page-hero"><div class="eyebrow">Residential Projects</div><h1>Homes designed around the way people live.</h1><p>Selected ATECT residential projects, including additions, renovations and new-home design.</p></section>
-<section class="section"><div class="res-grid">{projects.map(project=><article><div class="image" style={`background-image:url('${project.image}')`} role="img" aria-label={`${project.name} project image`}></div><div class="copy"><div class="eyebrow">{project.location}</div><h2>{project.name}</h2><p>{project.text}</p></div></article>)}</div></section>
-<section class="section alt"><a class="button dark" href="/contact">Start a Residential Project</a></section>
+
+<Layout title="Residential Projects | ATECT Architecture" description="Residential architecture projects by ATECT Architecture in Maryland, Washington DC and Virginia.">
+  <main>
+    <section class="page-hero residential-hero">
+      <div class="eyebrow">Residential Projects</div>
+      <h1>Our Residential Work</h1>
+      <p>Explore the residential projects of ATECT Architecture, including renovations, additions and new-home design throughout Maryland and the Washington, DC area.</p>
+    </section>
+
+    <section class="projects-wrap" aria-label="Residential project galleries">
+      {projects.map((project, projectIndex) => (
+        <article class="project-section">
+          <div class="project-heading">
+            <div>
+              <span class="project-number">{String(projectIndex + 1).padStart(2, "0")}</span>
+              <h2>{project.name}</h2>
+              {project.location && <p class="location">{project.location}</p>}
+            </div>
+          </div>
+
+          <div class="gallery">
+            {project.images.map((image, imageIndex) => (
+              <a class="gallery-item" href={image} target="_blank" rel="noreferrer" aria-label={`View ${project.title} image ${imageIndex + 1}`}>
+                <img src={image} alt={`${project.title} — project image ${imageIndex + 1}`} loading={projectIndex === 0 && imageIndex < 3 ? "eager" : "lazy"} />
+              </a>
+            ))}
+          </div>
+
+          <div class="scope">
+            <div class="eyebrow">Scope of Work:</div>
+            <p>{project.scope}</p>
+          </div>
+        </article>
+      ))}
+    </section>
+
+    <section class="cta-section">
+      <div class="eyebrow">Start a Conversation</div>
+      <h2>Love what you see?</h2>
+      <p>Get in touch today and let’s see what we can build together.</p>
+      <a class="button" href="/contact">Contact Us Today</a>
+    </section>
+  </main>
 </Layout>
-<style is:global>.res-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}.res-grid article{border:1px solid #ddd;background:#fff}.res-grid article:first-child{grid-column:1/-1;display:grid;grid-template-columns:1.35fr .65fr}.image{aspect-ratio:4/3;background-size:cover;background-position:center}.res-grid article:first-child .image{aspect-ratio:auto;min-height:420px}.copy{padding:28px}.copy h2{font:600 clamp(26px,3vw,40px)/1.08 Manrope;margin:0 0 12px}.copy p{color:#555;line-height:1.7}@media(max-width:800px){.res-grid{grid-template-columns:1fr}.res-grid article:first-child{grid-column:auto;display:block}.res-grid article:first-child .image{min-height:0;aspect-ratio:4/3}}</style>
+
+<style>
+  .residential-hero { max-width: 980px; }
+  .residential-hero p { max-width: 760px; margin-inline: auto; }
+  .projects-wrap { width: min(1400px, calc(100% - 40px)); margin: 0 auto; }
+  .project-section { padding: 80px 0 92px; border-top: 1px solid #e5e7eb; }
+  .project-section:first-child { border-top: 0; padding-top: 30px; }
+  .project-heading { display: flex; justify-content: center; text-align: center; margin-bottom: 34px; }
+  .project-number { display: block; font-size: 12px; letter-spacing: .2em; color: #777; margin-bottom: 10px; }
+  .project-heading h2 { margin: 0; font-size: clamp(28px, 4vw, 46px); line-height: 1.08; letter-spacing: -.02em; }
+  .location { margin: 10px 0 0; color: #666; font-size: 15px; }
+  .gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+  .gallery-item { display: block; overflow: hidden; background: #f2f2f2; aspect-ratio: 4 / 3; }
+  .gallery-item:nth-child(3n + 1) { aspect-ratio: 4 / 3; }
+  .gallery-item img { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform .45s ease; }
+  .gallery-item:hover img, .gallery-item:focus-visible img { transform: scale(1.035); }
+  .scope { max-width: 860px; margin: 38px auto 0; text-align: center; padding: 30px 34px; background: #f7f7f5; }
+  .scope .eyebrow { font-size: 12px; letter-spacing: .15em; margin-bottom: 10px; }
+  .scope p { margin: 0; color: #4b4b4b; font-size: 17px; line-height: 1.75; }
+  .cta-section { text-align: center; padding: 110px 24px; background: #f4f4f2; }
+  .cta-section h2 { margin: 8px 0 14px; font-size: clamp(34px, 5vw, 58px); }
+  .cta-section p { max-width: 650px; margin: 0 auto 28px; color: #555; font-size: 18px; line-height: 1.7; }
+  .button { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 24px; text-decoration: none; border: 1px solid currentColor; }
+  @media (max-width: 900px) { .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 600px) {
+    .projects-wrap { width: min(100% - 24px, 1400px); }
+    .project-section { padding: 58px 0 68px; }
+    .gallery { grid-template-columns: 1fr; gap: 10px; }
+    .gallery-item { aspect-ratio: 4 / 3; }
+    .scope { padding: 24px 18px; margin-top: 26px; }
+    .scope p { font-size: 16px; }
+    .cta-section { padding: 78px 18px; }
+  }
+</style>
