@@ -11,11 +11,11 @@ const slideshow = [
   { image: "https://static.wixstatic.com/media/9aae58f8cb39c0432380467cfa4e74eb.jpg/v1/fill/w_1600,h_1000,al_c,q_90,enc_auto/9aae58f8cb39c0432380467cfa4e74eb.jpg", alt: "Blueprint Design" }
 ];
 
-const projects = [
-  { name: "Anderson Residence", type: "Residential Architecture", image: slideshow[3].image },
-  { name: "McNeill Residence", type: "Residential Architecture", image: slideshow[1].image },
-  { name: "Turner Residence", type: "Residential Architecture", image: slideshow[2].image },
-  { name: "Mariner Finance", type: "Commercial Design & Construction Documents", image: slideshow[0].image }
+const constructionPhotos = [
+  { image: slideshow[3].image, alt: "Prairie View Residence construction photo" },
+  { image: slideshow[4].image, alt: "Dunk Residence construction photo" },
+  { image: slideshow[5].image, alt: "Eco Interior construction photo" },
+  { image: slideshow[6].image, alt: "Blueprint Design construction photo" }
 ];
 ---
 
@@ -47,17 +47,16 @@ const projects = [
     </div>
   </section>
 
-  <section class="section">
+  <section class="section construction-section">
     <div class="section-head">
-      <div><div class="eyebrow">Selected Work</div><h2>Real ATECT projects.</h2></div>
-      <p class="section-intro">Selected residential and commercial work from the ATECT portfolio.</p>
+      <div><div class="eyebrow">Portfolio</div><h2>Project Construction Photos</h2></div>
+      <p class="section-intro">A selection of ATECT project images showing design concepts and project development.</p>
     </div>
-    <div class="grid">
-      {projects.map((project) => (
-        <a class="card" href="/projects">
-          <div class="project-image" style={`background-image:url('${project.image}')`} role="img" aria-label={`${project.name} project image`}></div>
-          <div class="project-copy"><h3>{project.name}</h3><p>{project.type}</p><span class="project-link">View project work →</span></div>
-        </a>
+    <div class="construction-grid">
+      {constructionPhotos.map((photo) => (
+        <div class="construction-photo">
+          <img src={photo.image} alt={photo.alt} loading="lazy" />
+        </div>
       ))}
     </div>
   </section>
@@ -123,9 +122,14 @@ const projects = [
   .slider-dot{width:28px;height:3px;padding:0;border:0;background:rgba(255,255,255,.45);cursor:pointer;transition:width .25s ease,background .25s ease}
   .slider-dot.active{width:48px;background:#fff}
   .intro-section{padding-top:70px;padding-bottom:70px}
-  .project-link,.service span{display:inline-block;margin-top:16px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+  .construction-section{padding-top:70px;padding-bottom:90px}
+  .construction-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+  .construction-photo{overflow:hidden;background:#eee;aspect-ratio:16/10}
+  .construction-photo img{width:100%;height:100%;display:block;object-fit:cover;transition:transform .5s ease}
+  .construction-photo:hover img{transform:scale(1.025)}
   .service{display:block}
+  .service span{display:inline-block;margin-top:16px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
   .cta-section{background:#f5f5f2}
-  @media(max-width:800px){.hero-slider{height:78vh;min-height:540px}.hero-content{left:24px;right:24px;bottom:70px}.hero-content h1{font-size:clamp(44px,13vw,70px)}.slider-dots{left:24px;bottom:25px}.hero-overlay{background:linear-gradient(90deg,rgba(0,0,0,.65),rgba(0,0,0,.2))}}
-  @media(prefers-reduced-motion:reduce){.hero-slide{transition:none}}
+  @media(max-width:800px){.hero-slider{height:78vh;min-height:540px}.hero-content{left:24px;right:24px;bottom:70px}.hero-content h1{font-size:clamp(44px,13vw,70px)}.slider-dots{left:24px;bottom:25px}.hero-overlay{background:linear-gradient(90deg,rgba(0,0,0,.65),rgba(0,0,0,.2))}.construction-grid{grid-template-columns:1fr}}
+  @media(prefers-reduced-motion:reduce){.hero-slide{transition:none}.construction-photo img{transition:none}}
 </style>
