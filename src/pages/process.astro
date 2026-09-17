@@ -1,15 +1,118 @@
 ---
 import Layout from "../layouts/Layout.astro";
-const steps=[
- ["01","Consultation","We learn about the property, goals, priorities and the scope you are considering."],
- ["02","Concept Design","We explore the design direction, organization and major decisions that shape the project."],
- ["03","Design Development","The selected concept is refined through plans, elevations, materials and three-dimensional studies as appropriate."],
- ["04","Construction Documents","The design is translated into coordinated architectural documentation for permitting, pricing and construction."],
- ["05","Permitting & Construction","The completed documents provide a clear basis for the next phase of the project, including permitting and construction coordination as contracted."]
+
+const steps = [
+  { number: "01", title: "Discover", text: "We start by understanding your property, goals, priorities, budget considerations and the scope you are considering.", items: ["Initial consultation", "Project goals and priorities", "Property and existing-condition review", "Project scope and next steps"] },
+  { number: "02", title: "Design", text: "We translate the project needs into a design direction, developing the layout, form and details around how the project needs to work.", items: ["Concept development", "Floor-plan planning", "Exterior design direction", "Options, revisions and design decisions"] },
+  { number: "03", title: "Document", text: "The selected design is developed into coordinated architectural drawings that can support pricing, permitting and construction.", items: ["Plans and elevations", "Architectural details", "Construction-document sets", "Code and ADA coordination as applicable"] },
+  { number: "04", title: "Approve", text: "When permitting is part of the scope, we help move the documentation through the approval process and respond to required revisions.", items: ["Permit documentation", "Agency coordination", "Plan-review responses", "Required revisions"] },
+  { number: "05", title: "Build", text: "Once the project moves toward construction, ATECT can provide design and documentation support as needed and contracted.", items: ["Builder and contractor coordination", "Design clarification", "Documentation support", "Construction-phase design assistance"] }
 ];
 ---
-<Layout title="Architecture Design Process | ATECT Architecture" description="Understand the ATECT Architecture process from consultation and concept design through construction documents.">
-<section class="page-hero"><div class="eyebrow">Process</div><h1>A clear path from concept to documents.</h1><p>Every project is different, but a structured process helps keep design decisions understandable and the next step clear.</p></section>
-<section class="section"><div class="process-list">{steps.map(step=><article class="process-step"><div class="number">{step[0]}</div><div><h2>{step[1]}</h2><p>{step[2]}</p></div></article>)}</div><a class="button dark" href="/contact">Start a Conversation</a></section>
+
+<Layout title="Architecture Design Process | ATECT Architecture" description="Explore the ATECT Architecture process from discovery and design through construction documents, permitting and construction support.">
+  <section class="page-hero">
+    <div class="eyebrow">Process</div>
+    <h1>A clear path from concept to construction.</h1>
+    <p>ATECT guides projects through discovery, design, documentation and the next phase—while adapting the process to the needs of each project.</p>
+  </section>
+
+  <section class="section process-section">
+    <div class="process-flow" aria-label="Project process">
+      {steps.map((step, index) => (
+        <div class="flow-item">
+          <span class="flow-number">{step.number}</span>
+          <span class="flow-title">{step.title}</span>
+          {index < steps.length - 1 && <span class="flow-arrow" aria-hidden="true">→</span>}
+        </div>
+      ))}
+    </div>
+
+    <div class="process-list">
+      {steps.map((step) => (
+        <article class="process-step">
+          <div class="number">{step.number}</div>
+          <div class="step-content">
+            <h2>{step.title}</h2>
+            <p class="step-intro">{step.text}</p>
+            <ul>
+              {step.items.map((item) => <li>{item}</li>)}
+            </ul>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section fit-section">
+    <div class="fit-copy">
+      <div class="eyebrow">Flexible by Design</div>
+      <h2>Every project starts somewhere different.</h2>
+      <p>ATECT can join a project during early planning, design development, construction documentation, permitting, or when additional design and drafting support is needed.</p>
+    </div>
+    <div class="fit-card">
+      <span>Project stages can include</span>
+      <strong>Planning · Design · Documentation · Permitting · Construction Support</strong>
+    </div>
+  </section>
+
+  <section class="section process-cta">
+    <div>
+      <div class="eyebrow">Start a Conversation</div>
+      <h2>Have a project in mind?</h2>
+      <p>Let's discuss where you are in the process and what kind of design support you need.</p>
+    </div>
+    <a class="button dark" href="/contact">Start a Conversation</a>
+  </section>
 </Layout>
-<style is:global>.process-list{border-top:1px solid #ddd}.process-step{display:grid;grid-template-columns:110px 1fr;gap:30px;padding:42px 0;border-bottom:1px solid #ddd}.number{font:600 15px Manrope;color:#888}.process-step h2{font:600 clamp(30px,4vw,52px)/1.05 Manrope;margin:0 0 10px}.process-step p{max-width:720px;color:#555;font-size:17px;margin:0}</style>
+
+<style is="global">
+  .process-section{padding-top:64px}
+  .process-flow{display:flex;align-items:center;border-top:1px solid #d8d5cf;border-bottom:1px solid #d8d5cf;margin-bottom:70px}
+  .flow-item{position:relative;display:flex;align-items:center;gap:12px;flex:1;padding:20px 24px 20px 0;min-width:0}
+  .flow-item:not(:first-child){padding-left:24px}
+  .flow-number{font:600 12px Manrope;color:#888;letter-spacing:.08em}
+  .flow-title{font:600 16px Manrope;white-space:nowrap}
+  .flow-arrow{margin-left:auto;color:#aaa;font-size:22px}
+  .process-list{border-top:1px solid #d8d5cf}
+  .process-step{display:grid;grid-template-columns:80px minmax(0,900px);gap:clamp(24px,5vw,70px);padding:58px 0;border-bottom:1px solid #d8d5cf}
+  .number{font:600 15px Manrope;color:#888;padding-top:8px}
+  .step-content h2{font:600 clamp(34px,4.5vw,58px)/1.05 Manrope;margin:0 0 16px;letter-spacing:-.03em}
+  .step-intro{max-width:780px;color:#555;font-size:18px;line-height:1.75;margin:0 0 26px}
+  .step-content ul{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 36px;max-width:820px;margin:0;padding:0;list-style:none}
+  .step-content li{border-top:1px solid #e4e1dc;padding:11px 0;color:#333;font-size:15px;line-height:1.5}
+  .step-content li::before{content:"— ";color:#999}
+  .fit-section{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(280px,.75fr);gap:clamp(40px,7vw,100px);align-items:center;background:#f3f1ec}
+  .fit-copy h2,.process-cta h2{font:600 clamp(34px,4.5vw,58px)/1.05 Manrope;margin:0 0 18px;letter-spacing:-.03em}
+  .fit-copy p{max-width:760px;color:#555;font-size:18px;line-height:1.75;margin:0}
+  .fit-card{background:#fff;padding:32px;border-top:3px solid #111}
+  .fit-card span{display:block;font:600 12px Manrope;color:#888;letter-spacing:.08em;text-transform:uppercase;margin-bottom:18px}
+  .fit-card strong{font:600 21px/1.45 Manrope;color:#111}
+  .process-cta{display:flex;justify-content:space-between;align-items:center;gap:40px;background:#111;color:#fff}
+  .process-cta .eyebrow{color:#aaa}
+  .process-cta h2{margin-bottom:12px}
+  .process-cta p{color:#ccc;font-size:17px;line-height:1.7;margin:0;max-width:650px}
+  .process-cta .button{flex:0 0 auto;background:#fff;color:#111;border-color:#fff}
+  .process-cta .button:hover{background:transparent;color:#fff}
+  @media(max-width:900px){
+    .process-flow{overflow-x:auto}
+    .flow-item{flex:0 0 auto;min-width:145px}
+    .flow-arrow{margin-left:8px}
+    .fit-section{grid-template-columns:1fr}
+  }
+  @media(max-width:700px){
+    .process-section{padding-top:50px}
+    .process-flow{margin-bottom:50px}
+    .flow-item{min-width:135px;padding-right:18px}
+    .flow-item:not(:first-child){padding-left:18px}
+    .flow-title{font-size:14px}
+    .process-step{grid-template-columns:42px minmax(0,1fr);gap:12px;padding:42px 0}
+    .step-content h2{font-size:34px}
+    .step-intro{font-size:16px}
+    .step-content ul{grid-template-columns:1fr}
+  }
+  @media(max-width:600px){
+    .fit-card{padding:26px}
+    .process-cta{align-items:flex-start;flex-direction:column}
+  }
+</style>
