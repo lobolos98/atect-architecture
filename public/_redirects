@@ -1,0 +1,2 @@
+# Keep the FormSubmit success URL compatible with Cloudflare Pages' directory routing.
+/contact/success /contact/success/ 301
