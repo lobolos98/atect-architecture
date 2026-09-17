@@ -95,11 +95,7 @@ body:has(.projects) .hero{min-height:0;display:block;padding:46px clamp(24px,7vw
 body:has(.projects) .hero .eyebrow{margin-bottom:10px;color:var(--ink)}
 body:has(.projects) .hero h1{font:600 clamp(46px,7vw,78px)/.95 Manrope;letter-spacing:-.05em;max-width:900px;margin:0;color:var(--ink)}
 body:has(.projects) .hero p{max-width:760px;margin:14px 0 0;font-size:17px;line-height:1.55;color:var(--muted)}
-.contact-cta,.process-cta,.project-cta,.cta-section{background:var(--cta)!important;color:var(--ink)!important}
-.contact-cta h2,.process-cta h2,.project-cta h2,.cta-section h2{color:var(--ink)}
-.contact-cta p,.process-cta p,.project-cta p,.cta-section p{color:#555b5e}
-.contact-cta .eyebrow,.process-cta .eyebrow,.project-cta .eyebrow,.cta-section .eyebrow{color:#666d70}
-.contact-cta .button,.process-cta .button,.project-cta .button,.cta-section .button{background:#1f2428;color:#fff}
+.contact-cta,.process-cta,.project-cta,.cta-section{background:var(--cta)!important;color:var(--ink)!important}.contact-cta h2,.process-cta h2,.project-cta h2,.cta-section h2{color:var(--ink)}.contact-cta p,.process-cta p,.project-cta p,.cta-section p{color:#555b5e}.contact-cta .eyebrow,.process-cta .eyebrow,.project-cta .eyebrow,.cta-section .eyebrow{color:#666d70}.contact-cta .button,.process-cta .button,.project-cta .button,.cta-section .button{background:#1f2428;color:#fff}
 .thumbs{display:flex!important;flex-wrap:nowrap!important;justify-content:flex-start!important;overflow-x:auto!important;overflow-y:hidden!important;gap:10px!important;padding:0 4px 6px!important;scrollbar-width:none;-webkit-overflow-scrolling:touch}.thumbs::-webkit-scrollbar{display:none}.thumbs button{flex:0 0 88px!important;width:88px!important}.thumbs button.active{border-color:#111}
 @media(max-width:1000px){.nav{gap:14px}.nav a:nth-child(5){display:none}}@media(max-width:800px){.site-header{min-height:72px}.menu-toggle{display:block}.nav{display:none;position:absolute;top:72px;left:0;right:0;background:#fff;border-bottom:1px solid #ddd;padding:18px 24px;flex-direction:column;align-items:stretch;gap:0}.nav.open{display:flex}.nav a{padding:14px 0}.nav a:nth-child(5){display:block}.nav-cta{padding:14px!important;text-align:center}.grid,.contact-grid,.feature,.service-grid,.stat-grid{grid-template-columns:1fr}.project-large{grid-column:auto}.site-footer{grid-template-columns:1fr}.footer-bottom{grid-column:auto}.hero{min-height:78vh;padding:32px 24px 60px}.section{padding:70px 24px}.section-head{display:block}.section-intro{margin-top:20px}.page-hero{padding:48px 24px 40px}.page-hero h1{font-size:clamp(42px,11vw,68px)}.page-hero p{font-size:16px;margin-top:14px}.prose{padding:60px 24px}}
 @media(max-width:900px){.thumbs{gap:8px!important}.thumbs button{flex-basis:76px!important;width:76px!important;height:57px!important}body:has(.projects) .hero{padding:38px 24px 30px}body:has(.projects) .hero h1{font-size:clamp(42px,11vw,68px)}body:has(.projects) .hero p{font-size:16px;margin-top:12px}}
@@ -107,120 +103,24 @@ body:has(.projects) .hero p{max-width:760px;margin:14px 0 0;font-size:17px;line-
 </style>
 
 <style is:global>
-/* Mobile construction gallery: replace the cramped horizontal accordion with a clean vertical portfolio. */
+/* Mobile construction gallery: vertical portfolio cards with clear images and text below. */
 @media(max-width:800px){
   .construction-section .construction-accordion{display:block!important;height:auto!important;min-height:0!important;max-height:none!important;overflow:visible!important}
   .construction-section .construction-panel,
   .construction-section .construction-panel:hover,
   .construction-section .construction-panel:focus-visible,
-  .construction-section .construction-panel.active{
-    display:block!important;
-    position:relative!important;
-    width:100%!important;
-    height:auto!important;
-    min-height:0!important;
-    margin:0 0 26px!important;
-    padding:0!important;
-    flex:none!important;
-    overflow:visible!important;
-    background:#fff!important;
-    box-shadow:none!important;
-    outline:none;
-    transform:none!important;
-  }
+  .construction-section .construction-panel.active{display:block!important;position:relative!important;width:100%!important;height:auto!important;min-height:0!important;margin:0 0 26px!important;padding:0!important;flex:none!important;overflow:visible!important;background:#fff!important;box-shadow:none!important;outline:none;transform:none!important}
   .construction-section .construction-panel:last-child{margin-bottom:0!important}
   .construction-section .construction-panel img,
   .construction-section .construction-panel:hover img,
   .construction-section .construction-panel:focus-visible img,
-  .construction-section .construction-panel.active img{
-    position:relative!important;
-    inset:auto!important;
-    width:100%!important;
-    height:auto!important;
-    min-height:0!important;
-    aspect-ratio:16/10!important;
-    object-fit:cover!important;
-    object-position:center!important;
-    display:block!important;
-    transform:none!important;
-    background:#f0f0ed!important;
-  }
+  .construction-section .construction-panel.active img{position:relative!important;inset:auto!important;width:100%!important;height:auto!important;min-height:0!important;aspect-ratio:16/10!important;object-fit:cover!important;object-position:center!important;display:block!important;transform:none!important;background:#f0f0ed!important}
   .construction-section .construction-panel:first-child img{aspect-ratio:4/3!important}
-  .construction-section .panel-shade,
-  .construction-section .construction-panel:hover .panel-shade,
-  .construction-section .construction-panel:focus-visible .panel-shade,
-  .construction-section .construction-panel.active .panel-shade{
-    position:absolute!important;
-    left:0!important;
-    right:0!important;
-    top:0!important;
-    height:100%!important;
-    background:linear-gradient(180deg,rgba(0,0,0,0) 48%,rgba(0,0,0,.62))!important;
-    opacity:1!important;
-    pointer-events:none!important;
-  }
-  .construction-section .panel-copy,
-  .construction-section .construction-panel:hover .panel-copy,
-  .construction-section .construction-panel:focus-visible .panel-copy,
-  .construction-section .construction-panel.active .panel-copy{
-    position:relative!important;
-    left:auto!important;
-    right:auto!important;
-    bottom:auto!important;
-    padding:15px 2px 0!important;
-    color:#111!important;
-    display:flex!important;
-    flex-direction:column!important;
-    align-items:flex-start!important;
-    gap:6px!important;
-    text-shadow:none!important;
-    pointer-events:auto!important;
-    transform:none!important;
-  }
-  .construction-section .panel-label,
-  .construction-section .construction-panel:hover .panel-label,
-  .construction-section .construction-panel:focus-visible .panel-label,
-  .construction-section .construction-panel.active .panel-label{
-    font:600 13px/1.3 Manrope!important;
-    letter-spacing:.06em!important;
-    text-transform:uppercase!important;
-    color:#111!important;
-    opacity:1!important;
-    transform:none!important;
-  }
-  .construction-section .panel-description,
-  .construction-section .construction-panel:hover .panel-description,
-  .construction-section .construction-panel:focus-visible .panel-description,
-  .construction-section .construction-panel.active .panel-description{
-    max-width:none!important;
-    font:400 14px/1.65 Manrope!important;
-    letter-spacing:0!important;
-    text-transform:none!important;
-    color:#666!important;
-    opacity:1!important;
-    transform:none!important;
-  }
+  .construction-section .panel-shade,.construction-section .construction-panel:hover .panel-shade,.construction-section .construction-panel:focus-visible .panel-shade,.construction-section .construction-panel.active .panel-shade{display:none!important}
+  .construction-section .panel-copy,.construction-section .construction-panel:hover .panel-copy,.construction-section .construction-panel:focus-visible .panel-copy,.construction-section .construction-panel.active .panel-copy{position:relative!important;left:auto!important;right:auto!important;bottom:auto!important;padding:15px 2px 0!important;color:#111!important;display:flex!important;flex-direction:column!important;align-items:flex-start!important;gap:6px!important;text-shadow:none!important;pointer-events:auto!important;transform:none!important}
+  .construction-section .panel-label,.construction-section .construction-panel:hover .panel-label,.construction-section .construction-panel:focus-visible .panel-label,.construction-section .construction-panel.active .panel-label{font:600 13px/1.3 Manrope!important;letter-spacing:.06em!important;text-transform:uppercase!important;color:#111!important;opacity:1!important;transform:none!important}
+  .construction-section .panel-description,.construction-section .construction-panel:hover .panel-description,.construction-section .construction-panel:focus-visible .panel-description,.construction-section .construction-panel.active .panel-description{max-width:none!important;font:400 14px/1.65 Manrope!important;letter-spacing:0!important;text-transform:none!important;color:#666!important;opacity:1!important;transform:none!important}
   .construction-section .construction-panel:focus-visible{outline:2px solid #111!important;outline-offset:3px!important}
 }
-@media(max-width:480px){
-  .construction-section{padding-left:20px!important;padding-right:20px!important}
-  .construction-section .section-head{margin-bottom:24px!important}
-  .construction-section .construction-panel{margin-bottom:30px!important}
-  .construction-section .construction-panel img,
-  .construction-section .construction-panel:hover img,
-  .construction-section .construction-panel:focus-visible img,
-  .construction-section .construction-panel.active img{aspect-ratio:4/3!important}
-  .construction-section .panel-copy,
-  .construction-section .construction-panel:hover .panel-copy,
-  .construction-section .construction-panel:focus-visible .panel-copy,
-  .construction-section .construction-panel.active .panel-copy{padding-top:14px!important}
-  .construction-section .panel-label,
-  .construction-section .construction-panel:hover .panel-label,
-  .construction-section .construction-panel:focus-visible .panel-label,
-  .construction-section .construction-panel.active .panel-label{font-size:12px!important}
-  .construction-section .panel-description,
-  .construction-section .construction-panel:hover .panel-description,
-  .construction-section .construction-panel:focus-visible .panel-description,
-  .construction-section .construction-panel.active .panel-description{font-size:14px!important;line-height:1.6!important}
-}
+@media(max-width:480px){.construction-section{padding-left:20px!important;padding-right:20px!important}.construction-section .section-head{margin-bottom:24px!important}.construction-section .construction-panel{margin-bottom:30px!important}.construction-section .construction-panel img,.construction-section .construction-panel:hover img,.construction-section .construction-panel:focus-visible img,.construction-section .construction-panel.active img{aspect-ratio:4/3!important}.construction-section .panel-copy,.construction-section .construction-panel:hover .panel-copy,.construction-section .construction-panel:focus-visible .panel-copy,.construction-section .construction-panel.active .panel-copy{padding-top:14px!important}.construction-section .panel-label,.construction-section .construction-panel:hover .panel-label,.construction-section .construction-panel:focus-visible .panel-label,.construction-section .construction-panel.active .panel-label{font-size:12px!important}.construction-section .panel-description,.construction-section .construction-panel:hover .panel-description,.construction-section .construction-panel:focus-visible .panel-description,.construction-section .construction-panel.active .panel-description{font-size:14px!important;line-height:1.6!important}}
 </style>
