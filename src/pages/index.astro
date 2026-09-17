@@ -17,7 +17,7 @@ const constructionPhotos = [
   { image: "https://static.wixstatic.com/media/fb4db5_fc8cf9a2735a487aa19915078017e397~mv2_d_5312_2988_s_4_2.jpeg/v1/fill/w_1600,h_900,al_c,q_90,enc_auto/fb4db5_fc8cf9a2735a487aa19915078017e397~mv2_d_5312_2988_s_4_2.jpeg", alt: "The McNeill Residence — View 2", description: "Another perspective of the McNeill Residence illustrating the exterior architecture, proportions and project detailing developed through the design process." },
   { image: "https://s3-media0.fl.yelpcdn.com/bphoto/d7cdM7MtNSSbdQP1kGSQOA/o.jpg", alt: "The McNeill Residence — View 3", description: "A third project view providing additional context for the McNeill Residence and the architectural design as experienced from the exterior." },
   { image: "https://static.wixstatic.com/media/fb4db5_b1322784beec46bdbc99f8c034c8491d~mv2.jpg/v1/fill/w_1600,h_900,al_c,q_90,enc_auto/fb4db5_b1322784beec46bdbc99f8c034c8491d~mv2.jpg", alt: "Swan Point Residence", description: "Residential architecture designed to respond to its waterfront setting, connecting the home’s form and outdoor spaces with the surrounding landscape." },
-  { image: "https://static.wixstatic.com/media/fb4db5_91524b19d9b147ad8499291e67e7d1bf~mv2.jpg/v1/fill/w_1400,h_930,al_c,q_90,enc_auto/fb4db5_91524b19d9b147ad8499291e67d1bf~mv2.jpg", alt: "The Turner Residence", description: "A residential project demonstrating how architectural planning and construction documentation translate into a finished, functional home." }
+  { image: "https://static.wixstatic.com/media/fb4db5_91524b19d9b147ad8499291e67e7d1bf~mv2.jpg/v1/fill/w_1400,h_930,al_c,q_90,enc_auto/fb4db5_91524b19d9b147ad8499291e67e7d1bf~mv2.jpg", alt: "The Turner Residence", description: "A residential project demonstrating how architectural planning and construction documentation translate into a finished, functional home." }
 ];
 ---
 
@@ -63,16 +63,6 @@ const constructionPhotos = [
   <section class="feature">
     <div class="feature-image" style={`background-image:url('${slideshow[3].image}')`} role="img" aria-label="ATECT project image"></div>
     <div class="feature-copy"><div class="eyebrow">The ATECT Approach</div><h2>From idea to construction documents.</h2><p>ATECT balances comfort, practicality and beauty while carrying projects from design development into construction documentation and coordination.</p><a class="button" href="/process">Explore the Process</a></div>
-  </section>
-
-  <section class="section alt">
-    <div class="section-head"><div><div class="eyebrow">Capabilities</div><h2>What we do.</h2></div><p class="section-intro">Residential design, commercial construction documents, subcontracting support and 3D visualization.</p></div>
-    <div class="service-grid">
-      <a class="service" href="/services"><h3>Residential Architecture</h3><p>Home additions, renovations, decks, porches and new home design.</p><span>Explore residential →</span></a>
-      <a class="service" href="/services"><h3>Commercial Architecture</h3><p>Construction documents, interior fit-outs and related commercial design work.</p><span>Explore commercial →</span></a>
-      <a class="service" href="/services"><h3>Construction Documents</h3><p>Clear documentation for residential, commercial and as-built projects.</p><span>View documentation services →</span></a>
-      <a class="service" href="/3d-renderings"><h3>3D Renderings & Visualization</h3><p>Exterior renderings, interior renderings, 360 panoramas and architectural animations.</p><span>See visualization →</span></a>
-    </div>
   </section>
 
   <section class="section">
@@ -141,8 +131,6 @@ const constructionPhotos = [
   .panel-description{max-width:700px;font:400 14px/1.55 Manrope;letter-spacing:0;text-transform:none;opacity:0;transform:translateY(10px);transition:opacity .35s ease .04s,transform .35s ease .04s}
   .construction-panel:hover .panel-label,.construction-panel:focus-visible .panel-label,.construction-panel.active .panel-label,.construction-panel:hover .panel-description,.construction-panel:focus-visible .panel-description,.construction-panel.active .panel-description{opacity:1;transform:translateY(0)}
   .construction-panel:focus-visible{outline:3px solid #111;outline-offset:-3px}
-  .service{display:block}
-  .service span{display:inline-block;margin-top:16px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
   .cta-section{background:#f5f5f2}
   @media(max-width:800px){
     .hero-slider{height:78vh;min-height:540px}
