@@ -13,7 +13,10 @@ import Layout from "../layouts/Layout.astro";
       <p class="form-note">Project location is required so we can determine service area and better understand your project.</p>
     </div>
 
-    <form class="contact-form" action="mailto:info@atectarchitecture.com" method="post" enctype="text/plain">
+    <form class="contact-form" action="https://formspree.io/f/xjykvpqj" method="POST" enctype="multipart/form-data">
+      <input type="hidden" name="_subject" value="New ATECT Architecture Project Inquiry" />
+      <input type="hidden" name="_next" value="https://atectarchitecture.com/contact/success" />
+
       <div class="form-section-title">Contact Information</div>
       <label for="name">Name *</label>
       <input id="name" name="Name" autocomplete="name" required />
