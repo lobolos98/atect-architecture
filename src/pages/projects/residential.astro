@@ -35,7 +35,11 @@ A second-story sunroom was added to capture expansive southern views, creating a
         <div class="scope">{project.scope}</div>
       </div>
       <div class="gallery" data-gallery>
-        <div class="main-image"><img src={project.images[0]} alt={`${project.title} project`} loading={i === 0 ? "eager" : "lazy"} /></div>
+        <div class="main-image">
+          <img src={project.images[0]} alt={`${project.title} project`} loading={i === 0 ? "eager" : "lazy"} />
+          <button class="arrow prev" type="button" data-prev aria-label={`Previous image for ${project.title}`}>&#10094;</button>
+          <button class="arrow next" type="button" data-next aria-label={`Next image for ${project.title}`}>&#10095;</button>
+        </div>
         <div class="thumbs" role="list">
           {project.images.map((image, j) => <button type="button" class={j === 0 ? "active" : ""} aria-label={`View image ${j + 1} of ${project.title}`} data-image={image}><img src={image} alt="" loading="lazy" /></button>)}
         </div>
@@ -56,8 +60,11 @@ A second-story sunroom was added to capture expansive southern views, creating a
 .location{margin:8px 0 0;color:var(--muted)}
 .scope{font-size:16px;line-height:1.65;color:var(--muted);white-space:pre-line}
 .gallery{background:#fff;border:1px solid var(--line);padding:14px}
-.main-image{aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;background:#fff;overflow:hidden}
+.main-image{position:relative;aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;background:#fff;overflow:hidden}
 .main-image img{width:100%;height:100%;object-fit:contain;display:block}
+.arrow{position:absolute;top:50%;transform:translateY(-50%);width:52px;height:52px;border:0;border-radius:50%;background:rgba(17,17,17,.72);color:#fff;font-size:25px;cursor:pointer;z-index:2}
+.arrow:hover{background:#fff;color:#111}
+.prev{left:22px}.next{right:22px}
 .thumbs{display:flex;flex-wrap:nowrap;overflow-x:auto;gap:10px;padding:10px 0 0;scrollbar-width:none}
 .thumbs::-webkit-scrollbar{display:none}
 .thumbs button{flex:0 0 88px;width:88px;height:66px;border:1px solid #ddd;padding:0;background:#fff;cursor:pointer;overflow:hidden}
@@ -67,20 +74,31 @@ A second-story sunroom was added to capture expansive southern views, creating a
 .project-cta h2{font:600 clamp(40px,5vw,64px)/.98 Manrope;letter-spacing:-.045em;margin:0 0 16px}
 .project-cta p{color:#555b5e;margin:0 0 24px}
 .project-cta .button{display:inline-block;background:#1f2428;color:#fff;padding:13px 22px;text-decoration:none}
-@media(max-width:900px){.project-heading{grid-template-columns:1fr;gap:18px}.project-card{padding:52px 0}.gallery{padding:10px}.thumbs{gap:8px}.thumbs button{flex-basis:76px;width:76px;height:57px}}
-@media(max-width:600px){.projects{padding:0 20px}.project-heading h2{font-size:36px}.scope{font-size:15px}.project-card{padding:42px 0}.gallery{padding:8px}.thumbs{gap:6px}.thumbs button{flex-basis:64px;width:64px;height:48px}.project-cta{padding:70px 24px}}
+@media(max-width:900px){.project-heading{grid-template-columns:1fr;gap:18px}.project-card{padding:52px 0}.gallery{padding:10px}.thumbs{gap:8px}.thumbs button{flex-basis:76px;width:76px;height:57px}.arrow{width:48px;height:48px;font-size:23px}.prev{left:16px}.next{right:16px}}
+@media(max-width:600px){.projects{padding:0 20px}.project-heading h2{font-size:36px}.scope{font-size:15px}.project-card{padding:42px 0}.gallery{padding:8px}.thumbs{gap:6px}.thumbs button{flex-basis:64px;width:64px;height:48px}.arrow{width:44px;height:44px;font-size:20px}.prev{left:10px}.next{right:10px}.project-cta{padding:70px 24px}}
 </style>
 
 <script>
 document.querySelectorAll('[data-gallery]').forEach((gallery) => {
   const main = gallery.querySelector('.main-image img');
-  const buttons = gallery.querySelectorAll('.thumbs button');
-  buttons.forEach((button) => {
-    button.addEventListener('click', () => {
-      main.src = button.dataset.image;
-      buttons.forEach((item) => item.classList.remove('active'));
-      button.classList.add('active');
-    });
+  const buttons = Array.from(gallery.querySelectorAll('.thumbs button'));
+  const prev = gallery.querySelector('[data-prev]');
+  const next = gallery.querySelector('[data-next]');
+  let index = 0;
+
+  const show = (nextIndex) => {
+    index = (nextIndex + buttons.length) % buttons.length;
+    main.src = buttons[index].dataset.image;
+    buttons.forEach((item, i) => item.classList.toggle('active', i === index));
+  };
+
+  buttons.forEach((button, i) => button.addEventListener('click', () => show(i)));
+  prev?.addEventListener('click', () => show(index - 1));
+  next?.addEventListener('click', () => show(index + 1));
+
+  gallery.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowLeft') show(index - 1);
+    if (event.key === 'ArrowRight') show(index + 1);
   });
 });
 </script>
