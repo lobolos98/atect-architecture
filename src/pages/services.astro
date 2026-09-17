@@ -1,16 +1,151 @@
 ---
 import Layout from "../layouts/Layout.astro";
-const services=[
- {id:"residential",title:"Residential Design",text:"Home additions, kitchen renovations, bathroom renovations, decks, porches and new home design. ATECT's residential work can carry a project through the construction-document phase, with project coordination and management support."},
- {id:"commercial",title:"Commercial Design",text:"Design support for commercial projects, including interior fit-outs and construction documentation coordinated around the client's needs and applicable requirements."},
- {id:"custom",title:"Custom Home Plans",text:"Custom home plans tailored to individual needs and lifestyle, including plan concepts such as Prairie View and NVA."},
- {id:"documents",title:"Construction Documents",text:"Design through the construction-document phase for residential and commercial projects, including interior fit-outs and as-built documentation."},
- {id:"visualization",title:"3D Renderings & Visualization",text:"Exterior renderings, interior renderings, 360 panoramas and architectural animations that help clients visualize residential or commercial ideas before construction."},
- {id:"consultation",title:"Design Consultation & Support",text:"Architectural consultation, field measuring, design support and construction-document assistance for homeowners, builders and other design professionals."}
+
+const services = [
+  { id: "residential", number: "01", title: "Residential Design", intro: "Thoughtful design for additions, renovations and new homes, shaped around how you live and what your property can support.", items: ["Home additions", "Kitchen and bathroom renovations", "Porches and decks", "New residential design", "Construction documentation", "Existing-condition documentation"] },
+  { id: "commercial", number: "02", title: "Commercial Design", intro: "Practical architectural design and documentation for commercial interiors, fit-outs and improvements.", items: ["Interior fit-outs", "Construction documents", "Code and ADA coordination", "Office and workplace planning", "Project coordination", "Permitting support"] },
+  { id: "custom", number: "03", title: "Custom Home Plans", intro: "Custom home planning developed around your site, lifestyle, priorities and vision—from an established concept to something entirely one-of-a-kind.", items: ["Custom floor-plan development", "New-home concepts", "Site-responsive planning", "Lifestyle-focused layouts", "Exterior design direction", "Construction-ready documentation"] },
+  { id: "documents", number: "04", title: "Construction Documents", intro: "Clear, coordinated documentation that helps move a design from concept toward construction and permitting.", items: ["Architectural drawings", "Existing-condition and as-built drawings", "Interior fit-out documentation", "Design development", "Construction-document sets", "Coordination and revisions"] },
+  { id: "visualization", number: "05", title: "3D Renderings & Visualization", intro: "Visual tools that help clients understand a proposed project before construction and make informed design decisions.", items: ["Exterior renderings", "Interior renderings", "360° panoramas", "Architectural animations", "Design presentations", "Concept visualization"] },
+  { id: "consultation", number: "06", title: "Design Consultation & Support", intro: "Flexible architectural support for homeowners, builders and design professionals who need experienced design and documentation assistance.", items: ["Architectural consultation", "Field measuring", "Design development support", "Drafting assistance", "Project coordination", "Documentation support"] }
+];
+
+const audiences = [
+  { title: "Homeowners", text: "For additions, renovations and new homes, we help turn ideas and property constraints into a thoughtful design direction." },
+  { title: "Builders", text: "For builders and contractors, we provide organized architectural documentation and design coordination to help projects move forward." },
+  { title: "Design Professionals", text: "For architects, designers and other professionals, we offer drafting, documentation and visualization support when additional capacity is needed." }
+];
+
+const process = [
+  { number: "01", title: "Discover", text: "We learn about your property, goals, priorities and project requirements." },
+  { number: "02", title: "Develop", text: "We translate the project needs into a practical design direction and refine the details with you." },
+  { number: "03", title: "Document", text: "We develop the drawings and construction documentation needed for the next phase of the project." },
+  { number: "04", title: "Move Forward", text: "We support coordination, permitting and the transition from design toward construction." }
 ];
 ---
+
 <Layout title="Architecture Services | ATECT Architecture" description="Residential design, commercial design, custom home plans, construction documents and 3D visualization from ATECT Architecture.">
-<section class="page-hero"><div class="eyebrow">Services</div><h1>Design services built around the project.</h1><p>ATECT supports homeowners, builders and design professionals with residential design, commercial documentation, custom home plans, visualization and related design support.</p></section>
-<section class="section"><div class="service-list">{services.map((service,index)=><article class="service-row" id={service.id}><div class="number">{String(index+1).padStart(2,"0")}</div><div><h2>{service.title}</h2><p>{service.text}</p></div></article>)}</div><a class="button dark" href="/contact">Start a Project</a></section>
+  <main>
+    <section class="page-hero">
+      <div class="eyebrow">Services</div>
+      <h1>Design services built around the project.</h1>
+      <p>ATECT supports homeowners, builders and design professionals with residential design, commercial documentation, custom home plans, visualization and related design support.</p>
+    </section>
+
+    <section class="section services-section">
+      <div class="section-intro">
+        <div>
+          <div class="eyebrow">What We Do</div>
+          <h2>From early ideas to construction documents.</h2>
+        </div>
+        <p>Every project is different. Our services can be combined around the needs of your property, project type and stage of development.</p>
+      </div>
+
+      <div class="service-list">
+        {services.map((service) => (
+          <article class="service-row" id={service.id}>
+            <div class="service-number">{service.number}</div>
+            <div class="service-main">
+              <h3>{service.title}</h3>
+              <p class="service-intro">{service.intro}</p>
+              <ul>{service.items.map((item) => <li>{item}</li>)}</ul>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="section alt audience-section">
+      <div class="section-heading">
+        <div class="eyebrow">Who We Serve</div>
+        <h2>Design support for different project needs.</h2>
+      </div>
+      <div class="audience-grid">
+        {audiences.map((audience, index) => (
+          <article class="audience-card">
+            <span class="small-number">0{index + 1}</span>
+            <h3>{audience.title}</h3>
+            <p>{audience.text}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="section process-section">
+      <div class="section-heading">
+        <div class="eyebrow">Our Process</div>
+        <h2>A clear path from idea to next step.</h2>
+      </div>
+      <div class="process-grid">
+        {process.map((step) => (
+          <article class="process-card">
+            <span class="small-number">{step.number}</span>
+            <h3>{step.title}</h3>
+            <p>{step.text}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="section contact-cta">
+      <div>
+        <div class="eyebrow">Start a Conversation</div>
+        <h2>Have a project in mind?</h2>
+        <p>Let's discuss your property, goals and the type of design support you need.</p>
+      </div>
+      <a class="button dark" href="/contact">Start a Conversation</a>
+    </section>
+  </main>
 </Layout>
-<style is:global>.service-list{border-top:1px solid #ddd}.service-row{display:grid;grid-template-columns:100px 1fr;gap:30px;padding:38px 0;border-bottom:1px solid #ddd}.number{font:600 15px Manrope;color:#888}.service-row h2{font:600 clamp(27px,4vw,46px)/1.1 Manrope;margin:0 0 10px}.service-row p{max-width:760px;color:#555;font-size:17px;line-height:1.7;margin:0}</style>
+
+<style is="global">
+  .services-section{padding-top:70px}
+  .section-intro{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(280px,.8fr);gap:clamp(40px,8vw,110px);align-items:end;margin-bottom:52px}
+  .section-intro h2,.section-heading h2,.contact-cta h2{font:600 clamp(34px,4.5vw,58px)/1.05 Manrope;margin:0;letter-spacing:-.03em}
+  .section-intro>p{max-width:560px;color:#555;font-size:18px;line-height:1.75;margin:0}
+  .service-list{border-top:1px solid #d8d5cf}
+  .service-row{display:grid;grid-template-columns:100px minmax(0,1fr);gap:clamp(24px,4vw,60px);padding:48px 0;border-bottom:1px solid #d8d5cf}
+  .service-number{font:600 15px Manrope;color:#888;padding-top:7px}
+  .service-main h3{font:600 clamp(30px,4vw,48px)/1.08 Manrope;margin:0 0 14px;letter-spacing:-.025em}
+  .service-intro{max-width:800px;color:#555;font-size:18px;line-height:1.7;margin:0 0 24px}
+  .service-main ul{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 36px;max-width:820px;margin:0;padding:0;list-style:none}
+  .service-main li{border-top:1px solid #e4e1dc;padding:11px 0;color:#333;font-size:15px;line-height:1.5}
+  .service-main li::before{content:"— ";color:#999}
+  .audience-section{background:#f3f1ec}
+  .section-heading{max-width:760px;margin-bottom:42px}
+  .section-heading h2{margin-top:0}
+  .audience-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .audience-card{background:#fff;padding:32px;border-top:3px solid #111;min-height:230px}
+  .small-number{display:block;font:600 13px Manrope;color:#888;letter-spacing:.08em;margin-bottom:26px}
+  .audience-card h3,.process-card h3{font:600 28px/1.15 Manrope;margin:0 0 12px}
+  .audience-card p,.process-card p{color:#555;font-size:16px;line-height:1.7;margin:0}
+  .process-section{padding-bottom:90px}
+  .process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid #d8d5cf}
+  .process-card{padding:28px 24px 20px 0;border-bottom:1px solid #d8d5cf;border-right:1px solid #d8d5cf}
+  .process-card:not(:first-child){padding-left:24px}
+  .process-card:last-child{border-right:0}
+  .contact-cta{display:flex;justify-content:space-between;align-items:center;gap:40px;background:#111;color:#fff;padding-top:64px;padding-bottom:64px}
+  .contact-cta .eyebrow{color:#aaa}
+  .contact-cta h2{margin:0 0 12px}
+  .contact-cta p{color:#ccc;font-size:17px;line-height:1.7;margin:0;max-width:620px}
+  .contact-cta .button{flex:0 0 auto;background:#fff;color:#111;border-color:#fff}
+  .contact-cta .button:hover{background:transparent;color:#fff}
+  @media(max-width:900px){
+    .section-intro{grid-template-columns:1fr}
+    .audience-grid{grid-template-columns:1fr}
+    .process-grid{grid-template-columns:1fr 1fr}
+    .process-card:nth-child(2){border-right:0}
+    .process-card:nth-child(3){padding-left:0}
+  }
+  @media(max-width:600px){
+    .services-section{padding-top:52px}
+    .service-row{grid-template-columns:48px minmax(0,1fr);gap:12px;padding:36px 0}
+    .service-main h3{font-size:31px}
+    .service-intro{font-size:16px}
+    .service-main ul{grid-template-columns:1fr;gap:0}
+    .audience-card{padding:26px;min-height:0}
+    .process-grid{grid-template-columns:1fr}
+    .process-card,.process-card:not(:first-child){padding:26px 0;border-right:0}
+    .contact-cta{align-items:flex-start;flex-direction:column}
+  }
+</style>
