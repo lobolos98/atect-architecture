@@ -13,16 +13,18 @@ import Layout from "../layouts/Layout.astro";
       <p class="form-note">Project location is required so we can determine service area and better understand your project.</p>
     </div>
 
-    <form class="contact-form" action="https://formspree.io/f/xjykvpqj" method="POST" enctype="multipart/form-data">
+    <form class="contact-form" action="https://formsubmit.co/info@atectarchitecture.com" method="POST" enctype="multipart/form-data">
       <input type="hidden" name="_subject" value="New ATECT Architecture Project Inquiry" />
+      <input type="hidden" name="_template" value="table" />
       <input type="hidden" name="_next" value="https://atectarchitecture.com/contact/success" />
+      <input type="hidden" name="_url" value="https://atectarchitecture.com/contact/" />
 
       <div class="form-section-title">Contact Information</div>
       <label for="name">Name *</label>
       <input id="name" name="Name" autocomplete="name" required />
 
       <label for="email">Email *</label>
-      <input id="email" type="email" name="Email" autocomplete="email" required />
+      <input id="email" type="email" name="email" autocomplete="email" required />
 
       <label for="phone">Phone *</label>
       <input id="phone" name="Phone" type="tel" autocomplete="tel" required />
@@ -111,11 +113,11 @@ import Layout from "../layouts/Layout.astro";
 
       <label for="files">Plans, Photos or Documents</label>
       <input id="files" name="Attachments" type="file" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx" multiple />
-      <p class="form-note">You may attach existing plans, surveys, photos, sketches or other project documents.</p>
+      <p class="form-note">You may attach existing plans, surveys, photos, sketches or other project documents. Combined file uploads are limited by the form service.</p>
 
       <div class="honeypot" aria-hidden="true">
         <label for="website">Website</label>
-        <input id="website" name="Website" tabindex="-1" autocomplete="off" />
+        <input id="website" name="_honey" tabindex="-1" autocomplete="off" />
       </div>
 
       <button type="submit">Request a Project Consultation</button>
