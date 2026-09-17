@@ -1,0 +1,22 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
+<Layout title="Thank You | ATECT Architecture" description="Your project inquiry has been received by ATECT Architecture.">
+<section class="page-hero"><div class="eyebrow">Inquiry Received</div><h1>Thank you.</h1><p>Your project inquiry has been received. ATECT Architecture will review the information you provided and follow up regarding the next steps.</p></section>
+<section class="section success-section">
+  <div class="success-card">
+    <div class="eyebrow">What Happens Next</div>
+    <h2>We’ll review your project information.</h2>
+    <p>We’ll use the details you provided to better understand your project, location and needs before we follow up.</p>
+    <a class="button" href="/">Return to Home</a>
+  </div>
+</section>
+<style>
+.success-section{padding-top:64px;padding-bottom:96px}
+.success-card{max-width:760px;background:#e7e8e6;padding:48px clamp(28px,5vw,64px)}
+.success-card h2{font:600 clamp(32px,5vw,52px)/1.05 Manrope;letter-spacing:-.04em;margin:10px 0 16px}
+.success-card p{max-width:620px;color:#555b5e;line-height:1.7}
+.success-card .button{display:inline-block;margin-top:18px;background:#1f2428;color:#fff;text-decoration:none;padding:14px 20px;font-weight:600}
+@media(max-width:600px){.success-section{padding-top:40px;padding-bottom:64px}.success-card{padding:34px 24px}}
+</style>
+</Layout>
