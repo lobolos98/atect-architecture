@@ -100,5 +100,12 @@ body:has(.projects) .hero p{max-width:760px;margin:14px 0 0;font-size:17px;line-
 @media(max-width:1000px){.nav{gap:14px}.nav a:nth-child(5){display:none}}@media(max-width:800px){.site-header{min-height:72px}.menu-toggle{display:block}.nav{display:none;position:absolute;top:72px;left:0;right:0;background:#fff;border-bottom:1px solid #ddd;padding:18px 24px;flex-direction:column;align-items:stretch;gap:0}.nav.open{display:flex}.nav a{padding:14px 0}.nav a:nth-child(5){display:block}.nav-cta{padding:14px!important;text-align:center}.grid,.contact-grid,.feature,.service-grid,.stat-grid{grid-template-columns:1fr}.project-large{grid-column:auto}.site-footer{grid-template-columns:1fr}.footer-bottom{grid-column:auto}.hero{min-height:78vh;padding:32px 24px 60px}.section{padding:70px 24px}.section-head{display:block}.section-intro{margin-top:20px}.page-hero{padding:48px 24px 40px}.page-hero h1{font-size:clamp(42px,11vw,68px)}.page-hero p{font-size:16px;margin-top:14px}.prose{padding:60px 24px}}
 @media(max-width:900px){.thumbs{gap:8px!important}.thumbs button{flex-basis:76px!important;width:76px!important;height:57px!important}body:has(.projects) .hero{padding:38px 24px 30px}body:has(.projects) .hero h1{font-size:clamp(42px,11vw,68px)}body:has(.projects) .hero p{font-size:16px;margin-top:12px}}
 @media(max-width:600px){.thumbs{gap:6px!important}.thumbs button{flex-basis:64px!important;width:64px!important;height:48px!important}body:has(.projects) .hero{padding:32px 20px 26px}}
+@media(max-width:800px){
+  .feature{display:flex!important;flex-direction:column!important;min-height:0!important}
+  .feature-image{width:100%!important;height:auto!important;min-height:0!important;aspect-ratio:4/3!important;background-image:none!important;background-color:#f5f5f2!important;display:block!important;position:relative!important}
+  .feature-image::before{content:"";position:absolute;inset:0;background-image:url('https://static.wixstatic.com/media/fb4db5_b380ee2f335e48bfa5a7079e9098ce54~mv2.png/v1/fill/w_1600,h_1000,al_c,q_95,enc_auto/fb4db5_b380ee2f335e48bfa5a7079e9098ce54~mv2.png');background-repeat:no-repeat;background-position:center;background-size:contain}
+  .feature-copy{padding:40px 24px!important}
+}
+
 </style>
 
