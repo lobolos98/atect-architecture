@@ -20,50 +20,18 @@ const steps = [
 
   <section class="section process-visual" aria-label="From architectural blueprint to completed design">
     <div class="visual-frame blueprint-transition">
-      <div class="blueprint-side">
-        <div class="drawing-label">CONCEPT + DOCUMENTATION</div>
-        <svg viewBox="0 0 700 360" role="img" aria-label="Architectural blueprint drawing">
-          <g class="blueprint-lines">
-            <rect x="55" y="55" width="500" height="245" />
-            <path d="M55 185h500M235 55v245M410 55v245M55 115h180M235 245h320" />
-            <path d="M90 90h105v70H90zM270 90h105v70H270zM445 90h75v70h-75z" />
-            <path d="M270 205h105v55H270zM445 205h75v55h-75z" />
-            <path d="M75 325h460M75 315v20M535 315v20M210 45v-18M410 45v-18" />
-            <path d="M75 25h460M75 17v16M535 17v16" />
-          </g>
-          <g class="blueprint-dims">
-            <text x="255" y="14">40'-0"</text>
-            <text x="10" y="190" transform="rotate(-90 10 190)">24'-0"</text>
-            <text x="100" y="340">SCHEMATIC FLOOR PLAN</text>
-          </g>
-        </svg>
+      <div class="visual-half blueprint-half">
+        <img src="https://static.wixstatic.com/media/9aae58f8cb39c0432380467cfa4e74eb.jpg/v1/fill/w_1600,h_1000,al_c,q_90,enc_auto/9aae58f8cb39c0432380467cfa4e74eb.jpg" alt="Architectural blueprint design" loading="eager" />
+        <div class="visual-label">BLUEPRINT · DESIGN INTENT</div>
       </div>
-      <div class="transition-arrow" aria-hidden="true"><span>DESIGN</span><strong>→</strong></div>
-      <div class="finished-side">
-        <div class="drawing-label">COMPLETED DESIGN</div>
-        <svg viewBox="0 0 700 360" role="img" aria-label="Architectural elevation of a completed building">
-          <g class="building">
-            <path d="M95 285V150l155-82 155 82v135z" />
-            <path d="M250 68v217M95 150h310" />
-            <path d="M145 285v-78h70v78M285 285v-112h78v112M385 285v-78h38v78" />
-            <path d="M95 285h360M70 285h410M120 305h330" />
-            <path d="M165 150v135M335 150v135" />
-          </g>
-          <g class="render-details">
-            <path d="M510 170q45 25 80 0M510 215q50 20 90 0M525 260q45 18 80 0" />
-            <path d="M540 285v-65M585 285v-75M625 285v-55" />
-            <circle cx="575" cy="115" r="30" />
-          </g>
-        </svg>
-        <div class="finished-caption">A coordinated design ready to move toward construction.</div>
+      <div class="visual-half completed-half">
+        <img src="https://static.wixstatic.com/media/fb4db5_b380ee2f335e48bfa5a7079e9098ce54~mv2.png/v1/fill/w_1600,h_1000,al_c,q_95,enc_auto/fb4db5_b380ee2f335e48bfa5a7079e9098ce54~mv2.png" alt="Completed architectural design" loading="eager" />
+        <div class="visual-label">COMPLETED DESIGN</div>
       </div>
+      <div class="transition-arrow" aria-hidden="true"><span>FROM</span><strong>→</strong><span>TO</span></div>
     </div>
-    <div class="visual-caption">
-      <span>From design intent</span>
-      <strong>to a coordinated, build-ready design</strong>
-    </div>
+    <div class="visual-caption"><span>From design intent</span><strong>to a coordinated, build-ready design</strong></div>
   </section>
-
   <section class="section process-section">
     <div class="section-intro">
       <div class="eyebrow">The ATECT Process</div>
@@ -133,21 +101,18 @@ const steps = [
 
 <style is="global">
   .process-visual{padding-top:26px;padding-bottom:18px}
-  .visual-frame{position:relative;max-width:1240px;margin:0 auto;overflow:hidden;background:#f5f6f7;display:grid;grid-template-columns:1fr 1fr;min-height:390px}
-  .blueprint-side,.finished-side{position:relative;padding:28px 34px 26px;min-width:0}
-  .blueprint-side{background:#0d3157;color:#dbeeff}
-  .finished-side{background:linear-gradient(120deg,#eef0ed,#fff);color:#26343d}
-  .drawing-label{font:600 10px Manrope;letter-spacing:.16em;color:currentColor;opacity:.75}
-  .blueprint-side svg,.finished-side svg{display:block;width:100%;height:auto;margin-top:18px}
-  .blueprint-lines{fill:none;stroke:#cfe7ff;stroke-width:2}
-  .blueprint-dims{fill:#cfe7ff;font:10px Manrope;letter-spacing:.08em}
-  .building{fill:none;stroke:#53636b;stroke-width:3}
-  .render-details{fill:none;stroke:#7d8a8f;stroke-width:2;opacity:.75}
-  .finished-caption{position:absolute;right:30px;bottom:24px;max-width:230px;font:500 13px/1.5 Manrope;color:#4d595d}
-  .transition-arrow{position:absolute;z-index:2;left:50%;top:50%;transform:translate(-50%,-50%);width:76px;height:76px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#fff;box-shadow:0 10px 35px rgba(0,0,0,.15);color:#111}
-  .transition-arrow span{font:600 8px Manrope;letter-spacing:.12em;color:#777}
-  .transition-arrow strong{font:400 28px/1.1 Manrope}
-  .visual-frame::after{content:"";position:absolute;left:50%;top:0;bottom:0;width:180px;transform:translateX(-50%);background:linear-gradient(90deg,rgba(13,49,87,.18),rgba(255,255,255,.5),rgba(255,255,255,0));pointer-events:none}
+  .visual-frame{position:relative;max-width:1240px;margin:0 auto;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;min-height:390px;background:#111}
+  .visual-half{position:relative;min-width:0;overflow:hidden}
+  .visual-half img{display:block;width:100%;height:100%;min-height:390px;object-fit:cover}
+  .blueprint-half img{filter:saturate(.82)}
+  .visual-half::after{content:"";position:absolute;inset:0;pointer-events:none}
+  .blueprint-half::after{background:linear-gradient(90deg,rgba(8,42,76,.08),rgba(8,42,76,.16))}
+  .completed-half::after{background:linear-gradient(90deg,rgba(255,255,255,.14),rgba(255,255,255,0))}
+  .visual-label{position:absolute;left:24px;bottom:22px;z-index:1;padding:9px 13px;background:rgba(0,0,0,.68);color:#fff;font:600 10px Manrope;letter-spacing:.14em}
+  .transition-arrow{position:absolute;z-index:3;left:50%;top:50%;transform:translate(-50%,-50%);width:78px;height:78px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#fff;box-shadow:0 10px 35px rgba(0,0,0,.22);color:#111}
+  .transition-arrow span{font:600 7px Manrope;letter-spacing:.14em;color:#777}
+  .transition-arrow strong{font:400 27px/1 Manrope}
+  .visual-frame::after{content:"";position:absolute;z-index:2;left:50%;top:0;bottom:0;width:170px;transform:translateX(-50%);background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.28),rgba(255,255,255,0));pointer-events:none}
   .visual-caption{max-width:1240px;margin:0 auto;padding:18px 0 0;display:flex;flex-direction:column;gap:4px}
   .visual-caption span{font:600 11px Manrope;text-transform:uppercase;letter-spacing:.12em;color:#888}
   .visual-caption strong{font:600 22px/1.3 Manrope;color:#111}
