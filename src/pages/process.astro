@@ -9,7 +9,6 @@ const steps = [
   { number: "05", title: "Build", text: "Once the project moves toward construction, ATECT can provide design and documentation support as needed and contracted.", items: ["Builder and contractor coordination", "Design clarification", "Documentation support", "Construction-phase design assistance"] }
 ];
 
-const processImage = "https://static.wixstatic.com/media/fb4db5_623f1b2a5f884519ab20f16b0affdc30~mv2.png";
 ---
 
 <Layout title="Architecture Design Process | ATECT Architecture" description="Explore the ATECT Architecture process from discovery and design through construction documents, permitting and construction support.">
@@ -19,13 +18,49 @@ const processImage = "https://static.wixstatic.com/media/fb4db5_623f1b2a5f884519
     <p>ATECT guides projects through discovery, design, documentation and the next phase—while adapting the process to the needs of each project.</p>
   </section>
 
-  <section class="section process-visual" aria-label="Architectural project visualization">
-    <div class="visual-frame">
-      <img src={processImage} alt="Architectural exterior rendering showing a completed project design" loading="eager" />
-      <div class="visual-caption">
-        <span>From design intent</span>
-        <strong>to build-ready documentation</strong>
+  <section class="section process-visual" aria-label="From architectural blueprint to completed design">
+    <div class="visual-frame blueprint-transition">
+      <div class="blueprint-side">
+        <div class="drawing-label">CONCEPT + DOCUMENTATION</div>
+        <svg viewBox="0 0 700 360" role="img" aria-label="Architectural blueprint drawing">
+          <g class="blueprint-lines">
+            <rect x="55" y="55" width="500" height="245" />
+            <path d="M55 185h500M235 55v245M410 55v245M55 115h180M235 245h320" />
+            <path d="M90 90h105v70H90zM270 90h105v70H270zM445 90h75v70h-75z" />
+            <path d="M270 205h105v55H270zM445 205h75v55h-75z" />
+            <path d="M75 325h460M75 315v20M535 315v20M210 45v-18M410 45v-18" />
+            <path d="M75 25h460M75 17v16M535 17v16" />
+          </g>
+          <g class="blueprint-dims">
+            <text x="255" y="14">40'-0"</text>
+            <text x="10" y="190" transform="rotate(-90 10 190)">24'-0"</text>
+            <text x="100" y="340">SCHEMATIC FLOOR PLAN</text>
+          </g>
+        </svg>
       </div>
+      <div class="transition-arrow" aria-hidden="true"><span>DESIGN</span><strong>→</strong></div>
+      <div class="finished-side">
+        <div class="drawing-label">COMPLETED DESIGN</div>
+        <svg viewBox="0 0 700 360" role="img" aria-label="Architectural elevation of a completed building">
+          <g class="building">
+            <path d="M95 285V150l155-82 155 82v135z" />
+            <path d="M250 68v217M95 150h310" />
+            <path d="M145 285v-78h70v78M285 285v-112h78v112M385 285v-78h38v78" />
+            <path d="M95 285h360M70 285h410M120 305h330" />
+            <path d="M165 150v135M335 150v135" />
+          </g>
+          <g class="render-details">
+            <path d="M510 170q45 25 80 0M510 215q50 20 90 0M525 260q45 18 80 0" />
+            <path d="M540 285v-65M585 285v-75M625 285v-55" />
+            <circle cx="575" cy="115" r="30" />
+          </g>
+        </svg>
+        <div class="finished-caption">A coordinated design ready to move toward construction.</div>
+      </div>
+    </div>
+    <div class="visual-caption">
+      <span>From design intent</span>
+      <strong>to a coordinated, build-ready design</strong>
     </div>
   </section>
 
@@ -98,11 +133,24 @@ const processImage = "https://static.wixstatic.com/media/fb4db5_623f1b2a5f884519
 
 <style is="global">
   .process-visual{padding-top:26px;padding-bottom:18px}
-  .visual-frame{position:relative;max-width:1240px;margin:0 auto;overflow:hidden;background:#111}
-  .visual-frame img{display:block;width:100%;aspect-ratio:2.15/1;object-fit:cover}
-  .visual-caption{position:absolute;left:0;bottom:0;display:flex;flex-direction:column;gap:4px;padding:26px 30px;color:#fff;background:linear-gradient(90deg,rgba(0,0,0,.78),rgba(0,0,0,0))}
-  .visual-caption span{font:600 11px Manrope;text-transform:uppercase;letter-spacing:.12em;color:#d7c8a2}
-  .visual-caption strong{font:600 22px/1.3 Manrope}
+  .visual-frame{position:relative;max-width:1240px;margin:0 auto;overflow:hidden;background:#f5f6f7;display:grid;grid-template-columns:1fr 1fr;min-height:390px}
+  .blueprint-side,.finished-side{position:relative;padding:28px 34px 26px;min-width:0}
+  .blueprint-side{background:#0d3157;color:#dbeeff}
+  .finished-side{background:linear-gradient(120deg,#eef0ed,#fff);color:#26343d}
+  .drawing-label{font:600 10px Manrope;letter-spacing:.16em;color:currentColor;opacity:.75}
+  .blueprint-side svg,.finished-side svg{display:block;width:100%;height:auto;margin-top:18px}
+  .blueprint-lines{fill:none;stroke:#cfe7ff;stroke-width:2}
+  .blueprint-dims{fill:#cfe7ff;font:10px Manrope;letter-spacing:.08em}
+  .building{fill:none;stroke:#53636b;stroke-width:3}
+  .render-details{fill:none;stroke:#7d8a8f;stroke-width:2;opacity:.75}
+  .finished-caption{position:absolute;right:30px;bottom:24px;max-width:230px;font:500 13px/1.5 Manrope;color:#4d595d}
+  .transition-arrow{position:absolute;z-index:2;left:50%;top:50%;transform:translate(-50%,-50%);width:76px;height:76px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#fff;box-shadow:0 10px 35px rgba(0,0,0,.15);color:#111}
+  .transition-arrow span{font:600 8px Manrope;letter-spacing:.12em;color:#777}
+  .transition-arrow strong{font:400 28px/1.1 Manrope}
+  .visual-frame::after{content:"";position:absolute;left:50%;top:0;bottom:0;width:180px;transform:translateX(-50%);background:linear-gradient(90deg,rgba(13,49,87,.18),rgba(255,255,255,.5),rgba(255,255,255,0));pointer-events:none}
+  .visual-caption{max-width:1240px;margin:0 auto;padding:18px 0 0;display:flex;flex-direction:column;gap:4px}
+  .visual-caption span{font:600 11px Manrope;text-transform:uppercase;letter-spacing:.12em;color:#888}
+  .visual-caption strong{font:600 22px/1.3 Manrope;color:#111}
   .process-section{padding-top:68px}
   .section-intro{max-width:800px;margin-bottom:42px}
   .section-intro h2{font:600 clamp(34px,4.5vw,58px)/1.05 Manrope;margin:8px 0 16px;letter-spacing:-.03em}
@@ -143,11 +191,17 @@ const processImage = "https://static.wixstatic.com/media/fb4db5_623f1b2a5f884519
     .flow-item{flex:0 0 auto;min-width:145px}
     .flow-arrow{margin-left:8px}
     .fit-section,.builder-section{grid-template-columns:1fr}
-    .visual-frame img{aspect-ratio:1.7/1}
+    .visual-frame{min-height:340px}
+    .blueprint-side,.finished-side{padding:24px 22px}
   }
   @media(max-width:700px){
     .process-visual{padding:20px 20px 0}
-    .visual-frame img{aspect-ratio:1.15/1}
+    .visual-frame{grid-template-columns:1fr;min-height:0}
+    .blueprint-side,.finished-side{min-height:255px}
+    .transition-arrow{top:50%;left:50%;width:62px;height:62px}
+    .transition-arrow strong{font-size:23px}
+    .visual-frame::after{left:0;top:50%;right:0;bottom:auto;width:auto;height:120px;transform:translateY(-50%);background:linear-gradient(180deg,rgba(13,49,87,.15),rgba(255,255,255,.65),rgba(255,255,255,0))}
+    .finished-caption{position:static;max-width:none;margin-top:-12px}
     .visual-caption{padding:20px}
     .visual-caption strong{font-size:18px}
     .process-section{padding-top:50px}
