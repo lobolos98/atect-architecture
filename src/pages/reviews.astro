@@ -1,8 +1,267 @@
 ---
 import Layout from "../layouts/Layout.astro";
 ---
-<Layout title="Client Reviews | ATECT Architecture" description="Client feedback for ATECT Architecture from the firm's published project testimonials.">
-<section class="page-hero"><div class="eyebrow">Reviews</div><h1>Client experience matters.</h1><p>Selected testimonials published by ATECT Architecture's existing site.</p></section>
-<section class="section"><div class="review-grid"><article><div class="quote">“Mr. Jones has been very professional as he provided the architect drawings for an addition of a Sunroom and Screened patio for my home.”</div><div class="attribution">D. Trott</div></article><article><div class="quote">“I greatly appreciate all your help. I will definitely recommend your company to others.”</div><div class="attribution">R. Staiger</div></article></div><p class="review-note">These testimonials are presented as published by ATECT Architecture. The full original reviews remain on the firm's existing site.</p><a class="button dark" href="/contact">Start Your Project</a></section>
+
+<Layout
+  title="Client Reviews | ATECT Architecture"
+  description="Client feedback and published testimonials for ATECT Architecture."
+>
+  <section class="page-hero review-hero">
+    <div class="eyebrow">Client Reviews</div>
+    <h1>Built on trust. Designed with purpose.</h1>
+    <p>
+      Every project begins with listening, collaboration, and a clear understanding
+      of the client's goals. These testimonials reflect experiences published by
+      ATECT Architecture's clients.
+    </p>
+  </section>
+
+  <section class="section reviews-section">
+    <div class="section-intro">
+      <div>
+        <div class="eyebrow">Client Experience</div>
+        <h2>What our clients have shared.</h2>
+      </div>
+      <p>
+        ATECT Architecture believes the finished project is only part of the
+        experience. Communication, professionalism, and thoughtful design matter
+        throughout the process.
+      </p>
+    </div>
+
+    <div class="review-grid">
+      <article class="review-card">
+        <div class="quote-mark">“</div>
+        <blockquote>
+          Mr. Jones has been very professional as he provided the architect
+          drawings for an addition of a Sunroom and Screened patio for my home.
+        </blockquote>
+        <div class="attribution">
+          <span class="client-name">D. Trott</span>
+          <span class="client-label">Published client testimonial</span>
+        </div>
+      </article>
+
+      <article class="review-card">
+        <div class="quote-mark">“</div>
+        <blockquote>
+          I greatly appreciate all your help. I will definitely recommend your
+          company to others.
+        </blockquote>
+        <div class="attribution">
+          <span class="client-name">R. Staiger</span>
+          <span class="client-label">Published client testimonial</span>
+        </div>
+      </article>
+    </div>
+
+    <p class="review-note">
+      These testimonials are presented as published by ATECT Architecture.
+      Additional client feedback can be added as authentic testimonials are
+      approved for publication.
+    </p>
+  </section>
+
+  <section class="experience-section">
+    <div class="experience-content">
+      <div>
+        <div class="eyebrow">The ATECT Approach</div>
+        <h2>From the first conversation to the completed design.</h2>
+      </div>
+      <p>
+        Whether a project involves a residential addition, a new home, or
+        commercial design services, ATECT Architecture works to turn the client's
+        goals into a coordinated architectural solution and clear construction
+        documentation.
+      </p>
+      <a class="button dark" href="/process">Explore Our Process</a>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="eyebrow">Start a Conversation</div>
+    <h2>Ready to discuss your project?</h2>
+    <p>Let's talk about your goals, your property, and what comes next.</p>
+    <a class="button dark" href="/contact">Start Your Project</a>
+  </section>
 </Layout>
-<style is:global>.review-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}.review-grid article{padding:40px;background:#f5f5f2;border:1px solid #ddd}.quote{font:500 clamp(22px,3vw,34px)/1.35 Manrope}.attribution{margin-top:24px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.review-note{margin:25px 0 30px;color:#666;font-size:14px}@media(max-width:800px){.review-grid{grid-template-columns:1fr}}</style>
+
+<style is:global>
+  .review-hero {
+    padding-bottom: 72px;
+  }
+
+  .review-hero p {
+    max-width: 760px;
+  }
+
+  .reviews-section {
+    padding-top: 76px;
+    padding-bottom: 82px;
+  }
+
+  .section-intro {
+    display: grid;
+    grid-template-columns: 1fr 0.75fr;
+    gap: 70px;
+    align-items: end;
+    margin-bottom: 42px;
+  }
+
+  .section-intro h2 {
+    margin: 8px 0 0;
+    max-width: 620px;
+  }
+
+  .section-intro p {
+    margin: 0;
+    color: #666;
+    line-height: 1.8;
+  }
+
+  .review-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  .review-card {
+    position: relative;
+    min-height: 360px;
+    padding: 48px;
+    background: #f5f5f2;
+    border: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+  }
+
+  .review-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 72px;
+    height: 4px;
+    background: #222;
+  }
+
+  .quote-mark {
+    font-family: Georgia, serif;
+    font-size: 86px;
+    line-height: 0.65;
+    color: #999;
+  }
+
+  .review-card blockquote {
+    margin: 28px 0 42px;
+    max-width: 650px;
+    font: 500 clamp(22px, 3vw, 34px) / 1.4 Manrope, sans-serif;
+    color: #222;
+  }
+
+  .attribution {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding-top: 20px;
+    border-top: 1px solid #d5d5d0;
+  }
+
+  .client-name {
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .client-label {
+    color: #777;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .review-note {
+    margin: 28px 0 0;
+    color: #777;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  .experience-section {
+    background: #f5f5f2;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    padding: 82px 6vw;
+  }
+
+  .experience-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 0.75fr auto;
+    gap: 55px;
+    align-items: end;
+  }
+
+  .experience-content h2 {
+    margin: 8px 0 0;
+    max-width: 650px;
+  }
+
+  .experience-content p {
+    margin: 0;
+    color: #666;
+    line-height: 1.8;
+  }
+
+  .cta {
+    text-align: center;
+    padding: 96px 6vw;
+  }
+
+  .cta h2 {
+    margin: 10px 0 14px;
+  }
+
+  .cta p {
+    margin: 0 auto 28px;
+    max-width: 620px;
+    color: #666;
+  }
+
+  @media (max-width: 900px) {
+    .section-intro,
+    .experience-content {
+      grid-template-columns: 1fr;
+      gap: 25px;
+    }
+
+    .experience-content .button {
+      justify-self: start;
+    }
+
+    .review-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .review-card {
+      min-height: 320px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .review-card {
+      padding: 34px 28px;
+    }
+
+    .reviews-section,
+    .experience-section,
+    .cta {
+      padding-top: 62px;
+      padding-bottom: 62px;
+    }
+  }
+</style>
