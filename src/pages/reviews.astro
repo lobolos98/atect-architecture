@@ -18,14 +18,14 @@ import Layout from "../layouts/Layout.astro";
 
   <section class="section reviews-section">
     <div class="section-intro">
-      <div>
+      <div class="intro-heading">
         <div class="eyebrow">Client Experience</div>
         <h2>What our clients have shared.</h2>
       </div>
       <p>
-        ATECT Architecture believes the finished project is only part of the
-        experience. Communication, professionalism, and thoughtful design matter
-        throughout the process.
+        A successful project is about more than the finished design. Clear
+        communication, professionalism, and thoughtful collaboration are part of
+        the experience from the first conversation through completion.
       </p>
     </div>
 
@@ -100,23 +100,34 @@ import Layout from "../layouts/Layout.astro";
     padding-bottom: 82px;
   }
 
-  .section-intro {
+   .section-intro {
     display: grid;
-    grid-template-columns: 1fr 0.75fr;
-    gap: 70px;
+    grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+    gap: 80px;
     align-items: end;
-    margin-bottom: 42px;
+    margin-bottom: 50px;
+    padding-bottom: 34px;
+    border-bottom: 1px solid #ddd;
   }
 
-  .section-intro h2 {
-    margin: 8px 0 0;
-    max-width: 620px;
+  .intro-heading {
+    position: relative;
   }
 
-  .section-intro p {
+   .section-intro h2 {
+    margin: 10px 0 0;
+    max-width: 720px;
+    font-size: clamp(38px, 5vw, 64px);
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+  }
+
+   .section-intro p {
     margin: 0;
+    max-width: 520px;
     color: #666;
-    line-height: 1.8;
+    font-size: 16px;
+    line-height: 1.85;
   }
 
   .review-grid {
