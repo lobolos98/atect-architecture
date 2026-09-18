@@ -8,6 +8,8 @@ const steps = [
   { number: "04", title: "Approve", text: "When permitting is part of the scope, we help move the documentation through the approval process and respond to required revisions.", items: ["Permit documentation", "Agency coordination", "Plan-review responses", "Required revisions"] },
   { number: "05", title: "Build", text: "Once the project moves toward construction, ATECT can provide design and documentation support as needed and contracted.", items: ["Builder and contractor coordination", "Design clarification", "Documentation support", "Construction-phase design assistance"] }
 ];
+
+const processImage = "https://static.wixstatic.com/media/fb4db5_623f1b2a5f884519ab20f16b0affdc30~mv2.png";
 ---
 
 <Layout title="Architecture Design Process | ATECT Architecture" description="Explore the ATECT Architecture process from discovery and design through construction documents, permitting and construction support.">
@@ -17,7 +19,23 @@ const steps = [
     <p>ATECT guides projects through discovery, design, documentation and the next phase—while adapting the process to the needs of each project.</p>
   </section>
 
+  <section class="section process-visual" aria-label="Architectural project visualization">
+    <div class="visual-frame">
+      <img src={processImage} alt="Architectural exterior rendering showing a completed project design" loading="eager" />
+      <div class="visual-caption">
+        <span>From design intent</span>
+        <strong>to build-ready documentation</strong>
+      </div>
+    </div>
+  </section>
+
   <section class="section process-section">
+    <div class="section-intro">
+      <div class="eyebrow">The ATECT Process</div>
+      <h2>Five stages. One coordinated path.</h2>
+      <p>The exact scope changes with the project. The process below shows the common path from the first conversation through construction support.</p>
+    </div>
+
     <div class="process-flow" aria-label="Project process">
       {steps.map((step, index) => (
         <div class="flow-item">
@@ -33,7 +51,10 @@ const steps = [
         <article class="process-step">
           <div class="number">{step.number}</div>
           <div class="step-content">
-            <h2>{step.title}</h2>
+            <div class="step-heading">
+              <span class="step-label">Stage {step.number}</span>
+              <h2>{step.title}</h2>
+            </div>
             <p class="step-intro">{step.text}</p>
             <ul>
               {step.items.map((item) => <li>{item}</li>)}
@@ -47,13 +68,22 @@ const steps = [
   <section class="section fit-section">
     <div class="fit-copy">
       <div class="eyebrow">Flexible by Design</div>
-      <h2>Every project starts somewhere different.</h2>
-      <p>ATECT can join a project during early planning, design development, construction documentation, permitting, or when additional design and drafting support is needed.</p>
+      <h2>Start where your project needs us.</h2>
+      <p>Not every project requires every stage. ATECT can join a project during early planning, design development, construction documentation, permitting, or when additional design and drafting support is needed.</p>
     </div>
     <div class="fit-card">
       <span>Project stages can include</span>
       <strong>Planning · Design · Documentation · Permitting · Construction Support</strong>
+      <div class="fit-note">Scope is tailored to the services your project actually requires.</div>
     </div>
+  </section>
+
+  <section class="section builder-section">
+    <div>
+      <div class="eyebrow">For Builders &amp; Contractors</div>
+      <h2>Documentation that helps move projects forward.</h2>
+    </div>
+    <p>ATECT provides construction-ready documentation and coordination for builders and contractors, including drawing clarification, revisions and project-specific design support as contracted.</p>
   </section>
 
   <section class="section process-cta">
@@ -67,7 +97,16 @@ const steps = [
 </Layout>
 
 <style is="global">
-  .process-section{padding-top:64px}
+  .process-visual{padding-top:26px;padding-bottom:18px}
+  .visual-frame{position:relative;max-width:1240px;margin:0 auto;overflow:hidden;background:#111}
+  .visual-frame img{display:block;width:100%;aspect-ratio:2.15/1;object-fit:cover}
+  .visual-caption{position:absolute;left:0;bottom:0;display:flex;flex-direction:column;gap:4px;padding:26px 30px;color:#fff;background:linear-gradient(90deg,rgba(0,0,0,.78),rgba(0,0,0,0))}
+  .visual-caption span{font:600 11px Manrope;text-transform:uppercase;letter-spacing:.12em;color:#d7c8a2}
+  .visual-caption strong{font:600 22px/1.3 Manrope}
+  .process-section{padding-top:68px}
+  .section-intro{max-width:800px;margin-bottom:42px}
+  .section-intro h2{font:600 clamp(34px,4.5vw,58px)/1.05 Manrope;margin:8px 0 16px;letter-spacing:-.03em}
+  .section-intro p{max-width:720px;color:#555;font-size:17px;line-height:1.75;margin:0}
   .process-flow{display:flex;align-items:center;border-top:1px solid #d8d5cf;border-bottom:1px solid #d8d5cf;margin-bottom:70px}
   .flow-item{position:relative;display:flex;align-items:center;gap:12px;flex:1;padding:20px 24px 20px 0;min-width:0}
   .flow-item:not(:first-child){padding-left:24px}
@@ -77,17 +116,22 @@ const steps = [
   .process-list{border-top:1px solid #d8d5cf}
   .process-step{display:grid;grid-template-columns:80px minmax(0,900px);gap:clamp(24px,5vw,70px);padding:58px 0;border-bottom:1px solid #d8d5cf}
   .number{font:600 15px Manrope;color:#888;padding-top:8px}
+  .step-label{display:block;font:600 11px Manrope;color:#999;text-transform:uppercase;letter-spacing:.12em;margin-bottom:8px}
   .step-content h2{font:600 clamp(34px,4.5vw,58px)/1.05 Manrope;margin:0 0 16px;letter-spacing:-.03em}
   .step-intro{max-width:780px;color:#555;font-size:18px;line-height:1.75;margin:0 0 26px}
   .step-content ul{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 36px;max-width:820px;margin:0;padding:0;list-style:none}
   .step-content li{border-top:1px solid #e4e1dc;padding:11px 0;color:#333;font-size:15px;line-height:1.5}
   .step-content li::before{content:"— ";color:#999}
   .fit-section{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(280px,.75fr);gap:clamp(40px,7vw,100px);align-items:center;background:#f3f1ec}
-  .fit-copy h2,.process-cta h2{font:600 clamp(34px,4.5vw,58px)/1.05 Manrope;margin:0 0 18px;letter-spacing:-.03em}
+  .fit-copy h2,.builder-section h2,.process-cta h2{font:600 clamp(34px,4.5vw,58px)/1.05 Manrope;margin:0 0 18px;letter-spacing:-.03em}
   .fit-copy p{max-width:760px;color:#555;font-size:18px;line-height:1.75;margin:0}
   .fit-card{background:#fff;padding:32px;border-top:3px solid #111}
   .fit-card span{display:block;font:600 12px Manrope;color:#888;letter-spacing:.08em;text-transform:uppercase;margin-bottom:18px}
   .fit-card strong{font:600 21px/1.45 Manrope;color:#111}
+  .fit-note{margin-top:18px;padding-top:16px;border-top:1px solid #e4e1dc;color:#666;font-size:14px;line-height:1.6}
+  .builder-section{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,.9fr);gap:clamp(40px,8vw,110px);align-items:start}
+  .builder-section h2{max-width:700px}
+  .builder-section>p{margin:4px 0 0;color:#555;font-size:18px;line-height:1.8}
   .process-cta{display:flex;justify-content:space-between;align-items:center;gap:40px;background:#111;color:#fff}
   .process-cta .eyebrow{color:#aaa}
   .process-cta h2{margin-bottom:12px}
@@ -98,9 +142,14 @@ const steps = [
     .process-flow{overflow-x:auto}
     .flow-item{flex:0 0 auto;min-width:145px}
     .flow-arrow{margin-left:8px}
-    .fit-section{grid-template-columns:1fr}
+    .fit-section,.builder-section{grid-template-columns:1fr}
+    .visual-frame img{aspect-ratio:1.7/1}
   }
   @media(max-width:700px){
+    .process-visual{padding:20px 20px 0}
+    .visual-frame img{aspect-ratio:1.15/1}
+    .visual-caption{padding:20px}
+    .visual-caption strong{font-size:18px}
     .process-section{padding-top:50px}
     .process-flow{margin-bottom:50px}
     .flow-item{min-width:135px;padding-right:18px}
@@ -114,5 +163,6 @@ const steps = [
   @media(max-width:600px){
     .fit-card{padding:26px}
     .process-cta{align-items:flex-start;flex-direction:column}
+    .builder-section>p{font-size:16px}
   }
 </style>
