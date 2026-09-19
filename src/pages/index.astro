@@ -34,8 +34,8 @@ const constructionPhotos = [
   </section>
 
   <section class="section construction-section">
-    <div class="section-head"><div><h2>COMPLETED PROJECTS</h2></div></div>
-    <div class="construction-accordion" aria-label="Completed Projects">
+    <div class="section-head"><div><h2>PROJECT CONSTRUCTION PHOTOS</h2></div></div>
+    <div class="construction-accordion" aria-label="Project Construction Photos">
       {constructionPhotos.map((photo, index) => (
         <button class:list={["construction-panel", index === 0 && "active"]} type="button" data-panel={index} aria-label={`View ${photo.alt}`}>
           <img src={photo.image} alt={photo.alt} loading={index < 2 ? "eager" : "lazy"} />
@@ -44,10 +44,10 @@ const constructionPhotos = [
         </button>
       ))}
     </div>
-    <div class="construction-mobile-controls" aria-label="Completed Projects slideshow controls">
-      <button type="button" class="construction-arrow" data-construction-prev aria-label="Previous completed project">‹</button>
+    <div class="construction-mobile-controls" aria-label="Construction photo slideshow controls">
+      <button type="button" class="construction-arrow" data-construction-prev aria-label="Previous construction photo">‹</button>
       <div class="construction-counter"><span data-construction-current>1</span> / {constructionPhotos.length}</div>
-      <button type="button" class="construction-arrow" data-construction-next aria-label="Next completed project">›</button>
+      <button type="button" class="construction-arrow" data-construction-next aria-label="Next construction photo">›</button>
     </div>
   </section>
 
