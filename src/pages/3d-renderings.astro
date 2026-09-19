@@ -54,6 +54,7 @@ const exteriorRenderings = [
     slider.querySelector('[data-fullscreen]')?.addEventListener('click', () => {
       if (document.fullscreenElement) document.exitFullscreen(); else if (slider.requestFullscreen) slider.requestFullscreen();
     });
+    show(0);
     slider.setAttribute('tabindex', '0');
     slider.addEventListener('keydown', (event) => { if (event.key === 'ArrowLeft') show(current - 1); if (event.key === 'ArrowRight') show(current + 1); });
     let startX = 0;
