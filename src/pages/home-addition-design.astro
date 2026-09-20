@@ -1,0 +1,75 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+<Layout title="Home Addition Design | ATECT Architecture" description="Architectural design and construction documents for home additions in Maryland, Washington, DC and Northern Virginia.">
+  <section class="page-hero">
+    <div class="eyebrow">Home Addition Design</div>
+    <h1>Plan an addition that feels like it belongs.</h1>
+    <p>A well-designed addition should improve how your home functions while connecting naturally to the existing structure. ATECT develops the design and documentation needed to move from an idea toward construction.</p>
+  </section>
+
+  <section class="section service-intro">
+    <div class="section-intro">
+      <div class="eyebrow">ATECT Architecture</div>
+      <h2>From the first concept to coordinated drawings.</h2>
+      <p>A well-designed addition should improve how your home functions while connecting naturally to the existing structure. ATECT develops the design and documentation needed to move from an idea toward construction.</p>
+    </div>
+    <div class="service-grid">
+      <article class="service-card"><span>01</span><h3>Addition planning and feasibility</h3><p>Developed as part of a coordinated architectural design process based on the needs and scope of the project.</p></article>
+      <article class="service-card"><span>02</span><h3>Kitchen and living-area expansions</h3><p>Developed as part of a coordinated architectural design process based on the needs and scope of the project.</p></article>
+      <article class="service-card"><span>03</span><h3>Bedroom and primary-suite additions</h3><p>Developed as part of a coordinated architectural design process based on the needs and scope of the project.</p></article>
+      <article class="service-card"><span>04</span><h3>Second-story additions</h3><p>Developed as part of a coordinated architectural design process based on the needs and scope of the project.</p></article>
+      <article class="service-card"><span>05</span><h3>Exterior integration</h3><p>Developed as part of a coordinated architectural design process based on the needs and scope of the project.</p></article>
+      <article class="service-card"><span>06</span><h3>Permit and construction documentation</h3><p>Developed as part of a coordinated architectural design process based on the needs and scope of the project.</p></article>
+    </div>
+  </section>
+
+  <section class="section process-band">
+    <div>
+      <div class="eyebrow">How We Work</div>
+      <h2>Design. Document. Move forward.</h2>
+      <p>ATECT can support a project from early planning through design development, construction documentation and the next phase of the project. Scope is tailored to the work required.</p>
+    </div>
+    <a class="button" href="/process">Explore Our Process</a>
+  </section>
+
+  <section class="section links-section">
+    <div class="section-intro">
+      <div class="eyebrow">Explore ATECT</div>
+      <h2>See related work and services.</h2>
+      <p>Explore projects, visualization and the services that support the design process.</p>
+    </div>
+    <div class="link-grid">
+      <a href="/projects/residential"><strong>Residential Projects</strong><span>View residential work →</span></a>
+      <a href="/projects/commercial"><strong>Commercial Projects</strong><span>View commercial work →</span></a>
+      <a href="/3d-renderings"><strong>3-D Renderings</strong><span>Explore visualization →</span></a>
+      <a href="/contact" class="dark"><strong>Start a Project</strong><span>Contact ATECT →</span></a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+.service-intro{border-top:1px solid var(--line)}
+.section-intro{max-width:760px;margin-bottom:38px}
+.section-intro h2{font:600 clamp(32px,4vw,52px)/1.05 Manrope;letter-spacing:-.04em;margin:8px 0 14px}
+.section-intro p,.process-band p{color:var(--muted);line-height:1.75}
+.service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.service-card{padding:28px;border:1px solid var(--line);background:#fff}
+.service-card span{font:600 13px Manrope;color:#777}
+.service-card h3{font:600 22px/1.2 Manrope;margin:20px 0 10px}
+.service-card p{color:var(--muted);line-height:1.65;margin:0}
+.process-band{display:flex;justify-content:space-between;align-items:center;gap:40px;background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.process-band h2{font:600 clamp(30px,4vw,48px)/1.05 Manrope;letter-spacing:-.04em;margin:8px 0 12px}
+.process-band>div{max-width:760px}
+.links-section{text-align:center}
+.links-section .section-intro{margin-left:auto;margin-right:auto}
+.link-grid{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;text-align:left}
+.link-grid a{min-height:120px;padding:22px;border:1px solid var(--line);background:#fff;color:inherit;text-decoration:none;display:flex;flex-direction:column;justify-content:space-between;transition:transform .2s ease,border-color .2s ease}
+.link-grid a:hover{transform:translateY(-3px);border-color:#111}
+.link-grid strong{font:600 18px/1.3 Manrope}
+.link-grid span{font-size:14px;color:var(--muted)}
+.link-grid .dark{background:#111820;color:#fff;border-color:#111820}
+.link-grid .dark span{color:#d9dde0}
+@media(max-width:900px){.service-grid{grid-template-columns:repeat(2,1fr)}.link-grid{grid-template-columns:repeat(2,1fr)}.process-band{display:block}.process-band .button{margin-top:24px}}
+@media(max-width:560px){.service-grid,.link-grid{grid-template-columns:1fr}.service-card{padding:24px}.process-band{padding-top:56px;padding-bottom:56px}}
+</style>
