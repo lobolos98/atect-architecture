@@ -87,6 +87,16 @@ import Layout from "../layouts/Layout.astro";
         <option>Already have a contractor</option>
       </select>
 
+      <label for="size">Approximate Project Size</label>
+      <select id="size" name="Approximate Project Size">
+        <option>Not sure yet</option>
+        <option>Under 1,000 sq. ft.</option>
+        <option>1,000–2,000 sq. ft.</option>
+        <option>2,000–3,000 sq. ft.</option>
+        <option>3,000–5,000 sq. ft.</option>
+        <option>5,000+ sq. ft.</option>
+      </select>
+
       <div class="form-row">
         <div>
           <label for="budget">Approximate Project Budget</label>
@@ -110,6 +120,14 @@ import Layout from "../layouts/Layout.astro";
           </select>
         </div>
       </div>
+
+      <label for="contractor">Contractor Status</label>
+      <select id="contractor" name="Contractor Status">
+        <option>Not selected yet</option>
+        <option>Looking for a contractor</option>
+        <option>Already have a contractor</option>
+        <option>Contractor is bidding the project</option>
+      </select>
 
       <label for="scope">Tell us about the project *</label>
       <textarea id="scope" name="Project Details" required placeholder="Describe the property, goals, approximate size and what you need designed."></textarea>
