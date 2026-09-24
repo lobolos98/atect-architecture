@@ -1,0 +1,144 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const resources = [
+  {
+    category: "Design & Documentation",
+    title: "Architectural Design Tools",
+    text: "Tools and resources that support the planning, visualization, and documentation of residential and commercial projects.",
+  },
+  {
+    category: "Construction",
+    title: "Builder & Contractor Resources",
+    text: "Selected products, equipment, and jobsite resources that may be useful during construction and project coordination.",
+  },
+  {
+    category: "Home & Interiors",
+    title: "Fixtures, Finishes & Hardware",
+    text: "A curated starting point for exploring lighting, hardware, fixtures, finishes, and other architectural details.",
+  },
+  {
+    category: "Technology",
+    title: "Technology for the Built Environment",
+    text: "Technology and equipment selected for design work, project organization, visualization, and professional workflows.",
+  },
+];
+
+const affiliateLinks = [
+  // Impact affiliate links can be added here as they are approved.
+  // Example:
+  // { title: "Product or Partner", category: "Lighting", description: "Short description.", url: "YOUR_IMPACT_TRACKING_URL" },
+];
+---
+
+<Layout
+  title="Architect's Resources | ATECT Architecture"
+  description="Architect-selected products, tools, materials, and resources for residential and commercial design projects."
+>
+  <section class="page-hero">
+    <p class="eyebrow">Architect's Resources</p>
+    <h1>Products, tools & resources for better projects.</h1>
+    <p>
+      A curated collection of products and resources that can complement the
+      design, documentation, and construction of residential and commercial projects.
+    </p>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Curated by ATECT</p>
+        <h2>Architect's Picks</h2>
+      </div>
+      <p class="section-intro">
+        These resources are intended to help clients, builders, and design professionals
+        explore products and tools related to the built environment.
+      </p>
+    </div>
+
+    <div class="resource-grid">
+      {resources.map((resource) => (
+        <article class="resource-card">
+          <div class="resource-number">{resource.category}</div>
+          <h3>{resource.title}</h3>
+          <p>{resource.text}</p>
+          <span class="coming-soon">Curated recommendations coming soon</span>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Recommended Products</p>
+        <h2>Selected resources</h2>
+      </div>
+      <p class="section-intro">
+        Specific partner recommendations will be added as ATECT Architecture builds
+        its network of trusted brands and suppliers.
+      </p>
+    </div>
+
+    {affiliateLinks.length > 0 ? (
+      <div class="product-grid">
+        {affiliateLinks.map((item) => (
+          <article class="product-card">
+            <p class="eyebrow">{item.category}</p>
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+            <a class="button dark" href={item.url} target="_blank" rel="sponsored noopener noreferrer">
+              View Product
+            </a>
+          </article>
+        ))}
+      </div>
+    ) : (
+      <div class="empty-state">
+        <p class="eyebrow">Impact Partner Network</p>
+        <h3>Recommendations are being assembled.</h3>
+        <p>
+          ATECT Architecture has an approved affiliate partnership and is preparing
+          a focused collection of product and service recommendations. Individual
+          partner links will be added here as the resource library is developed.
+        </p>
+      </div>
+    )}
+  </section>
+
+  <section class="section disclosure">
+    <div class="disclosure-inner">
+      <p class="eyebrow">Affiliate Disclosure</p>
+      <h2>Transparent recommendations.</h2>
+      <p>
+        Some links on this page may be affiliate links. If you purchase through an
+        affiliate link, ATECT Architecture may receive a commission at no additional
+        cost to you. Affiliate relationships do not change the price you pay.
+      </p>
+      <p>
+        Product availability, pricing, specifications, warranties, and other terms
+        are determined by the individual retailer or partner. Please review the
+        partner's current information before making a purchase.
+      </p>
+    </div>
+  </section>
+
+  <section class="section cta-section">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Planning a Project?</p>
+        <h2>Let's design the project first.</h2>
+      </div>
+      <p class="section-intro">
+        Product recommendations are only one part of a successful project.
+        ATECT Architecture provides residential and commercial design services,
+        construction-ready documentation, and project coordination.
+      </p>
+    </div>
+    <a class="button dark" href="/contact">Start a Project</a>
+  </section>
+</Layout>
+
+<style>
+.resource-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.resource-card{padding:38px;background:#fff;border:1px solid var(--line);min-height:250px}.resource-number{font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:#777;margin-bottom:26px}.resource-card h3,.product-card h3,.empty-state h3{font:600 28px/1.15 Manrope;margin:0 0 12px}.resource-card p,.product-card p,.empty-state p{color:var(--muted);max-width:600px}.coming-soon{display:inline-block;margin-top:20px;padding-top:15px;border-top:1px solid var(--line);font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:#777}.product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.product-card{background:#fff;border:1px solid var(--line);padding:32px;min-height:270px}.product-card .button{margin-top:18px}.empty-state{background:#fff;border:1px solid var(--line);padding:clamp(35px,6vw,70px);max-width:950px}.disclosure{background:#fff}.disclosure-inner{max-width:850px;border-top:1px solid var(--line);padding-top:45px}.disclosure h2{font:600 clamp(32px,5vw,52px) Manrope;margin:0 0 18px;letter-spacing:-.035em}.disclosure p{color:var(--muted);max-width:760px}@media(max-width:800px){.resource-grid,.product-grid{grid-template-columns:1fr}.resource-card,.product-card{min-height:0}.empty-state{padding:35px 24px}}
+</style>
