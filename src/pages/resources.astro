@@ -6,24 +6,28 @@ const resources = [
     number: "01",
     category: "Design & Documentation",
     title: "Architectural Design Tools",
+    href: "/resources/design-tools",
     text: "Tools and resources that support planning, visualization, drawing, specification, and documentation for residential and commercial projects.",
   },
   {
     number: "02",
     category: "Construction",
     title: "Builder & Contractor Resources",
+    href: "/resources/construction",
     text: "Practical jobsite products, equipment, references, and resources selected with construction coordination and project delivery in mind.",
   },
   {
     number: "03",
     category: "Home & Interiors",
     title: "Fixtures, Finishes & Hardware",
+    href: "/resources/home-interiors",
     text: "A focused starting point for exploring lighting, hardware, plumbing fixtures, finishes, and architectural details.",
   },
   {
     number: "04",
     category: "Technology",
     title: "Technology for the Built Environment",
+    href: "/resources/technology",
     text: "Technology and equipment that can support design workflows, project organization, visualization, field documentation, and productivity.",
   },
 ];
@@ -82,7 +86,7 @@ const affiliateLinks = [
           </div>
           <h3>{resource.title}</h3>
           <p>{resource.text}</p>
-          <span class="coming-soon">Recommendations coming soon</span>
+          <a class="resource-link" href={resource.href}>Explore this resource area →</a>
         </article>
       ))}
     </div>
@@ -188,5 +192,5 @@ const affiliateLinks = [
 </Layout>
 
 <style>
-.resource-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.resource-card{padding:38px;background:#fff;border:1px solid var(--line);min-height:270px;display:flex;flex-direction:column}.resource-top{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:32px}.resource-number{font:600 12px/1 Manrope;letter-spacing:.08em}.resource-category{font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:#777;text-align:right}.resource-card h3,.product-card h3,.empty-state h3{font:600 28px/1.15 Manrope;margin:0 0 12px}.resource-card p,.product-card p,.empty-state p{color:var(--muted);max-width:650px}.coming-soon{display:inline-block;margin-top:auto;padding-top:18px;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:#777;border-top:1px solid var(--line)}.principles{display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid var(--line)}.principle{display:grid;grid-template-columns:52px 1fr;gap:20px;padding:25px 20px 25px 0;border-bottom:1px solid var(--line)}.principle:nth-child(even){padding-left:30px;border-left:1px solid var(--line)}.principle span{font:600 11px/1 Manrope;color:#777;padding-top:5px}.principle p{margin:0;color:var(--text)}.product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.product-card{background:#fff;border:1px solid var(--line);padding:32px;min-height:270px}.product-card .button{margin-top:18px}.empty-state{background:#fff;border:1px solid var(--line);padding:clamp(35px,6vw,70px);max-width:950px}.status-mark{display:inline-block;margin-bottom:35px;padding:8px 12px;border:1px solid var(--line);font-size:9px;letter-spacing:.14em;font-weight:600}.disclosure{background:#fff}.disclosure-inner{max-width:850px;border-top:1px solid var(--line);padding-top:45px}.disclosure h2{font:600 clamp(32px,5vw,52px) Manrope;margin:0 0 18px;letter-spacing:-.035em}.disclosure p{color:var(--muted);max-width:760px}.cta-section .button{margin-top:10px}@media(max-width:800px){.resource-grid,.product-grid,.principles{grid-template-columns:1fr}.resource-card,.product-card{min-height:0}.principle,.principle:nth-child(even){padding:22px 0;border-left:0}.empty-state{padding:35px 24px}}
+.resource-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.resource-card{padding:38px;background:#fff;border:1px solid var(--line);min-height:270px;display:flex;flex-direction:column}.resource-top{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:32px}.resource-number{font:600 12px/1 Manrope;letter-spacing:.08em}.resource-category{font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:#777;text-align:right}.resource-card h3,.product-card h3,.empty-state h3{font:600 28px/1.15 Manrope;margin:0 0 12px}.resource-card p,.product-card p,.empty-state p{color:var(--muted);max-width:650px}.resource-link{display:inline-block;margin-top:auto;padding-top:18px;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:#111;border-top:1px solid var(--line);font-weight:700}.principles{display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid var(--line)}.principle{display:grid;grid-template-columns:52px 1fr;gap:20px;padding:25px 20px 25px 0;border-bottom:1px solid var(--line)}.principle:nth-child(even){padding-left:30px;border-left:1px solid var(--line)}.principle span{font:600 11px/1 Manrope;color:#777;padding-top:5px}.principle p{margin:0;color:var(--text)}.product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.product-card{background:#fff;border:1px solid var(--line);padding:32px;min-height:270px}.product-card .button{margin-top:18px}.empty-state{background:#fff;border:1px solid var(--line);padding:clamp(35px,6vw,70px);max-width:950px}.status-mark{display:inline-block;margin-bottom:35px;padding:8px 12px;border:1px solid var(--line);font-size:9px;letter-spacing:.14em;font-weight:600}.disclosure{background:#fff}.disclosure-inner{max-width:850px;border-top:1px solid var(--line);padding-top:45px}.disclosure h2{font:600 clamp(32px,5vw,52px) Manrope;margin:0 0 18px;letter-spacing:-.035em}.disclosure p{color:var(--muted);max-width:760px}.cta-section .button{margin-top:10px}@media(max-width:800px){.resource-grid,.product-grid,.principles{grid-template-columns:1fr}.resource-card,.product-card{min-height:0}.principle,.principle:nth-child(even){padding:22px 0;border-left:0}.empty-state{padding:35px 24px}}
 </style>
