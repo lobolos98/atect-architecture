@@ -34,7 +34,7 @@ const constructionPhotos = [
   </section>
 
   <section class="section construction-section">
-    <div class="section-head"><div><h2>PROJECT CONSTRUCTION PHOTOS</h2></div></div>
+    <div class="section-head"><div><h2>COMPLETED PROJECTS</h2></div></div>
     <div class="construction-accordion" aria-label="Project Construction Photos">
       {constructionPhotos.map((photo, index) => (
         <button class:list={["construction-panel", index === 0 && "active"]} type="button" data-panel={index} aria-label={`View ${photo.alt}`}>
