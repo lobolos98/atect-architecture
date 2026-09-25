@@ -1,0 +1,17 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
+<Layout title="Home & Interior Design Resources | ATECT Architecture" description="Guidance on fixtures, finishes, lighting, hardware, materials, and interior decisions for residential architecture projects.">
+  <section class="page-hero"><p class="eyebrow">Resources / Home & Interiors</p><h1>Fixtures, Finishes & Hardware</h1><p>A practical starting point for the details that shape how a home looks, feels, functions, and performs over time.</p></section>
+  <section class="section"><div class="section-head"><div><p class="eyebrow">Material Decisions</p><h2>Choose details in context.</h2></div><p class="section-intro">Lighting, hardware, plumbing fixtures, cabinetry, flooring, and finishes work best when they are considered as part of the larger architectural design.</p></div>
+    <div class="resource-list">
+      <a href="/resources/choosing-exterior-materials"><strong>Architect's Guide to Choosing Exterior Materials</strong><span>Consider durability, appearance, maintenance, climate, and the character of the project.</span></a>
+      <a href="/resources/choosing-lighting"><strong>How to Choose Lighting for a New Construction Project</strong><span>Plan lighting around function, atmosphere, architecture, and the way spaces are used.</span></a>
+      <a href="/residential-architecture"><strong>Residential Architecture</strong><span>Explore how ATECT integrates interior and exterior decisions into residential design.</span></a>
+    </div>
+  </section>
+  <section class="section alt"><div class="section-head"><div><p class="eyebrow">Planning First</p><h2>The best finish is the one that fits the project.</h2></div><p class="section-intro">ATECT can help coordinate design intent, materials, and documentation before selections become construction decisions.</p></div><a class="button dark" href="/contact">Start a Residential Project</a></section>
+</Layout>
+<style>
+.resource-list{display:grid;gap:12px}.resource-list a{display:grid;grid-template-columns:1fr 1fr;gap:30px;padding:28px 0;border-top:1px solid var(--line)}.resource-list strong{font:600 23px/1.25 Manrope}.resource-list span{color:var(--muted)}@media(max-width:700px){.resource-list a{grid-template-columns:1fr;gap:8px}}
+</style>
