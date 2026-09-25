@@ -3,6 +3,7 @@ const {
   title = "ATECT Architecture | Residential & Commercial Design Firm",
   description = "ATECT Architecture provides residential and commercial architectural design services throughout Maryland, Washington, DC, and Virginia.",
   image = "/og-image.svg",
+  noindex = false,
 } = Astro.props;
 const canonical = new URL(Astro.url.pathname, "https://atectarchitecture.com").toString();
 const absoluteImage = new URL(image, "https://atectarchitecture.com").toString();
@@ -14,7 +15,7 @@ const absoluteImage = new URL(image, "https://atectarchitecture.com").toString()
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="theme-color" content="#d5d7d5" />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content={noindex ? "noindex, follow" : "index, follow"} />
     <link rel="canonical" href={canonical} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <meta property="og:type" content="website" />
@@ -37,6 +38,12 @@ const absoluteImage = new URL(image, "https://atectarchitecture.com").toString()
       areaServed: ["Maryland", "Washington, DC", "Virginia"],
       serviceType: ["Residential Architecture", "Commercial Architecture", "Construction Documents", "3D Visualization"],
       mainEntityOfPage: canonical
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      name: "ATECT Architecture",
+      url: "https://atectarchitecture.com/"
     })} />
   </head>
   <body>
