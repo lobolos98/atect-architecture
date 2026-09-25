@@ -5,7 +5,7 @@ const plans=[
  {name:"NVA Home Plan",image:"https://static.wixstatic.com/media/fb4db5_e1f3205c361a4a32b52b836295beab11~mv2.png/v1/fill/w_680,h_382,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/NVA%20Home%20exterior%20rendering.png",size:"Approximately 4,000 sq. ft.",features:["3 bedrooms","3.5 bathrooms","Grand two-story covered entry","Generous screen porch and rear deck with pergola","Open floor plan connecting great room, eating nook and kitchen"]}
 ];
 ---
-<Layout title="Custom Home Plans | ATECT Architecture" description="Custom home plans from ATECT Architecture, including Prairie View and NVA concepts tailored to individual needs and lifestyles.">
+<Layout title="Custom Home Plans & Design | ATECT Architecture" description="Explore custom home plans and residential design concepts by ATECT Architecture, tailored to individual needs, lifestyles, sites, and project goals.">
 <section class="page-hero"><div class="eyebrow">Custom Home Plans</div><h1>Plans tailored to your needs and lifestyle.</h1><p>ATECT's custom home planning work can start from a developed concept or collaborate with you to create something one-of-a-kind.</p></section>
 <section class="section"><div class="plans">{plans.map(plan=><article><div class="plan-image" style={`background-image:url('${plan.image}')`} role="img" aria-label={`${plan.name} home plan image`}></div><div class="plan-copy"><div class="eyebrow">Custom Home Plan</div><h2>{plan.name}</h2><p><strong>Size:</strong> {plan.size}</p><ul>{plan.features.map(feature=><li>{feature}</li>)}</ul></div></article>)}</div></section>
 
